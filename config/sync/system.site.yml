@@ -2,8 +2,8 @@ _core:
   default_config_hash: ijfbzDTN4CbE7Sr-6ubWzy_t1vH4OtU1doNCLssVz-4
 langcode: en
 uuid: a36add29-391a-4433-b44f-e4f47c3558bf
-name: 'Drush Site-Install'
-mail: admin@example.com
+name: 'Garden Journal'
+mail: bocsor.ilci@gmail.com
 slogan: ''
 page:
   403: ''
