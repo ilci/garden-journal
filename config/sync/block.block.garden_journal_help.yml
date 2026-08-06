@@ -1,0 +1,22 @@
+uuid: 5c8ab3a1-9d70-4814-824d-da80303669ad
+langcode: en
+status: false
+dependencies:
+  module:
+    - help
+  theme:
+    - garden_journal
+_core:
+  default_config_hash: 8nOAry2oKqJOr0zbrlJ3sZHDFJLIO6j-0vT0K_TYca4
+id: garden_journal_help
+theme: garden_journal
+region: navigation
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }
