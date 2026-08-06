@@ -1,0 +1,61 @@
+@use 'sass:math';
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+
+$backgroundColor: colorBundles.$footerBackground;
+$borderRadius: variables.$borderRadius__borderRadius--base;
+$color: colorBundles.$footerText;
+$font: variables.$typography__navigation__font;
+$link__color: colorBundles.$footerText;
+$link--hover__color: colorBundles.$navigationActive;
+$menuItem__outlineColor: colorBundles.$navigationActive;
+
+.region--footer {
+  background-color: $backgroundColor;
+  color: $color;
+
+  .container {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    padding-top: math.div(variables.$layout__spacing, 4);
+    padding-bottom: math.div(variables.$layout__spacing, 2);
+
+    > * {
+      margin-right: auto;
+    }
+
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      padding-left: 0;
+
+      @include mixins.mediaQueries__forTabletLandscapeUp {
+        margin: 0;
+      }
+
+      > li {
+        margin-right: math.div(variables.$layout__spacing, 2);
+
+        a {
+          @include mixins.fonts__setFontFromStack($font...);
+          padding: math.div(variables.$layout__spacing, 4) 0;
+          color: $link__color;
+
+          &:hover,
+          &:active {
+            color: $link--hover__color;
+          }
+
+          &:focus-visible {
+            color: $link__color;
+            border-radius: $borderRadius;
+            outline: 3px solid $menuItem__outlineColor;
+          }
+        }
+      }
+    }
+  }
+}

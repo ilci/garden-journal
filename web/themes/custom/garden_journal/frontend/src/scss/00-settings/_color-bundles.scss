@@ -1,0 +1,44 @@
+// Interactive elements and text
+$heroText: var(--colorBundle__heroText);
+$pageTitle: var(--colorBundle__pageTitle);
+$headings: var(--colorBundle__headings);
+$footerText: var(--colorBundle__footerText);
+$primary: var(--colorBundle__primary);
+$secondary: var(--colorBundle__secondary);
+$lightText: var(--colorBundle__lightText);
+$darkText: var(--colorBundle__darkText);
+$utilityLight: var(--colorBundle__utilityLight);
+$utilityDark: var(--colorBundle__utilityDark);
+$tagLabel: var(--colorBundle__tagLabel);
+$navigation: var(--colorBundle__navigation);
+$navigationActive: var(--colorBundle__navigationActive);
+$interactionDarkColor: var(--colorBundle__interactionDarkColor);
+$interactionDarkHover: var(--colorBundle__interactionDarkHover);
+$interactionLightColor: var(--colorBundle__interactionLightColor);
+$interactionLightHover: var(--colorBundle__interactionLightHover);
+
+// UI elements
+$accent: var(--colorBundle__accent);
+$formBorder: var(--colorBundle__formBorder);
+$formFill: var(--colorBundle__formFill);
+$dividerLine: var(--colorBundle__dividerLine);
+$tagFill: var(--colorBundle__tagFill);
+$tagBorder: var(--colorBundle__tagBorder);
+$tagOutlinedHover: var(--colorBundle__tagOutlinedHover);
+$tooltipBackground: var(--colorBundle__tooltipBackground);
+$shading: var(--colorBundle__shading);
+
+// Backgrounds
+$pageBackground: var(--colorBundle__pageBackground);
+$panelBackground: var(--colorBundle__panelBackground);
+$pageTitleBackground: var(--colorBundle__pageTitleBackground);
+$navigationBackground: var(--colorBundle__navigationBackground);
+$heroOverlay: var(--colorBundle__heroOverlay);
+$footerBackground: var(--colorBundle__footerBackground);
+
+// Utility colors
+$utilitySuccess: var(--colorBundle__utilitySuccess);
+$utilityWarning: var(--colorBundle__utilityWarning);
+$utilityError: var(--colorBundle__utilityError);
+$utilityInfo: var(--colorBundle__utilityInfo);
+$utilityFocus: var(--colorBundle__utilityFocus);

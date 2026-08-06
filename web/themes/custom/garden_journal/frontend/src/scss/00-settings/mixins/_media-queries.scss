@@ -1,0 +1,43 @@
+@use '../variables';
+
+@mixin forMobileOnly {
+  @media (max-width: variables.$breakpoints__mobileOnly) {
+    @content;
+  }
+}
+
+@mixin forTabletPortraitUp {
+  @media (min-width: variables.$breakpoints__tabletPortrait) {
+    @content;
+  }
+}
+
+@mixin forTabletLandscapeUp {
+  @media (min-width: variables.$breakpoints__tabletLandscape) {
+    @content;
+  }
+}
+
+@mixin forTabletLandscapeDown {
+  @media (max-width: variables.$breakpoints__tabletLandscape - 1) {
+    @content;
+  }
+}
+
+@mixin forDesktopUp {
+  @media (min-width: variables.$breakpoints__desktop) {
+    @content;
+  }
+}
+
+@mixin forDesktopDown {
+  @media (max-width: variables.$breakpoints__desktop - 1) {
+    @content;
+  }
+}
+
+@mixin forWidescreenUp {
+  @media (min-width: variables.$breakpoints__widescreen) {
+    @content;
+  }
+}

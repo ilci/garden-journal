@@ -1,0 +1,9 @@
+global_styling:
+  css:
+    theme:
+      frontend/dist/style.css: {}
+
+font_faces:
+  css:
+    theme:
+      frontend/dist/font_faces.css: {}

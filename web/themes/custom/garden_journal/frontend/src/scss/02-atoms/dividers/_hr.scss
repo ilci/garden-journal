@@ -1,0 +1,9 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+
+$borderColor: colorBundles.$dividerLine;
+
+hr {
+  border-bottom: 1px solid $borderColor;
+  margin-bottom: variables.$layout__spacing;
+}

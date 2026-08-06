@@ -1,0 +1,42 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+
+$color: colorBundles.$primary;
+$backgroundColor: colorBundles.$pageBackground;
+$font: variables.$typography__body__font;
+$lineHeight: variables.$typography__lineHeight--base;
+$marginTop: variables.$layout__main__marginTop;
+$marginBottom: variables.$layout__main__marginBottom;
+
+html {
+  height: 100%;
+  font-size: variables.$typography__fontSize--base;
+}
+
+/// Height setting required for moving footer to the bottom.
+body {
+  @include mixins.fonts__setFontFromStack($font...);
+  font-size: 100%;
+  height: 100%;
+  min-height: 100%;
+  color: $color;
+  background-color: $backgroundColor;
+  line-height: $lineHeight;
+}
+
+.dialog-off-canvas-main-canvas {
+  height: 100%;
+}
+
+.site-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+main {
+  min-height: 1px;
+  flex: 1 1 auto;
+  margin: $marginTop 0 $marginBottom;
+}

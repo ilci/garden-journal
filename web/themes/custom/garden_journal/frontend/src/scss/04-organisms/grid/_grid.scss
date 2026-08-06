@@ -1,0 +1,117 @@
+@use 'sass:math';
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+
+$gutter: variables.$layout__spacing;
+
+/// How to use:
+/// * If you want a grid, add the .grid class to a parent element.
+/// * If you want automatic spacing between the grid child elements, add grid--N
+///   (where N is the number of columns in the first row) to the parent element.
+/// * Add a col--N class to each child element IMPORTANT: at least one col--N class is required for all elements
+/// * Defining a size for each screen is not required
+/// * If you defined a screen size that goes up from somewhere (e.g. col--desktop--6) then all
+///   lower sized screens will be full-width so you don't need to specify a column for those.
+/// * For best results elements with the col--N class shouldn't have any other rules/classes defined on them,
+///   meaning that columns should only be used for layout purposes.
+
+%grid,
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  margin-left: -($gutter) * 0.5;
+  margin-right: -($gutter) * 0.5;
+
+  > [class*='col'] {
+    width: 100%;
+    padding-left: $gutter * 0.5;
+    padding-right: $gutter * 0.5;
+  }
+}
+
+%col,
+.col {
+  flex-grow: 1;
+  flex-basis: 0;
+  max-width: 100%;
+}
+
+@mixin setCol($max-width) {
+  flex: 0 0 #{$max-width};
+  max-width: #{$max-width};
+}
+
+@mixin generateColumns($infix: null, $grid-columns: variables.$layout__grid__columns) {
+  @if  $infix {
+    .col--#{$infix} {
+      flex-grow: 1;
+      flex-basis: 0;
+      max-width: 100%;
+    }
+  }
+
+  @for $i from 1 through $grid-columns {
+    $maxWidth: math.percentage(math.div($i, $grid-columns));
+
+    @if  $infix {
+      .col--#{$infix}--#{$i} {
+        @include setCol($maxWidth);
+      }
+    } @else {
+      .col--#{$i} {
+        @include setCol($maxWidth);
+      }
+    }
+  }
+}
+
+@mixin generateGridVerticalSpacing($infix: null, $grid-columns: variables.$layout__grid__columns) {
+  @for $i from 1 through $grid-columns {
+    @if  $infix {
+      .grid--#{$infix}--#{$i} {
+        > [class*='col--'] {
+          &:nth-child(n + #{$i + 1}) {
+            margin-top: $gutter;
+          }
+        }
+      }
+    } @else {
+      .grid--#{$i} {
+        > [class*='col--'] {
+          &:nth-child(n + #{$i + 1}) {
+            margin-top: $gutter;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include generateColumns;
+@include generateGridVerticalSpacing;
+
+@include mixins.mediaQueries__forMobileOnly {
+  @include generateColumns('mobile-only');
+  @include generateGridVerticalSpacing('mobile-only');
+}
+
+@include mixins.mediaQueries__forTabletPortraitUp {
+  @include generateColumns('tablet');
+  @include generateGridVerticalSpacing('tablet');
+}
+
+@include mixins.mediaQueries__forTabletLandscapeUp {
+  @include generateColumns('tablet-landscape');
+  @include generateGridVerticalSpacing('tablet-landscape');
+}
+
+@include mixins.mediaQueries__forDesktopUp {
+  @include generateColumns('desktop');
+  @include generateGridVerticalSpacing('desktop');
+}
+
+@include mixins.mediaQueries__forWidescreenUp {
+  @include generateColumns('widescreen');
+  @include generateGridVerticalSpacing('widescreen');
+}

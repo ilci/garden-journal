@@ -1,0 +1,9 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+
+$outlineColor: colorBundles.$utilityFocus;
+$outlineOffset: 2px;
+$outlineStyle: solid;
+$outlineWidth: 2px;
+$outlineBoxShadowColor: var(--colorBundle__interactionLightHover);
+$outlineBoxShadow: 0 0 0 $outlineWidth $outlineBoxShadowColor;
+$outlineBoxShadow--inset: inset 0 0 0

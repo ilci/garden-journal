@@ -1,0 +1,87 @@
+@use 'sass:math';
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+
+$backgroundColor: colorBundles.$panelBackground;
+$borderRadius: variables.$borderRadius__borderRadius--base;
+$boxShadow: variables.$shadows__boxShadow;
+$hover__boxShadow: variables.$shadows__boxShadow--hover;
+$icon__fontFamily: variables.$icons__fontFamily;
+$icon--arrowRight: variables.$icons__arrowRight;
+$link__font: variables.$typography__cardLink__font;
+$link__fontSize: variables.$typography__fontSize--small;
+$link__textTransform: variables.$typography__textTransform;
+$link--hover__color: colorBundles.$interactionDarkHover;
+$link--hover__height: 4px;
+$link__arrow__fontSize: variables.$typography__icon__fontSize;
+$link--arrow__paddingRight: variables.$typography__icon__fontSize + 8px;
+$text--light__color: colorBundles.$lightText;
+$textDecoration: underline;
+
+%card,
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: variables.$layout__spacing;
+  border-radius: $borderRadius;
+  position: relative;
+  z-index: 1;
+  box-shadow: $boxShadow;
+  background-color: $backgroundColor;
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card__header-image {
+  margin: (-(variables.$layout__spacing)) (-(variables.$layout__spacing)) (-(variables.$layout__spacing) * 0.5);
+  height: variables.$layout__spacing * 9;
+}
+
+.card__image {
+  margin-bottom: math.div(variables.$layout__spacing, 2);
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.card__title {
+  margin-bottom: math.div(variables.$layout__spacing, 6);
+}
+
+.card--light-text {
+  * {
+    color: $text--light__color;
+  }
+}
+
+.card__heading {
+  margin-right: math.div(variables.$layout__spacing, 2);
+}
+
+.card__target {
+  &,
+  a {
+    position: absolute;
+    inset: 0;
+    font-size: 0;
+  }
+}
+
+.card__author {
+  margin-bottom: math.div(variables.$layout__spacing, 3);
+}
+
+.card__link {
+  @include mixins.fonts__setFontFromStack($link__font...);
+  display: inline-block;
+  position: relative;
+  font-size: $link__fontSize;
+  text-transform: $link__textTransform;
+  margin-top: math.div(variables.$layout__spacing, 2);
+}

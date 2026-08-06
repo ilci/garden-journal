@@ -1,0 +1,88 @@
+@use 'sass:math';
+@use 'sass:string';
+@use 'sass:meta';
+
+/// Remove the unit of a length
+///
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+///
+/// @see https://css-tricks.com/snippets/sass/strip-unit-function/
+@function strip-unit($number) {
+  @if meta.type-of($number) == 'number' and not math.is-unitless($number) {
+    @return math.div($number, $number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+/// Replace `$search` with `$replace` in `$string`
+///
+/// @author Hugo Giraudel
+///
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+///
+/// @see https://css-tricks.com/snippets/sass/str-replace-function/
+@function str-replace($string, $search, $replace: '') {
+  $index: string.index($string, $search);
+
+  @if $index {
+    @return string.slice($string, 1, $index - 1) + $replace + str-replace(string.slice($string, $index + string.length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+/// Convert a value to string.
+///
+/// @param {Mixed} $value - The value to be converted to string.
+/// @return {String} - String value.
+///
+/// @see https://kittygiraudel.com/2014/01/27/sassycast-type-conversion-in-sass/
+@function to-string($value) {
+  @return meta.inspect($value);
+}
+
+/// URL encode a string.
+///
+/// @param {String} $string - the string to be URL encoded.
+/// @return {String} - The URL encoded string
+///
+/// @see https://gist.github.com/B-iggy/14da053d2cebf92e1930#file-inline-svg-function-scss-L13
+@function url-encode($string) {
+  $map: (
+    '%': '%25',
+    '<': '%3C',
+    '>': '%3E',
+    ' ': '%20',
+    '!': '%21',
+    '*': '%2A',
+    "'": '%27',
+    '"': '%22',
+    '(': '%28',
+    ')': '%29',
+    ';': '%3B',
+    ':': '%3A',
+    '@': '%40',
+    '&': '%26',
+    '=': '%3D',
+    '+': '%2B',
+    '$': '%24',
+    ',': '%2C',
+    '/': '%2F',
+    '?': '%3F',
+    '#': '%23',
+    '[': '%5B',
+    ']': '%5D',
+  );
+  $new: $string;
+
+  @each $search, $replace in $map {
+    $new: str-replace($new, $search, $replace);
+  }
+
+  @return $new;
+}

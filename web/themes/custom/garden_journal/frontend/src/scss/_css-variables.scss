@@ -1,0 +1,12 @@
+@use 'sass:map';
+@use 'sass:color';
+@use '00-settings/color-components' as colorComponents;
+
+/// Generate css variables from scss map.
+:root {
+  @each $group, $groupAttributes in colorComponents.$colorComponents {
+    @each $color, $colorAttributes in map.get($groupAttributes, colors) {
+      --#{$color}: #{map.get(colorComponents.$colorComponents, $group, 'colors', $color, value)};
+    }
+  }
+}

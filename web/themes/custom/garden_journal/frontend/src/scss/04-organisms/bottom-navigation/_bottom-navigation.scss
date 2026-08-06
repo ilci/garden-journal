@@ -1,0 +1,112 @@
+@use 'sass:math';
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+
+$backgroundColor: colorBundles.$footerBackground;
+$color: colorBundles.$lightText;
+$borderLeft__width: 1px;
+$borderLeft__color: colorBundles.$dividerLine;
+$blockTitle__font: variables.$typography__h5__font;
+$blockTitle__height: 45px;
+$blockTitle__fontSize: variables.$typography__fontSize--large;
+$blockTitle__decorationColor: colorBundles.$navigationActive;
+$menu__font: variables.$typography__navigation__font;
+$menuItem--hover__color: colorBundles.$navigationActive;
+$menuItem__outlineColor: colorBundles.$navigationActive;
+$borderRadius: variables.$borderRadius__borderRadius--base;
+
+.region--bottom-navigation {
+  background-color: $backgroundColor;
+
+  &,
+  a {
+    color: $color;
+  }
+
+  ul {
+    margin-top: 0;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  > .container {
+    display: flex;
+    flex-direction: column;
+    padding-top: variables.$layout__spacing;
+    padding-bottom: variables.$layout__spacing;
+
+    @include mixins.mediaQueries__forTabletPortraitUp {
+      flex-direction: row;
+    }
+
+    p {
+      margin: math.div(variables.$layout__spacing, 6) 0;
+    }
+
+    ul {
+      > li {
+        > a {
+          display: inline-block;
+          padding: math.div(variables.$layout__spacing, 4) 0;
+        }
+      }
+    }
+
+    > * {
+      flex: 1 1 0;
+      padding: 0 math.div(variables.$layout__spacing, 2);
+      margin-bottom: variables.$layout__spacing;
+      position: relative;
+
+      @include mixins.mediaQueries__forTabletPortraitUp {
+        margin: 0;
+        border-left: $borderLeft__width solid $borderLeft__color;
+      }
+
+      @include mixins.mediaQueries__forDesktopUp {
+        padding: 0 variables.$layout__spacing;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+
+      .block-title {
+        @include mixins.fonts__setFontFromStack($blockTitle__font...);
+        color: $color;
+        height: $blockTitle__height;
+        display: flex;
+        align-items: center;
+        left: -#{math.div(variables.$layout__spacing, 2)};
+        font-size: $blockTitle__fontSize;
+        margin-bottom: variables.$layout__spacing * 0.5;
+
+        @include mixins.mediaQueries__forDesktopUp {
+          left: -#{variables.$layout__spacing};
+        }
+
+        &::before {
+          background-color: $blockTitle__decorationColor;
+        }
+      }
+    }
+
+    .menu {
+      @include mixins.fonts__setFontFromStack($menu__font...);
+
+      a {
+        &:hover,
+        &:active {
+          color: $menuItem--hover__color;
+        }
+
+        &:focus-visible {
+          border-radius: $borderRadius;
+          outline: 3px solid $menuItem__outlineColor;
+        }
+      }
+    }
+  }
+}

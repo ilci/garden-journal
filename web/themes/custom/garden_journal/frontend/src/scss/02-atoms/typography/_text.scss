@@ -1,0 +1,44 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+
+$text--small__color: colorBundles.$secondary;
+$text--small__textTransform: variables.$typography__textTransform;
+$text--small__fontSize: variables.$typography__fontSize--small;
+$text--small__font: variables.$typography__text--small__font;
+$text--lead__font: variables.$typography__text--lead__font;
+$text--lead__fontSize: variables.$typography__fontSize--base;
+$text--lead__textTransform: none;
+$text--lead__color: colorBundles.$primary;
+$light__color: colorBundles.$lightText;
+$dark__color: colorBundles.$darkText;
+$icon__fontSize: variables.$typography__icon__fontSize;
+
+p {
+  margin: (variables.$layout__spacing * 0.5) 0;
+}
+
+small,
+%text--small,
+.text--small {
+  @include mixins.fonts__setFontFromStack($text--small__font...);
+  font-size: $text--small__fontSize;
+  text-transform: $text--small__textTransform;
+  color: $text--small__color;
+}
+
+%text--lead,
+.text--lead {
+  @include mixins.fonts__setFontFromStack($text--lead__font...);
+  font-size: $text--lead__fontSize;
+  text-transform: $text--lead__textTransform;
+  color: $text--lead__color;
+}
+
+.text--light {
+  color: $light__color;
+}
+
+.text--dark {
+  color: $dark__color;
+}

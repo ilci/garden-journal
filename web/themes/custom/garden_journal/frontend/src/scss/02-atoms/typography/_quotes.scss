@@ -1,0 +1,27 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+
+$quote__font: variables.$typography__quote__font;
+$quote__fontSize: variables.$typography__fontSize__medium;
+$blockquote__font: variables.$typography__quote__font;
+$blockquote__fontSize: variables.$typography__fontSize__medium;
+$borderColor: colorBundles.$accent;
+$borderWidth: 4px;
+
+// Inline quote
+q,
+.text--quote {
+  @include mixins.fonts__setFontFromStack($quote__font...);
+  font-size: $quote__fontSize;
+}
+
+// Blockquote
+blockquote {
+  @include mixins.fonts__setFontFromStack($blockquote__font...);
+  font-size: $blockquote__fontSize;
+  border-left: $borderWidth solid;
+  border-color: $borderColor;
+  margin-left: 0;
+  padding-left: variables.$layout__spacing * 0.5;
+}

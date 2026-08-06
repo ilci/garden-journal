@@ -1,0 +1,26 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+
+$color: colorBundles.$interactionDarkColor;
+$hover__color: colorBundles.$interactionDarkHover;
+$textLink__textDecoration: underline;
+$link__font: variables.$typography__link__font;
+
+a,
+.link:not(.button),
+%link {
+  color: $color;
+  text-decoration: none;
+  background-color: unset;
+  border: none;
+
+  &:hover {
+    color: $hover__color;
+    text-decoration: $textLink__textDecoration;
+  }
+
+  &.is-active {
+    color: $hover__color;
+  }
+}

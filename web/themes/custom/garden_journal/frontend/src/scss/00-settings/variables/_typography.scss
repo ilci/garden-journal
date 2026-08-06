@@ -1,0 +1,40 @@
+// General font properties
+$fontSize--base: 16px;
+$fontSize--small: 14px;
+$fontSize--medium: 18px;
+$fontSize--large: 20px;
+$icon__fontSize: 24px;
+$textTransform: none;
+$lineHeight--base: 1.5;
+$lineHeight--heading: 1.2;
+$lineHeight--subheading: 1.4;
+
+// Element font types
+$body__font: SourceSans3, Regular;
+$text--small__font: SourceSans3, SemiBold;
+$text--lead__font: SourceSans3, ExtraBold;
+$quote__font: SourceSans3, Italic;
+$link__font: SourceSans3, SemiBold;
+
+// Heading font types
+$h1--hero__font: CormorantGaramond, Bold;
+$h1__font: CormorantGaramond, Medium;
+$h2__font: CormorantGaramond, Medium;
+$h3__font: CormorantGaramond, Medium;
+$h4__font: CormorantGaramond, Medium;
+$h5__font: CormorantGaramond, Medium;
+$h6__font: CormorantGaramond, Medium;
+$h1--hero__fontSize: 50px;
+$h1__fontSize: 32px;
+$h2__fontSize: 24px;
+$h3__fontSize: 20px;
+$h4__fontSize: 18px;
+$h5__fontSize: 16px;
+$h6__fontSize: 14px;
+
+// Navigation font types
+$navigation__font: SourceSans3, Bold;
+$sideNavigation--primary__font: SourceSans3, Bold;
+$sideNavigation--secondary__font: SourceSans3, Regular;
+$button__font: SourceSans3, Bold;
+$cardLink__font: SourceSans3, Bold;
