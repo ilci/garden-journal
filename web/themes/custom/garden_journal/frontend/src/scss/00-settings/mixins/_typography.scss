@@ -1,0 +1,45 @@
+@use 'sass:math';
+@use '../variables/breakpoints';
+@use '../functions';
+
+/// @see: https://css-tricks.com/snippets/css/fluid-typography/
+@mixin fluidType($fontSize--min, $fontSize--max, $vw--min: 300px, $vw--max: breakpoints.$desktop) {
+  $u1: math.unit($fontSize--min);
+  $u2: math.unit($fontSize--max);
+  $u3: math.unit($vw--min);
+  $u4: math.unit($vw--max);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $fontSize--min;
+
+      @media screen and (min-width: $vw--min) {
+        font-size: calc(
+          #{$fontSize--min} + #{functions.strip-unit($fontSize--max - $fontSize--min)} * ((100vw - #{$vw--min}) / #{functions.strip-unit($vw--max - $vw--min)})
+        );
+      }
+
+      @media screen and (min-width: $vw--max) {
+        font-size: $fontSize--max;
+      }
+    }
+  }
+}
+
+@mixin wordWrap {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+@mixin wordBreak {
+  word-break: break-all;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+@mixin ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

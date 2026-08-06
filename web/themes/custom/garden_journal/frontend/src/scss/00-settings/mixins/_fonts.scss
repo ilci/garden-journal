@@ -1,0 +1,80 @@
+@use 'sass:map';
+@use 'sass:list';
+@use '../variables';
+@use '../fonts';
+
+// Font related mixins
+
+/// Set the font based on the $fontStack map.
+///
+/// @param {string} $fontFamily - The name of a font family that exists in the stack.
+/// @param {string} $fontPath - The name of the variant of a font family.
+/// @param {string} $fontWeight - CSS Font Weight property.
+/// @param {string} $fontStyle - CSS Font Style property.
+/// @param {string} $fontStretch - CSS Font Stretch property.
+@mixin declareFontFace($fontFamily, $fontPath, $fontWeight: normal, $fontStyle: normal, $fontStretch: normal) {
+  @font-face {
+    font-family: $fontFamily;
+    src: url('#{$fontPath}.woff2') format('woff2'), url('#{$fontPath}.woff') format('woff');
+    font-weight: $fontWeight;
+    font-style: $fontStyle;
+    font-stretch: $fontStretch;
+  }
+}
+
+/// Generate font faces from the given stack.
+///
+/// @param {map} $fontStack - An optional alternative fontStack map if there is no default defined.
+@mixin generateFontFacesFromStack($fontStack: fonts.$fontStack) {
+  @each $fontFamily, $fontFamilyProps in $fontStack {
+    @if map.has-key($fontFamilyProps, 'dirPath') {
+      @each $fontVariant, $fontVariantProps in map.get($fontFamilyProps, variants) {
+        $props: (
+          '#{$fontFamily}',
+          '#{map.get($fontFamilyProps, dirPath)}/#{$fontFamily}-#{$fontVariant}',
+          map.get($fontVariantProps, weight),
+          map.get($fontVariantProps, style)
+        );
+
+        @if map.has-key($fontVariantProps, stretch) {
+          $props: list.append(map.get($fontVariantProps, stretch));
+        }
+
+        @include declareFontFace($props...);
+      }
+    }
+  }
+}
+
+/// Set the font based on the $fontStack map.
+///
+/// @param {string} $fontFamily - The name of a font family that exists in the stack.
+/// @param {string} $variant - The name of the variant of a font family.
+/// @param {map} $fontStack - An optional alternative fontStack map if there is no default defined.
+@mixin setFontFromStack($fontFamily, $variant, $fontStack: fonts.$fontStack) {
+  @if map.has-key($fontStack, $fontFamily) {
+    $font: map.get($fontStack, $fontFamily);
+    $fontVariants: map.get($font, variants);
+
+    @if map.has-key($fontVariants, $variant) {
+      $fontVariant: map.get($fontVariants, $variant);
+
+      @if map.has-key($font, fallback) {
+        $fontFamily: list.append($fontFamily, map.get($font, fallback), $separator: comma);
+      }
+      font-family: $fontFamily;
+      font-weight: map.get($fontVariant, weight);
+      font-style: map.get($fontVariant, style);
+
+      @if map.has-key($fontVariant, stretch) {
+        font-stretch: map.get($fontVariant, stretch);
+      }
+    }
+  }
+}
+
+@mixin setFontIcon($iconId, $fontFamily: variables.$icons__fontFamily) {
+  content: $iconId;
+  font-size: variables.$typography__icon__fontSize;
+  font-family: $fontFamily;
+}

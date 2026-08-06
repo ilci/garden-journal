@@ -1,0 +1,173 @@
+@use 'sass:map';
+@use 'colors';
+
+$colorComponents: (
+  text: (
+    displayName: 'Text and interactive elements',
+    colors: (
+      colorBundle__heroText: (
+        displayName: 'Hero text',
+        value: map.get(colors.$colors, color__neutral-1),
+      ),
+      colorBundle__pageTitle: (
+        displayName: 'Page title',
+        value: map.get(colors.$colors, color__primary-1),
+      ),
+      colorBundle__headings: (
+        displayName: 'Headings',
+        value: map.get(colors.$colors, color__primary-1),
+      ),
+      colorBundle__footerText: (
+        displayName: 'Footer text',
+        value: map.get(colors.$colors, color__neutral-1),
+      ),
+      colorBundle__primary: (
+        displayName: 'Primary color',
+        value: map.get(colors.$colors, color__neutral-4),
+      ),
+      colorBundle__secondary: (
+        displayName: 'Secondary color',
+        value: map.get(colors.$colors, color__neutral-5),
+      ),
+      colorBundle__lightText: (
+        displayName: 'Light text',
+        value: map.get(colors.$colors, color__neutral-1),
+      ),
+      colorBundle__darkText: (
+        displayName: 'Dark text',
+        value: map.get(colors.$colors, color__neutral-4),
+      ),
+      colorBundle__utilityLight: (
+        displayName: 'Utility light',
+        value: map.get(colors.$colors, color__neutral-1),
+      ),
+      colorBundle__utilityDark: (
+        displayName: 'Utility dark',
+        value: map.get(colors.$colors, color__neutral-4),
+      ),
+      colorBundle__tagLabel: (
+        displayName: 'Tag label',
+        value: map.get(colors.$colors, color__neutral-1),
+      ),
+      colorBundle__navigation: (
+        displayName: 'Navigation',
+        value: map.get(colors.$colors, color__primary-1),
+      ),
+      colorBundle__navigationActive: (
+        displayName: 'Navigation active',
+        value: map.get(colors.$colors, color__accent-1),
+      ),
+      colorBundle__interactionDarkColor: (
+        displayName: 'Interaction dark color',
+        value: map.get(colors.$colors, color__primary-1),
+      ),
+      colorBundle__interactionDarkHover: (
+        displayName: 'Interaction dark hover',
+        value: map.get(colors.$colors, color__primary-2),
+      ),
+      colorBundle__interactionLightColor: (
+        displayName: 'Interaction light color',
+        value: map.get(colors.$colors, color__accent-1),
+      ),
+      colorBundle__interactionLightHover: (
+        displayName: 'Interaction light hover',
+        value: map.get(colors.$colors, color__accent-2),
+      ),
+    ),
+  ),
+  ui: (
+    displayName: 'UI elements',
+    colors: (
+      colorBundle__accent: (
+        displayName: 'Accent',
+        value: map.get(colors.$colors, color__accent-1),
+      ),
+      colorBundle__formBorder: (
+        displayName: 'Form border',
+        value: map.get(colors.$colors, color__neutral-3),
+      ),
+      colorBundle__formFill: (
+        displayName: 'Form fill',
+        value: map.get(colors.$colors, color__neutral-1),
+      ),
+      colorBundle__dividerLine: (
+        displayName: 'Divider line',
+        value: map.get(colors.$colors, color__neutral-3),
+      ),
+      colorBundle__tagFill: (
+        displayName: 'Tag fill',
+        value: map.get(colors.$colors, color__primary-3),
+      ),
+      colorBundle__tagBorder: (
+        displayName: 'Tag border',
+        value: map.get(colors.$colors, color__primary-2),
+      ),
+      colorBundle__tagOutlinedHover: (
+        displayName: 'Tag outlined border',
+        value: map.get(colors.$colors, color__primary-4),
+      ),
+      colorBundle__tooltipBackground: (
+        displayName: 'Tooltip background',
+        value: map.get(colors.$colors, color__primary-1),
+      ),
+      colorBundle__shading: (
+        displayName: 'Shading',
+        value: map.get(colors.$colors, color__neutral-5),
+      ),
+    ),
+  ),
+  backgrounds: (
+    displayName: 'Backgrounds',
+    colors: (
+      colorBundle__pageBackground: (
+        displayName: 'Page background',
+        value: map.get(colors.$colors, color__neutral-1),
+      ),
+      colorBundle__panelBackground: (
+        displayName: 'Panel background',
+        value: map.get(colors.$colors, color__white),
+      ),
+      colorBundle__pageTitleBackground: (
+        displayName: 'Page title background',
+        value: map.get(colors.$colors, color__neutral-2),
+      ),
+      colorBundle__navigationBackground: (
+        displayName: 'Navigation background',
+        value: map.get(colors.$colors, color__white),
+      ),
+      colorBundle__heroOverlay: (
+        displayName: 'Hero overlay',
+        value: map.get(colors.$colors, color__primary-1),
+      ),
+      colorBundle__footerBackground: (
+        displayName: 'Footer background',
+        value: map.get(colors.$colors, color__primary-1),
+      ),
+    ),
+  ),
+  utility: (
+    displayName: 'Utility colors',
+    colors: (
+      colorBundle__utilitySuccess: (
+        displayName: 'Utility success',
+        value: map.get(colors.$colors, color__success),
+      ),
+      colorBundle__utilityWarning: (
+        displayName: 'Utility warning',
+        value: map.get(colors.$colors, color__warning),
+      ),
+      colorBundle__utilityError: (
+        displayName: 'Utility error',
+        value: map.get(colors.$colors, color__error),
+      ),
+      colorBundle__utilityInfo: (
+        displayName: 'Utility info',
+        value: map.get(colors.$colors, color__info),
+      ),
+      colorBundle__utilityFocus: (
+        displayName: 'Utility focus',
+        value: map.get(colors.$colors, color__focus),
+      ),
+    ),
+  ),
+);

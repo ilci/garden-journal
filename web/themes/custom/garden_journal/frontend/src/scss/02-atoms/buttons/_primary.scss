@@ -1,0 +1,23 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use 'default';
+
+$borderWidth: default.$borderWidth;
+$color: colorBundles.$lightText;
+$backgroundColor: colorBundles.$interactionDarkColor;
+$borderColor: colorBundles.$interactionDarkColor;
+$hover__backgroundColor: colorBundles.$interactionDarkHover;
+$hover__borderColor: colorBundles.$interactionDarkHover;
+
+%button--primary,
+.button--primary {
+  color: $color;
+  border: $borderWidth solid $borderColor;
+  background-color: $backgroundColor;
+
+  &:hover,
+  &:focus-visible,
+  &:active {
+    border-color: $hover__borderColor;
+    background-color: $hover__backgroundColor;
+  }
+}

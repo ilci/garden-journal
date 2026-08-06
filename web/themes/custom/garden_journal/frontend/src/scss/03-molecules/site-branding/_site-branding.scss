@@ -1,0 +1,30 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+
+$logo__maxHeight: 40px;
+$name__font: variables.$typography__link__font;
+$name__fontSize: variables.$typography__h3__fontSize;
+$name__textTransform: uppercase;
+$slogan__color: colorBundles.$lightText;
+
+.site-branding {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.site-branding__logo {
+  img {
+    max-height: $logo__maxHeight;
+  }
+}
+
+.site-branding__name {
+  @include mixins.fonts__setFontFromStack($name__font...);
+  font-size: $name__fontSize;
+  text-transform: $name__textTransform;
+}
+
+.site-branding__slogan {
+  color: $slogan__color;
+}

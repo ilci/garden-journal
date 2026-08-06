@@ -1,0 +1,20 @@
+name: 'Garden Journal'
+description: 'Custom theme for Garden Journal portal'
+type: theme
+base theme: false
+version: 1.0.0
+logo: logo.svg
+core_version_requirement: ^11
+regions:
+  navigation: 'Navigation'
+  header_first: 'Header First'
+  header_second: 'Header Second'
+  breadcrumb: 'Breadcrumb'
+  sidebar_first: 'Sidebar First'
+  content: 'Content'
+  sidebar_second: 'Sidebar Second'
+  bottom_navigation: 'Bottom Navigation'
+  footer: 'Footer'
+libraries:
+  - garden_journal/global_styling
+  - garden_journal/font_faces

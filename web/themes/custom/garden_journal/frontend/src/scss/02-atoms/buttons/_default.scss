@@ -1,0 +1,42 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+
+$backgroundColor: colorBundles.$utilityLight;
+$borderColor: colorBundles.$interactionDarkColor;
+$borderWidth: 2px;
+$borderRadius: variables.$borderRadius__borderRadius--base;
+$color: colorBundles.$primary;
+$disabled__opacity: 0.5;
+$font: variables.$typography__button__font;
+$fontSize: variables.$typography__fontSize--small;
+$minHeight: 44px;
+$minWidth: 95px;
+$textTransform: variables.$typography__textTransform;
+
+%button,
+.button {
+  @include mixins.fonts__setFontFromStack($font...);
+  font-size: $fontSize;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: $textTransform;
+  cursor: pointer;
+  padding: 0 variables.$layout__spacing;
+  height: auto;
+  min-height: $minHeight;
+  min-width: $minWidth;
+  border: $borderWidth solid $borderColor;
+  border-radius: $borderRadius;
+  color: $color;
+  background-color: $backgroundColor;
+
+  @include mixins.mediaQueries__forTabletPortraitUp {
+    width: auto;
+  }
+}
+
+.button:has(+ .button)  {
+  margin-right: variables.$layout__spacing * 0.5;
+}

@@ -1,0 +1,24 @@
+@use '../variables';
+
+// Adds focus-visible pseudo class to the element.
+// @param {string} $offset
+//   Defines if the outline is outside (default) or inside the element.
+//   Valid values are:
+//     - outside (default)
+//     - inside.
+@mixin focusState($offset: outside) {
+  &:focus-visible {
+    @content;
+    outline: variables.$focusState__outlineColor variables.$focusState__outlineStyle variables.$focusState__outlineWidth;
+
+    @if $offset == outside {
+      outline-offset: variables.$focusState__outlineOffset;
+      box-shadow: variables.$focusState__outlineBoxShadow;
+    } @else if $offset == inside {
+      outline-offset: 0;
+      box-shadow: variables.$focusState__outlineBoxShadow--inset;
+    } @else {
+      @error 'Unknown offset: #{$offset}. Valid values are \'outside\' or \'inside\'.'
+    }
+  }
+}

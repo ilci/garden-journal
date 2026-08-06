@@ -1,0 +1,15 @@
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+
+%container,
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  padding-left: variables.$layout__spacing * 0.5;
+  padding-right: variables.$layout__spacing * 0.5;
+
+  @include mixins.mediaQueries__forTabletPortraitUp {
+    max-width: variables.$layout__container__width;
+  }
+}

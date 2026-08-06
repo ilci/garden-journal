@@ -1,0 +1,77 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+
+$color: colorBundles.$interactionDarkColor;
+$light__color: colorBundles.$interactionLightColor;
+$active__color: colorBundles.$secondary;
+$active__light__color: colorBundles.$lightText;
+$padding: 1em 0.5em;
+$font: variables.$typography__text--small__font;
+$fontSize: variables.$typography__fontSize--small;
+$icon--chevronRight: variables.$icons__chevronRight;
+$icon__color: colorBundles.$secondary;
+$icon__light__color: colorBundles.$lightText;
+
+#breadcrumbs {
+  @include mixins.fonts__setFontFromStack($font...);
+  list-style: none;
+  font-size: $fontSize;
+  color: $color;
+
+  ul {
+    padding-left: 0;
+    margin: 0;
+
+    > li {
+      display: inline-block;
+      padding-top: variables.$layout__spacing * 0.5;
+      padding-bottom: variables.$layout__spacing * 0.5;
+
+      a {
+        color: $color;
+        padding: $padding;
+      }
+
+      &:not(:last-of-type) {
+        &::after {
+          font-family: variables.$icons__fontFamily;
+          content: $icon--chevronRight;
+          font-size: variables.$typography__icon__fontSize;
+          color: $icon__color;
+          vertical-align: middle;
+        }
+      }
+
+      &:last-of-type {
+        a {
+          color: $active__color;
+        }
+      }
+    }
+  }
+}
+
+.breadcrumb--light {
+  #breadcrumbs {
+    ul {
+      > li {
+        a {
+          color: $light__color;
+        }
+
+        &:not(:last-of-type) {
+          &::after {
+            color: $icon__light__color;
+          }
+        }
+
+        &:last-of-type {
+          a {
+            color: $active__light__color;
+          }
+        }
+      }
+    }
+  }
+}

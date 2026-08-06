@@ -1,0 +1,144 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+
+$textTransform: variables.$typography__textTransform;
+$color: colorBundles.$headings;
+
+// H1
+$h1__font: variables.$typography__h1__font;
+$h1__fontSize: variables.$typography__h1__fontSize;
+$h1--mobile__fontSize: $h1__fontSize * 0.7;
+$h1__lineHeight: variables.$typography__lineHeight--heading;
+
+// H1 - Hero variant
+$hero__font: variables.$typography__h1--hero__font;
+$h1--hero__color: colorBundles.$heroText;
+$h1--hero__fontSize: variables.$typography__h1--hero__fontSize;
+$h1--hero--mobile__fontSize: $h1--hero__fontSize * 0.5;
+$h1--hero__lineHeight: variables.$typography__lineHeight--heading;
+
+// Page title
+$pageTitle__color: colorBundles.$pageTitle;
+$pageTitle__fontSize: $h1__fontSize;
+$pageTitle--mobile__fontSize: $h1--mobile__fontSize;
+
+// H2
+$h2__font: variables.$typography__h2__font;
+$h2__fontSize: variables.$typography__h2__fontSize;
+$h2--mobile__fontSize: $h2__fontSize * 0.7;
+$h2__lineHeight: variables.$typography__lineHeight--heading;
+
+// H3
+$h3__font: variables.$typography__h3__font;
+$h3__fontSize: variables.$typography__h3__fontSize;
+$h3--mobile__fontSize: $h3__fontSize * 0.7;
+$h3__lineHeight: variables.$typography__lineHeight--heading;
+
+// H4
+$h4__font: variables.$typography__h4__font;
+$h4__fontSize: variables.$typography__h4__fontSize;
+$h4--mobile__fontSize: $h4__fontSize;
+$h4__lineHeight: variables.$typography__lineHeight--subheading;
+
+// H5
+$h5__font: variables.$typography__h5__font;
+$h5__fontSize: variables.$typography__h5__fontSize;
+$h5--mobile__fontSize: $h5__fontSize;
+$h5__lineHeight: variables.$typography__lineHeight--subheading;
+
+// H6
+$h6__font: variables.$typography__h6__font;
+$h6__fontSize: variables.$typography__h6__fontSize;
+$h6--mobile__fontSize: $h6__fontSize;
+$h6__lineHeight: variables.$typography__lineHeight--subheading;
+
+.h1,
+h1,
+%h1,
+.h2,
+h2,
+%h2,
+.h3,
+h3,
+%h3,
+.h4,
+h4,
+%h4,
+.h5,
+h5,
+%h5,
+.h6,
+h6,
+%h6 {
+  text-transform: $textTransform;
+  color: $color;
+
+  @include mixins.typography__wordWrap;
+}
+
+.h1,
+h1,
+%h1 {
+  @include mixins.fonts__setFontFromStack($h1__font...);
+  @include mixins.typography__fluidType($h1--mobile__fontSize, $h1__fontSize);
+  line-height: $h1__lineHeight;
+}
+
+.h1--hero {
+  @include mixins.fonts__setFontFromStack($hero__font...);
+  @include mixins.typography__fluidType($h1--hero--mobile__fontSize, $h1--hero__fontSize);
+  line-height: $h1--hero__lineHeight;
+  color: $h1--hero__color;
+  margin-top: variables.$layout__spacing * 0.5;
+  margin-bottom: variables.$layout__spacing * 0.5;
+}
+
+.h1--page-title {
+  @include mixins.typography__fluidType($pageTitle--mobile__fontSize, $pageTitle__fontSize);
+  color: $pageTitle__color;
+}
+
+.section-title {
+  margin-bottom: variables.$layout__spacing;
+}
+
+.h2,
+h2,
+%h2 {
+  @include mixins.fonts__setFontFromStack($h2__font...);
+  @include mixins.typography__fluidType($h2--mobile__fontSize, $h2__fontSize);
+  line-height: $h2__lineHeight;
+}
+
+.h3,
+h3,
+%h3 {
+  @include mixins.fonts__setFontFromStack($h3__font...);
+  @include mixins.typography__fluidType($h3--mobile__fontSize, $h3__fontSize);
+  line-height: $h3__lineHeight;
+}
+
+.h4,
+h4,
+%h4 {
+  @include mixins.fonts__setFontFromStack($h4__font...);
+  @include mixins.typography__fluidType($h4--mobile__fontSize, $h4__fontSize);
+  line-height: $h4__lineHeight;
+}
+
+.h5,
+h5,
+%h5 {
+  @include mixins.fonts__setFontFromStack($h5__font...);
+  @include mixins.typography__fluidType($h5--mobile__fontSize, $h5__fontSize);
+  line-height: $h5__lineHeight;
+}
+
+.h6,
+h6,
+%h6 {
+  @include mixins.fonts__setFontFromStack($h6__font...);
+  @include mixins.typography__fluidType($h6--mobile__fontSize, $h6__fontSize);
+  line-height: $h6__lineHeight;
+}

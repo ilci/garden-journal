@@ -1,0 +1,2 @@
+@use '00-settings/mixins';
+@include mixins.fonts__generateFontFacesFromStack;

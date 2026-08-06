@@ -1,0 +1,8 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+
+$breadcrumb__backgroundColor: colorBundles.$panelBackground;
+
+.region--breadcrumb {
+  background-color: $breadcrumb__backgroundColor;
+}
