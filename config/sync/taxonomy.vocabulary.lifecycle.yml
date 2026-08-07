@@ -1,0 +1,9 @@
+uuid: cc1d8ab1-6839-4c18-82e1-f800e77573c0
+langcode: en
+status: true
+dependencies: {  }
+name: Lifecycle
+vid: lifecycle
+description: null
+weight: 0
+new_revision: false

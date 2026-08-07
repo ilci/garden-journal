@@ -1,0 +1,29 @@
+uuid: d11eff93-3673-42a4-af43-dedb434042d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pruning
+    - node.type.plant
+    - taxonomy.vocabulary.pruning
+id: node.plant.field_pruning
+field_name: field_pruning
+entity_type: node
+bundle: plant
+label: Pruning
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      pruning: pruning
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

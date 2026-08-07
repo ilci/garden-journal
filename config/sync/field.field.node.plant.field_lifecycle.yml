@@ -1,0 +1,29 @@
+uuid: ca8fcb00-6a03-42c5-ada4-3b0d77093f80
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lifecycle
+    - node.type.plant
+    - taxonomy.vocabulary.lifecycle
+id: node.plant.field_lifecycle
+field_name: field_lifecycle
+entity_type: node
+bundle: plant
+label: Lifecycle
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      lifecycle: lifecycle
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

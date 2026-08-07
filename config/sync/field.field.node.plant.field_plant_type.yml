@@ -1,0 +1,29 @@
+uuid: 91fc185b-8586-4256-91f1-90aa2272d801
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plant_type
+    - node.type.plant
+    - taxonomy.vocabulary.plant_type
+id: node.plant.field_plant_type
+field_name: field_plant_type
+entity_type: node
+bundle: plant
+label: 'Plant type'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      plant_type: plant_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

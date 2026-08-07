@@ -1,0 +1,19 @@
+uuid: 32062e92-1f9f-4128-bfc0-8c1f3f462fd2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hungarian_name
+    - node.type.plant
+id: node.plant.field_hungarian_name
+field_name: field_hungarian_name
+entity_type: node
+bundle: plant
+label: 'Hungarian name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

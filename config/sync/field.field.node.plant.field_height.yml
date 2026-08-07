@@ -1,0 +1,35 @@
+uuid: ee0d00e7-3ee1-4950-9406-8940d1659208
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_height
+    - node.type.plant
+  module:
+    - range
+id: node.plant.field_height
+field_name: field_height
+entity_type: node
+bundle: plant
+label: Height
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  field:
+    prefix: ''
+    suffix: ' cm'
+  from:
+    prefix: ''
+    suffix: ''
+  to:
+    prefix: ''
+    suffix: ''
+  combined:
+    prefix: ''
+    suffix: ''
+field_type: range_integer

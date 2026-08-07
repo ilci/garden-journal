@@ -1,0 +1,9 @@
+uuid: f2d30aa4-3b86-4ff5-8fc5-a4925c6a6463
+langcode: en
+status: true
+dependencies: {  }
+name: Pruning
+vid: pruning
+description: null
+weight: 0
+new_revision: false

@@ -1,0 +1,9 @@
+uuid: d6a361de-bf7a-4334-abd9-774f3772e578
+langcode: en
+status: true
+dependencies: {  }
+name: 'Sunlight needs'
+vid: sunlight_needs
+description: null
+weight: 0
+new_revision: false

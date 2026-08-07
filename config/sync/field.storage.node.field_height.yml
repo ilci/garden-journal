@@ -1,0 +1,19 @@
+uuid: aced1177-0085-4c90-a5dd-0e56912a3b2b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - range
+id: node.field_height
+field_name: field_height
+entity_type: node
+type: range_integer
+settings: {  }
+module: range
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

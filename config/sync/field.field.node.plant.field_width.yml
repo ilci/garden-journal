@@ -1,0 +1,35 @@
+uuid: 77991cfc-9349-4363-b71f-7066c41c24f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_width
+    - node.type.plant
+  module:
+    - range
+id: node.plant.field_width
+field_name: field_width
+entity_type: node
+bundle: plant
+label: Width
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  field:
+    prefix: ''
+    suffix: cm
+  from:
+    prefix: ''
+    suffix: ''
+  to:
+    prefix: ''
+    suffix: ''
+  combined:
+    prefix: ''
+    suffix: ''
+field_type: range_integer

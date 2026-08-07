@@ -1,0 +1,9 @@
+uuid: 513b6243-a968-429a-be3a-ca15f1c669e0
+langcode: en
+status: true
+dependencies: {  }
+name: 'Flowering time'
+vid: flowering_time
+description: null
+weight: 0
+new_revision: false
