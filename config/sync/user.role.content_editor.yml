@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.garden_bed
     - node.type.plant
   module:
     - contextual
@@ -24,10 +25,13 @@ permissions:
   - 'access files overview'
   - 'access navigation'
   - 'administer url aliases'
+  - 'create garden_bed content'
   - 'create plant content'
   - 'create url aliases'
   - 'delete own files'
+  - 'delete own garden_bed content'
   - 'delete own plant content'
+  - 'edit own garden_bed content'
   - 'edit own plant content'
   - 'revert all revisions'
   - 'view all revisions'

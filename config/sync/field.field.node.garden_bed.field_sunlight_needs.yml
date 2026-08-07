@@ -1,0 +1,29 @@
+uuid: ffec61cb-4ef0-4800-bf34-bfd19424caed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sunlight_needs
+    - node.type.garden_bed
+    - taxonomy.vocabulary.sunlight_needs
+id: node.garden_bed.field_sunlight_needs
+field_name: field_sunlight_needs
+entity_type: node
+bundle: garden_bed
+label: 'Sun exposure'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sunlight_needs: sunlight_needs
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,29 @@
+uuid: aefe8047-ab31-4cf9-b69b-6a2e0d55d3f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_soil_needs
+    - node.type.garden_bed
+    - taxonomy.vocabulary.soil_needs
+id: node.garden_bed.field_soil_needs
+field_name: field_soil_needs
+entity_type: node
+bundle: garden_bed
+label: 'Soil type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      soil_needs: soil_needs
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

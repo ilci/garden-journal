@@ -1,0 +1,20 @@
+uuid: d0d66870-24cb-4979-b82e-f8baa3d8b6fc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_garden_bed_type
+field_name: field_garden_bed_type
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

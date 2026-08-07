@@ -1,0 +1,9 @@
+uuid: b51c6de7-b6dd-4e23-b0a3-cc919ef648bd
+langcode: en
+status: true
+dependencies: {  }
+name: 'Garden bed type'
+vid: garden_bed_type
+description: null
+weight: 0
+new_revision: false
