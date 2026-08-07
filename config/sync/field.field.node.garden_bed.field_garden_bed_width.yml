@@ -1,0 +1,23 @@
+uuid: 217e8704-0450-4e7e-b759-875f0db68cd3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_garden_bed_width
+    - node.type.garden_bed
+id: node.garden_bed.field_garden_bed_width
+field_name: field_garden_bed_width
+entity_type: node
+bundle: garden_bed
+label: 'Garden bed width'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ' cm'
+field_type: integer

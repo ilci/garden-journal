@@ -1,0 +1,29 @@
+uuid: e253ddae-89af-4ea2-a56b-60177b844c1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_garden_bed_type
+    - node.type.garden_bed
+    - taxonomy.vocabulary.garden_bed_type
+id: node.garden_bed.field_garden_bed_type
+field_name: field_garden_bed_type
+entity_type: node
+bundle: garden_bed
+label: 'Garden bed type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      garden_bed_type: garden_bed_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

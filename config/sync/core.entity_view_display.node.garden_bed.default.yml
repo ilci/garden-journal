@@ -1,0 +1,96 @@
+uuid: 3ab33ec2-fb82-4018-af6b-d9f2d201e1b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.garden_bed.field_active
+    - field.field.node.garden_bed.field_description
+    - field.field.node.garden_bed.field_garden_bed_length
+    - field.field.node.garden_bed.field_garden_bed_type
+    - field.field.node.garden_bed.field_garden_bed_width
+    - field.field.node.garden_bed.field_image
+    - field.field.node.garden_bed.field_soil_needs
+    - field.field.node.garden_bed.field_sunlight_needs
+    - node.type.garden_bed
+  module:
+    - text
+    - user
+id: node.garden_bed.default
+targetEntityType: node
+bundle: garden_bed
+mode: default
+content:
+  field_active:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_garden_bed_length:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_garden_bed_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_garden_bed_width:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_soil_needs:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_sunlight_needs:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+hidden: {  }

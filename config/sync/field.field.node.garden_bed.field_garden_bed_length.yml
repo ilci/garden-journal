@@ -1,0 +1,23 @@
+uuid: 0bb6db25-73f9-4cda-ab51-59bf6b5ddaff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_garden_bed_length
+    - node.type.garden_bed
+id: node.garden_bed.field_garden_bed_length
+field_name: field_garden_bed_length
+entity_type: node
+bundle: garden_bed
+label: 'Garden bed length'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: cm
+field_type: integer
