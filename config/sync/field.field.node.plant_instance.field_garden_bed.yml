@@ -1,0 +1,29 @@
+uuid: af8a584c-aa91-4304-a01a-2c978152d109
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_garden_bed
+    - node.type.garden_bed
+    - node.type.plant_instance
+id: node.plant_instance.field_garden_bed
+field_name: field_garden_bed
+entity_type: node
+bundle: plant_instance
+label: 'Garden bed'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      garden_bed: garden_bed
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,9 @@
+uuid: a8be05ba-f501-40dc-8769-76805cb408cf
+langcode: en
+status: true
+dependencies: {  }
+name: 'Plant status'
+vid: plant_status
+description: null
+weight: 0
+new_revision: false
