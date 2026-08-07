@@ -1,0 +1,29 @@
+uuid: 7f4ad245-ae31-44f3-ad40-fb4f765e84f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_flowering_time
+    - node.type.plant
+    - taxonomy.vocabulary.flowering_time
+id: node.plant.field_flowering_time
+field_name: field_flowering_time
+entity_type: node
+bundle: plant
+label: 'Flowering time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      flowering_time: flowering_time
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

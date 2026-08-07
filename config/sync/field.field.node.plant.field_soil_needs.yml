@@ -1,0 +1,29 @@
+uuid: 3f33d4d2-d7ea-4ff3-bf58-88e8284bfe38
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_soil_needs
+    - node.type.plant
+    - taxonomy.vocabulary.soil_needs
+id: node.plant.field_soil_needs
+field_name: field_soil_needs
+entity_type: node
+bundle: plant
+label: 'Soil needs'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      soil_needs: soil_needs
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

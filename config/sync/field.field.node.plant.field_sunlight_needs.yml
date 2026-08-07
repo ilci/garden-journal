@@ -1,0 +1,29 @@
+uuid: 10503e50-601f-4d2b-91ea-5e7bc0bf048d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sunlight_needs
+    - node.type.plant
+    - taxonomy.vocabulary.sunlight_needs
+id: node.plant.field_sunlight_needs
+field_name: field_sunlight_needs
+entity_type: node
+bundle: plant
+label: 'Sunlight needs'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sunlight_needs: sunlight_needs
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

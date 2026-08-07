@@ -1,0 +1,21 @@
+uuid: 2749c0ba-b58f-47bb-ae0a-3b08ee862fbe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_active
+    - node.type.plant
+id: node.plant.field_active
+field_name: field_active
+entity_type: node
+bundle: plant
+label: Active
+description: 'Still growing this variety?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

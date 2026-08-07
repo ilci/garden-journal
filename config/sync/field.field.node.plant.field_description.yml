@@ -1,0 +1,22 @@
+uuid: 78618854-fe7e-4e69-a867-9bbe59f1bfc5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.plant
+  module:
+    - text
+id: node.plant.field_description
+field_name: field_description
+entity_type: node
+bundle: plant
+label: Description
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long
