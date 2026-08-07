@@ -1,0 +1,21 @@
+uuid: a0d9d365-1551-4eb6-8fa3-dd639638abc2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_planting_date
+    - node.type.plant_instance
+  module:
+    - datetime
+id: node.plant_instance.field_planting_date
+field_name: field_planting_date
+entity_type: node
+bundle: plant_instance
+label: 'Planting date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

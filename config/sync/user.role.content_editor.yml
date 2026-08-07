@@ -5,6 +5,7 @@ dependencies:
   config:
     - node.type.garden_bed
     - node.type.plant
+    - node.type.plant_instance
   module:
     - contextual
     - file
@@ -27,12 +28,15 @@ permissions:
   - 'administer url aliases'
   - 'create garden_bed content'
   - 'create plant content'
+  - 'create plant_instance content'
   - 'create url aliases'
   - 'delete own files'
   - 'delete own garden_bed content'
   - 'delete own plant content'
+  - 'delete own plant_instance content'
   - 'edit own garden_bed content'
   - 'edit own plant content'
+  - 'edit own plant_instance content'
   - 'revert all revisions'
   - 'view all revisions'
   - 'view own unpublished content'

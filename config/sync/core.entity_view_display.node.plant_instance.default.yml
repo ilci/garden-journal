@@ -1,0 +1,57 @@
+uuid: 4bc35473-0113-42ae-9d69-1ae56d6b01b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.plant_instance.field_garden_bed
+    - field.field.node.plant_instance.field_plant
+    - field.field.node.plant_instance.field_planting_date
+    - field.field.node.plant_instance.field_status
+    - node.type.plant_instance
+  module:
+    - datetime
+    - user
+id: node.plant_instance.default
+targetEntityType: node
+bundle: plant_instance
+mode: default
+content:
+  field_garden_bed:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_plant:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_planting_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: html_month
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_status:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }
