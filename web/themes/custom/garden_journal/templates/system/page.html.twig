@@ -1,0 +1,99 @@
+{#
+/**
+ * @file
+ * Garden Journal's override to display a single page.
+ *
+ * The doctype, html, head and body tags are not in this template. Instead they
+ * can be found in the html.html.twig template in this directory.
+ *
+ * Available variables:
+ *
+ * General utility variables:
+ * - base_path: The base URL path of the Drupal installation. Will usually be
+ *   "/" unless you have installed Drupal in a sub-directory.
+ * - is_front: A flag indicating if the current page is the front page.
+ * - logged_in: A flag indicating if the user is registered and signed in.
+ * - is_admin: A flag indicating if the user has permission to access
+ *   administration pages.
+
+ * Site identity:
+ * - front_page: The URL of the front page. Use this instead of base_path when
+ *   linking to the front page. This includes the language domain or prefix.
+ *
+ * Page content (in order of occurrence in the default page.html.twig):
+ * - messages: Status and error messages. Should be displayed prominently.
+ * - node: Fully loaded node, if there is an automatically-loaded node
+ *   associated with the page and the node ID is the second argument in the
+ *   page's path (e.g. node/12345 and node/12345/revisions, but not
+ *   comment/reply/12345).
+ *
+ * Regions:
+ * - page.navigation: Items for the navigation region.
+ * - page.header_first: Items for the header first region.
+ * - page.header_second: Items for the header second region.
+ * - page.breadcrumb: Items for the breadcrumb region.
+ * - page.sidebar_first: Items for the first sidebar.
+ * - page.content: The main content of the current page.
+ * - page.sidebar_second: Items for the second sidebar.
+ * - page.bottom_navigation: Items for the bottom_navigation region.
+ * - page.footer: Items for the footer region.
+ *
+ * Additional variables:
+ * - container_class: An array of CSS classes applied to the main content
+ *   container. The container class is determined by the value of `container`.
+ * 
+ * @see template_preprocess_page()
+ * @see html.html.twig
+ */
+#}
+
+{%
+  set container_class = [
+    container ? 'container' : 'container-fluid',
+    'layout-content',
+  ]
+%}
+
+<div class="site-content">
+  {% block page_header %}
+    {% block region_navigation %}
+      {{ page.navigation }}
+    {% endblock %}
+    <header{{ header_attributes.addClass('zg-page-header--nav-above') }}>
+      {% block region_header_first %}
+        {{ page.header_first }}
+      {% endblock %}
+      {% block region_header_second %}
+        {{ page.header_second }}
+      {% endblock %}
+    </header>
+  {% endblock %}
+
+  {% block region_breadcrumb %}
+    {{ page.breadcrumb }}
+  {% endblock %}
+
+  {% block page_main %}
+  <main{{ content_attributes.addClass('js-quickedit-region') }}>
+    {# link is in html.html.twig #}
+    <a class="visually-hidden" id="main-content" tabindex="-1"></a>
+    <div {{ create_attribute({'class': container_class}) }}>
+      {% if page.sidebar_first or page.sidebar_second %}
+        {% include '@garden_journal/system/partials/page-has-sidebar.html.twig' %}
+      {% else %}
+        {% include '@garden_journal/system/partials/page-no-sidebar.html.twig' %}
+      {% endif %}
+    </div>
+  </main>
+  {% endblock %}
+
+  {% block region_bottom_navigation %}
+    {{ page.bottom_navigation }}
+  {% endblock %}
+
+  {% block region_footer %}
+    {{ page.footer }}
+  {% endblock %}
+
+  <div class="site-overlay"></div>
+</div>

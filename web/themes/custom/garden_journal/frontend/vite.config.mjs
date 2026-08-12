@@ -12,11 +12,15 @@ export default defineConfig({
       input: {
         style: resolve(__dirname, 'src/scss/style.scss'),
         font_faces: resolve(__dirname, 'src/scss/font-faces.scss'),
+        garden_journal_navigation: resolve(__dirname, 'src/js/garden_journal_navigation.js'),
       },
 
       output: {
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name?.endsWith('.woff') || assetInfo.name?.endsWith('.woff2')) {
+          if (
+            assetInfo.name?.endsWith('.woff') ||
+            assetInfo.name?.endsWith('.woff2')
+          ) {
             return 'fonts/[name][extname]';
           }
 
@@ -26,6 +30,7 @@ export default defineConfig({
 
           return '[name][extname]';
         },
+        entryFileNames: 'js/[name].js',
       },
     },
   },

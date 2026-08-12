@@ -1,0 +1,20 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+
+$overlay__backgroundColor: rgba(colorBundles.$shading--rgb, 0.6);
+$overlay__transition: opacity variables.$transitions__duration variables.$transitions__timingFunction, visibility variables.$transitions__duration variables.$transitions__timingFunction;
+
+.site-overlay {
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: $overlay__transition;
+  z-index: 499;
+  background-color: $overlay__backgroundColor;
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}

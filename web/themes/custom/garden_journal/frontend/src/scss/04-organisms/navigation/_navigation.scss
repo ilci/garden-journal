@@ -2,3 +2,225 @@
 @use '../../00-settings/color-bundles' as colorBundles;
 @use '../../00-settings/variables';
 @use '../../00-settings/mixins';
+
+$backgroundColor: colorBundles.$navigationBackground;
+$font: variables.$typography__navigation__font;
+$fontSize: variables.$typography__fontSize--small;
+$height: variables.$layout__navigation__height;
+$height--mobile: $height;
+$boxShadow: variables.$shadows__boxShadow;
+$link__color: colorBundles.$navigation;
+$link__color--hover: colorBundles.$navigationHover;
+$link__color--active: colorBundles.$navigationActive;
+$transition__color: variables.$transitions__colorTransition;
+$collapsed__backgroundColor: colorBundles.$navigationBackground;
+$collapsed__icon__color: $link__color;
+$collapsed__icon__padding: math.div(variables.$layout__spacing, 4);
+$collapsed__icon__borderRadius: variables.$borderRadius__borderRadius--large;
+$collapsed__icon__backgroundColor: transparent;
+$collapsed__icon__backgroundColor--hover: rgba(colorBundles.$lightText--rgb, 0.1);
+$collapsed__divider: 1px solid rgba(colorBundles.$dividerLine--light--rgb, 0.1);
+$collapsed__boxShadow: variables.$shadows__boxShadow--hover;
+
+.region--navigation {
+  position: relative;
+  height: $height;
+  background-color: $backgroundColor;
+  box-shadow: $boxShadow;
+  z-index: 500;
+
+  .navigation-wrapper {
+    height: 100%;
+
+    .navigation {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+
+      > nav {
+        &:last-of-type {
+          margin-left: auto;
+        }
+      }
+
+      .menu {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 2px;
+
+        .menu__link {
+          @include mixins.fonts__setFontFromStack($font...);
+          position: relative;
+          color: $link__color;
+          padding: math.div(variables.$layout__spacing, 4) math.div(variables.$layout__spacing, 2);
+          border-radius: variables.$borderRadius__borderRadius--base;
+          background-color: transparent;
+          transition: $transition__color;
+          white-space: nowrap;
+
+          &:hover {
+            color: $link__color--hover;
+            text-decoration: none;
+          }
+
+          &:active {
+            color: $link__color--active;
+          }
+        }
+
+        .in-active-trail {
+          .menu__link {
+            color: $link__color--active;
+            font-weight: 500;
+            background: rgba(colorBundles.$accent--rgb, 0.22);
+            border-radius: variables.$borderRadius__borderRadius--large;
+
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: math.div(variables.$layout__spacing, 8);
+              left: variables.$layout__spacing * 0.5;
+              right: variables.$layout__spacing * 0.5;
+              height: 2px;
+              border-radius: variables.$borderRadius__borderRadius--large;
+              background: colorBundles.$accent;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Hide collapsed navigation icons.
+@include mixins.mediaQueries__forTabletPortraitUp {
+  .region--navigation {
+    .navigation__buttons {
+      visibility: collapse;
+    }
+  }
+}
+
+
+// Collapsed navigation.
+@include mixins.mediaQueries__forTabletLandscapeDown {
+  .region--navigation {
+    height: $height--mobile;
+
+    .block--system-branding-block {
+      height: $height--mobile;
+      margin-left: variables.$layout__spacing * 0.5;
+    }
+
+    .navigation__buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      order: 1;
+      margin-left: auto;
+      margin-right: variables.$layout__spacing * 0.5;
+      visibility: visible;
+ 
+      button {
+        padding: $collapsed__icon__padding;
+        border-radius: $collapsed__icon__borderRadius;
+        color: $collapsed__icon__color;
+        background: $collapsed__icon__backgroundColor;
+        cursor: pointer;
+        transition: background variables.$transitions__duration variables.$transitions__timingFunction;
+
+        &:hover {
+          background-color: $collapsed__icon__backgroundColor--hover;
+        }
+      }
+
+      .navigation__toggle-icon--nav {
+        display: flex;
+
+        &::before {
+           @include mixins.fonts__setFontIcon(variables.$icons__menu);
+           font-size: variables.$typography__fontSize--large;
+        };
+      }
+    }
+
+    .navigation-wrapper {
+      .navigation {
+        flex-wrap: wrap;
+        margin: 0 (variables.$layout__spacing * -0.5);
+
+        nav {
+          width: 100%;
+          background-color: $collapsed__backgroundColor;
+          order: 2;
+          opacity: 0;
+          visibility: hidden;
+          transition: all variables.$transitions__duration variables.$transitions__timingFunction;
+          margin-left: 0;
+          padding: (variables.$layout__spacing * 0.375) (variables.$layout__spacing * 0.5);
+
+          &:first-of-type {
+            padding-bottom: variables.$layout__spacing * 0.25;
+          }
+
+          &:last-of-type {
+            padding-top: 0;
+            box-shadow: $collapsed__boxShadow;
+
+            .menu {
+              padding-top: variables.$layout__spacing * 0.25;
+              border-top: $collapsed__divider;
+            }        
+          }
+        }
+
+        .menu {
+          flex-direction: column;
+         
+          .menu__item {
+            display: inline-flex;
+          }
+
+          .menu__link {
+            white-space: normal;
+            width: 100%;
+          }
+
+          .in-active-trail {
+            .menu__link {
+              &::after {
+                height: auto;
+                left: 0;
+                right: variables.$layout__spacing * 0.5;
+                top: 6px;
+                bottom: 6px;
+                width: 3px;
+              }
+            }
+          }
+        }
+      }
+
+      .navigation.is-open {
+        border-bottom: $collapsed__divider;
+                 
+        .navigation__toggle-icon--nav {
+          &::before {
+            @include mixins.fonts__setFontIcon(variables.$icons__close);
+            font-size: variables.$typography__fontSize--large;
+          }
+        }
+
+        nav {
+          opacity: 1;
+          visibility: visible;
+          z-index: 500;
+        }
+      }
+    }
+  }
+}

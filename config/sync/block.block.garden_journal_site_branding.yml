@@ -1,0 +1,23 @@
+uuid: 4a99caa6-10da-4717-b50f-45cdb3e4a8be
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - garden_journal
+id: garden_journal_site_branding
+theme: garden_journal
+region: navigation
+weight: -3
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

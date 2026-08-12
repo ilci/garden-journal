@@ -10,6 +10,7 @@ $link__font: variables.$typography__link__font;
 a,
 .link:not(.button),
 %link {
+  @include mixins.focusState__focusState;
   color: $color;
   text-decoration: none;
   background-color: unset;

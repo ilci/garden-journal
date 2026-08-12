@@ -1,0 +1,68 @@
+{#
+/**
+ * @file
+ * Garden Journal's partial theme implementation for page when there is a
+   sidebar.
+ *
+ * Available variables:
+ *   @see page.html.twig
+ *
+ * Additional variables:
+ * - grid_classes: An array of CSS classes applied to the main grid
+ *   container. The classes vary depending on whether one or two sidebars
+ *   are present.
+ * - content_col: A CSS class or array of CSS classes applied to the
+ *   main content column.
+ * - aside_col: A CSS class or array of CSS classes applied to the
+ *   sidebar columns.
+ */
+#}
+
+{%
+  set grid_classes = [
+    'grid',
+    'has-sidebar'
+  ]
+%}
+
+{% if page.sidebar_first and page.sidebar_second %}
+  {% set grid_classes = grid_classes|merge(['grid--desktop--2']) %}
+  {% set content_col = 'col--desktop--6' %}
+  {% set aside_col = 'col--desktop--3' %}
+{% else %}
+  {% set grid_classes = grid_classes|merge(['grid--tablet--2']) %}
+  {%
+    set content_col = [
+      'col--tablet--8',
+      'col--desktop--9'
+    ]
+  %}
+  {%
+    set aside_col = [
+      'col--tablet--4',
+      'col--desktop--3'
+    ]
+  %}
+{% endif %}
+
+<div {{ create_attribute({'class': grid_classes}) }}>
+  {% if page.sidebar_first %}
+    <div{{ create_attribute({'class': aside_col}) }}>
+      {% block region_sidebar_first %}
+        {{ page.sidebar_first }}
+      {% endblock %}
+    </div>
+  {% endif %}
+  <div{{ create_attribute({'class': content_col}) }}>
+    {% block region_content %}
+      {{ page.content }}
+    {% endblock %}
+  </div>
+  {% if page.sidebar_second %}
+    <div{{ create_attribute({'class': aside_col}) }}>
+      {% block region_sidebar_second %}
+        {{ page.sidebar_second }}
+      {% endblock %}
+    </div>
+  {% endif %}
+</div>

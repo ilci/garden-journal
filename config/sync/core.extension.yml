@@ -26,6 +26,8 @@ module:
   media: 0
   media_library: 0
   menu_link_content: 0
+  menu_per_role: 0
+  menu_trail_by_path: 0
   menu_ui: 0
   mysql: 0
   navigation: 0
