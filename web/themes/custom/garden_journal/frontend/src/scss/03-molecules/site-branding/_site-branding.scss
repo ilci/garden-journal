@@ -1,30 +1,85 @@
+@use 'sass:math';
 @use '../../00-settings/color-bundles' as colorBundles;
 @use '../../00-settings/variables';
 @use '../../00-settings/mixins';
 
-$logo__maxHeight: 40px;
-$name__font: variables.$typography__link__font;
-$name__fontSize: variables.$typography__h3__fontSize;
-$name__textTransform: uppercase;
-$slogan__color: colorBundles.$lightText;
+$link__padding: math.div(variables.$layout__spacing, 8);
+$link__borderRadius: variables.$borderRadius__borderRadius--medium;
+$logo__maxHeight: 36px;
+$logo__borderRadius: variables.$borderRadius__borderRadius--large;
+$name__font: variables.$typography__h4__font;
+$name__fontSize: variables.$typography__h4__fontSize;
+$name__letterSpacing: 0.17px;
+$name__color: colorBundles.$lightText;
+$name__color--hover: colorBundles.$navigationHover;
+$transition--transform: transform variables.$transitions__duration variables.$transitions__timingFunction;
+$transition--color: variables.$transitions__colorTransition;
+$divider: rgba(colorBundles.$dividerLine--light--rgb, 0.15);
 
 .site-branding {
-  display: flex;
-  flex-flow: column nowrap;
-}
-
-.site-branding__logo {
-  img {
-    max-height: $logo__maxHeight;
+  .site-branding__inner {
+    display: flex;
+    align-items: center;
+    gap: variables.$layout__spacing * 0.5;
+    height: 100%;
   }
-}
 
-.site-branding__name {
-  @include mixins.fonts__setFontFromStack($name__font...);
-  font-size: $name__fontSize;
-  text-transform: $name__textTransform;
-}
+  .site-branding__link {
+    display: flex;
+    align-items: center;
+    gap: variables.$layout__spacing * 0.5;
+    flex-shrink: 0;
+    padding: $link__padding;
+    border-radius: $link__borderRadius;
+    transition: $transition--transform;
 
-.site-branding__slogan {
-  color: $slogan__color;
+    &:hover {
+      text-decoration: none;
+
+      .site-branding__name {
+        color: $name__color--hover;
+      }
+    }
+
+    &:active {
+      transform: scale(0.97);
+
+      .site-branding__name {
+        color: $name__color;
+      }
+    }
+  }
+
+  .site-branding__logo {
+    border-radius: $logo__borderRadius;
+
+    img {
+      max-height: $logo__maxHeight;
+      border-radius: $logo__borderRadius;
+    }
+  }
+
+  .site-branding__name {
+    @include mixins.fonts__setFontFromStack($name__font...);
+    font-size: $name__fontSize;
+    letter-spacing: $name__letterSpacing;
+    color: $name__color;
+    transition: $transition--color;
+  }
+
+  @include mixins.mediaQueries__forTabletLandscapeUp {
+    margin-right: variables.$layout__spacing;
+    padding-right: variables.$layout__spacing;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      height: 20px;
+      width: 1px;
+      background-color: $divider;
+    }
+  }
 }

@@ -6,11 +6,13 @@ $footerText: var(--colorBundle__footerText);
 $primary: var(--colorBundle__primary);
 $secondary: var(--colorBundle__secondary);
 $lightText: var(--colorBundle__lightText);
+$lightText--rgb: var(--colorBundle__lightText--rgb);
 $darkText: var(--colorBundle__darkText);
 $utilityLight: var(--colorBundle__utilityLight);
 $utilityDark: var(--colorBundle__utilityDark);
 $tagLabel: var(--colorBundle__tagLabel);
 $navigation: var(--colorBundle__navigation);
+$navigationHover: var(--colorBundle__navigationHover);
 $navigationActive: var(--colorBundle__navigationActive);
 $interactionDarkColor: var(--colorBundle__interactionDarkColor);
 $interactionDarkHover: var(--colorBundle__interactionDarkHover);
@@ -19,14 +21,18 @@ $interactionLightHover: var(--colorBundle__interactionLightHover);
 
 // UI elements
 $accent: var(--colorBundle__accent);
+$accent--rgb: var(--colorBundle__accent--rgb);
 $formBorder: var(--colorBundle__formBorder);
 $formFill: var(--colorBundle__formFill);
 $dividerLine: var(--colorBundle__dividerLine);
+$dividerLine--light: var(--colorBundle__dividerLineLight);
+$dividerLine--light--rgb: var(--colorBundle__dividerLineLight--rgb);
 $tagFill: var(--colorBundle__tagFill);
 $tagBorder: var(--colorBundle__tagBorder);
 $tagOutlinedHover: var(--colorBundle__tagOutlinedHover);
 $tooltipBackground: var(--colorBundle__tooltipBackground);
 $shading: var(--colorBundle__shading);
+$shading--rgb: var(--colorBundle__shading--rgb);
 
 // Backgrounds
 $pageBackground: var(--colorBundle__pageBackground);

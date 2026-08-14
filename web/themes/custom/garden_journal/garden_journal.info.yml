@@ -18,3 +18,5 @@ regions:
 libraries:
   - garden_journal/global_styling
   - garden_journal/font_faces
+  - garden_journal/icons
+  - garden_journal/navigation

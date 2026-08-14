@@ -1,0 +1,33 @@
+{#
+/**
+ * @file
+ * Garden Journal's override to display the Navigation region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% extends 'region.html.twig' %}
+
+{% block content %}
+  <div{{ attributes }}>
+    <div class="navigation-wrapper container">
+      <div class="navigation">
+        <div class="navigation__buttons">
+          <button type="button" class="navigation__toggle--nav" aria-expanded="false" aria-label="{{ 'Open menu'|t }}">
+            <span class="navigation__toggle-icon--nav" aria-hidden="true"></span>
+          </button>
+        </div>
+        {{ content }}
+      </div>
+    </div>
+  </div>
+{% endblock %}

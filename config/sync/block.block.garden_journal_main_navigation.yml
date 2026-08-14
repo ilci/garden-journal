@@ -1,0 +1,25 @@
+uuid: 00f2f7af-74a7-44b1-8099-78a82b67bcd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - garden_journal
+id: garden_journal_main_navigation
+theme: garden_journal
+region: navigation
+weight: -2
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility: {  }

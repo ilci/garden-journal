@@ -51,11 +51,15 @@ $colorComponents: (
       ),
       colorBundle__navigation: (
         displayName: 'Navigation',
-        value: map.get(colors.$colors, color__primary-1),
+        value: map.get(colors.$colors, color__primary-3),
+      ),
+      colorBundle__navigationHover: (
+        displayName: 'Navigation',
+        value: map.get(colors.$colors, color__primary-4),
       ),
       colorBundle__navigationActive: (
         displayName: 'Navigation active',
-        value: map.get(colors.$colors, color__accent-1),
+        value: map.get(colors.$colors, color__white),
       ),
       colorBundle__interactionDarkColor: (
         displayName: 'Interaction dark color',
@@ -93,6 +97,10 @@ $colorComponents: (
       colorBundle__dividerLine: (
         displayName: 'Divider line',
         value: map.get(colors.$colors, color__neutral-3),
+      ),
+      colorBundle__dividerLineLight: (
+        displayName: 'Divider line light',
+        value: map.get(colors.$colors, color__white),
       ),
       colorBundle__tagFill: (
         displayName: 'Tag fill',
@@ -133,7 +141,7 @@ $colorComponents: (
       ),
       colorBundle__navigationBackground: (
         displayName: 'Navigation background',
-        value: map.get(colors.$colors, color__white),
+        value: map.get(colors.$colors, color__primary-1),
       ),
       colorBundle__heroOverlay: (
         displayName: 'Hero overlay',

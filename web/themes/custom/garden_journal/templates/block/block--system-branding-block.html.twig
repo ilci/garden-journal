@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Garden Journal's override for a branding block.
+ *
+ * Each branding element variable (logo, name, slogan) is only available if
+ * enabled in the block configuration.
+ *
+ * Available variables:
+ * - site_logo: Logo for site as defined in Appearance or theme settings.
+ * - site_name: Name for site as defined in Site information settings.
+ * - site_slogan: Slogan for site as defined in Site information settings.
+ */
+#}
+
+{% extends 'block.html.twig' %}
+
+{% set attributes = attributes.addClass('site-branding') %}
+
+{% block content %}
+  <div class="site-branding__inner">
+    {% if site_logo or site_name %}
+      <a href="{{ path('<front>') }}" rel="home" class="site-branding__link" title="{{ 'Home'|t }}">
+        {% if site_logo %}
+        <div class="site-branding__logo">
+          <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" fetchpriority="high"/>
+        </div>
+        {% endif %}
+        {% if site_name %}
+          <span class="site-branding__name">{{ site_name }}</span>
+        {% endif %}
+      </a>
+    {% endif %}
+    {% if site_slogan %}
+      <div class="site-branding__text">
+        <div class="site-branding__slogan">{{ site_slogan }}</div>
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

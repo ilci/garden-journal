@@ -1,0 +1,25 @@
+uuid: c4cb6783-a281-406d-9c7e-cd2eac935053
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - garden_journal
+id: garden_journal_user_account_menu
+theme: garden_journal
+region: navigation
+weight: 0
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility: {  }

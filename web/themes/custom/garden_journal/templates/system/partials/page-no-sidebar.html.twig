@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Garden Journal's partial theme implementation for page when there is no
+   sidebar.
+ *
+ * Available variables:
+ *   @see page.html.twig
+ */
+#}
+
+{% if page.content %}
+  {% block region_content %}
+    <div class="no-sidebar">
+      {{ page.content }}
+    </div>
+  {% endblock %}
+{% endif %}
