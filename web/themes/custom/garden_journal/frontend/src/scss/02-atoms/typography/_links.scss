@@ -4,7 +4,9 @@
 
 $color: colorBundles.$interactionDarkColor;
 $hover__color: colorBundles.$interactionDarkHover;
+$transition--color: variables.$transitions__colorTransition;
 $textLink__textDecoration: underline;
+$textLink__textUnderlineOffset: variables.$typography__link__textUnderlineOffset;
 $link__font: variables.$typography__link__font;
 
 a,
@@ -19,6 +21,8 @@ a,
   &:hover {
     color: $hover__color;
     text-decoration: $textLink__textDecoration;
+    text-underline-offset: $textLink__textUnderlineOffset;
+    transition: $transition--color;
   }
 
   &.is-active {

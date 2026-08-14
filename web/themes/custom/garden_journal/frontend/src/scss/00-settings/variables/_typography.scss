@@ -4,6 +4,7 @@ $fontSize--small: 14px;
 $fontSize--medium: 18px;
 $fontSize--large: 20px;
 $icon__fontSize: 24px;
+$icon__fontSize--medium: 20px;
 $textTransform: none;
 $lineHeight--base: 1.5;
 $lineHeight--heading: 1.2;
@@ -15,6 +16,7 @@ $text--small__font: SourceSans3, SemiBold;
 $text--lead__font: SourceSans3, ExtraBold;
 $quote__font: SourceSans3, Italic;
 $link__font: SourceSans3, SemiBold;
+$link__textUnderlineOffset: 3px;
 
 // Heading font types
 $h1--hero__font: CormorantGaramond, Bold;
