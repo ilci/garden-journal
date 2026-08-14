@@ -20,6 +20,7 @@
         "drupal/core-project-message": "^11.4",
         "drupal/core-recipe-unpack": "^11.4",
         "drupal/core-recommended": "^11.4",
+        "drupal/easy_breadcrumb": "^2.0",
         "drupal/gin": "^5.0",
         "drupal/menu_per_role": "^2.0",
         "drupal/menu_trail_by_path": "^2.2",

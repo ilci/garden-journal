@@ -12,7 +12,6 @@ $boxShadow: variables.$shadows__boxShadow;
 $link__color: colorBundles.$navigation;
 $link__color--hover: colorBundles.$navigationHover;
 $link__color--active: colorBundles.$navigationActive;
-$transition__color: variables.$transitions__colorTransition;
 $collapsed__backgroundColor: colorBundles.$navigationBackground;
 $collapsed__icon__color: $link__color;
 $collapsed__icon__padding: math.div(variables.$layout__spacing, 4);
@@ -59,7 +58,6 @@ $collapsed__boxShadow: variables.$shadows__boxShadow--hover;
           padding: math.div(variables.$layout__spacing, 4) math.div(variables.$layout__spacing, 2);
           border-radius: variables.$borderRadius__borderRadius--base;
           background-color: transparent;
-          transition: $transition__color;
           white-space: nowrap;
 
           &:hover {
