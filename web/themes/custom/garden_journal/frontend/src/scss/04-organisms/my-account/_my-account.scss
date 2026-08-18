@@ -1,0 +1,42 @@
+@use 'sass:math';
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+@use '../../02-atoms/tags';
+
+$userInitial__color: colorBundles.$lightText;
+$userInitial__backgroundColor: colorBundles.$accent;
+$userInitial__border: 3px solid colorBundles.$lightText;
+
+.my-account {
+  .my-account__user-initial {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 36px;
+    height: 72px;
+    width: 72px;
+    color: $userInitial__color;
+    text-transform: uppercase;
+    border: $userInitial__border;
+    border-radius: 50%;
+    background-color: $userInitial__backgroundColor;
+    box-shadow: variables.$shadows__boxShadow--darker;
+  }
+
+  .my-account__member-for {
+    .form-item {
+      @extend %tag, %tag--info;
+      display: inline-flex;
+      align-items: center;
+      gap: math.div(variables.$layout__spacing, 8);
+
+      h4 {
+        @include mixins.fonts__setFontFromStack(tags.$font...);
+        font-size: tags.$fontSize;
+        color: tags.$info__color;
+      }
+    }
+  }
+}

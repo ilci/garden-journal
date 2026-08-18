@@ -1,0 +1,26 @@
+@use 'sass:math';
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+
+$font: variables.$typography__text--small__font;
+$fontSize: variables.$typography__fontSize--extraSmall;
+$borderRadius: 15px;
+$padding: 2px 10px;
+$info__color: colorBundles.$tagLabel;
+$info__backgroundColor: colorBundles.$tagFill;
+$info__borderColor: colorBundles.$tagBorder;
+
+%tag,
+.tag {
+  @include mixins.fonts__setFontFromStack($font...);
+  font-size: $fontSize;
+  padding: $padding;
+  border-radius: $borderRadius;
+
+  &--info {
+    color: $info__color;
+    border: 1px solid $info__borderColor;
+    background-color: $info__backgroundColor;
+  }
+}
