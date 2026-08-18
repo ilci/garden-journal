@@ -1,0 +1,26 @@
+uuid: 78b9159d-dc46-4483-9046-ee2be63a948a
+langcode: en
+status: true
+dependencies:
+  module:
+    - copyright_footer
+  theme:
+    - garden_journal
+id: garden_journal_copyright
+theme: garden_journal
+region: footer
+weight: 0
+provider: null
+plugin: copyright_footer
+settings:
+  id: copyright_footer
+  label: Copyright
+  label_display: '0'
+  provider: copyright_footer
+  organization_name: 'Garden Journal'
+  organization_url: ''
+  year_origin: null
+  year_to_date: null
+  version: ''
+  version_url: ''
+visibility: {  }

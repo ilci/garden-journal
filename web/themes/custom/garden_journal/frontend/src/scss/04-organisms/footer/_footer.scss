@@ -7,54 +7,56 @@ $backgroundColor: colorBundles.$footerBackground;
 $borderRadius: variables.$borderRadius__borderRadius--base;
 $color: colorBundles.$footerText;
 $font: variables.$typography__navigation__font;
-$link__color: colorBundles.$footerText;
-$link--hover__color: colorBundles.$navigationActive;
+$fontSize: variables.$typography__fontSize--small;
+$link__color: colorBundles.$navigation;
+$link__color--hover: colorBundles.$navigationHover;
+$link__color--active: colorBundles.$navigationActive;
 $menuItem__outlineColor: colorBundles.$navigationActive;
 
 .region--footer {
-  background-color: $backgroundColor;
+  font-size: $fontSize;
   color: $color;
+  background-color: $backgroundColor;
 
   .container {
     display: flex;
-    flex-flow: column wrap;
     align-items: center;
-    padding-top: math.div(variables.$layout__spacing, 4);
-    padding-bottom: math.div(variables.$layout__spacing, 2);
-
-    > * {
-      margin-right: auto;
-    }
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: (variables.$layout__spacing * 0.5) variables.$layout__spacing;
+    padding-top: variables.$layout__spacing * 0.5;
+    padding-bottom: variables.$layout__spacing * 0.5;
 
     .menu {
       display: flex;
       flex-wrap: wrap;
+      gap: variables.$layout__spacing * 0.25 (variables.$layout__spacing * 0.5);
       list-style: none;
       padding-left: 0;
-
-      @include mixins.mediaQueries__forTabletLandscapeUp {
-        margin: 0;
-      }
+      margin: 0;
 
       > li {
-        margin-right: math.div(variables.$layout__spacing, 2);
-
         a {
-          @include mixins.fonts__setFontFromStack($font...);
-          padding: math.div(variables.$layout__spacing, 4) 0;
           color: $link__color;
+          border-radius: variables.$borderRadius__borderRadius--medium;
 
-          &:hover,
-          &:active {
-            color: $link--hover__color;
+          &:hover {
+            color: $link__color--hover;
           }
 
-          &:focus-visible {
-            color: $link__color;
-            border-radius: $borderRadius;
-            outline: 3px solid $menuItem__outlineColor;
+          &:active {
+            color: $link__color--active;
           }
         }
+      }
+    }
+
+    @include mixins.mediaQueries__forMobileOnly {
+      justify-content: center;
+      text-align: center;
+
+      .menu {
+        justify-content: center;
       }
     }
   }
