@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * Garden Journal's override to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see \Drupal\user\UserThemeHooks::preprocessUser()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set attributes = attributes.addClass(['panel', 'my-account']) %}
+
+<div {{ attributes }}>
+  <div class="panel__header">
+    <div class="panel__items">
+      <div class="panel__item my-account__user-initial h1">
+        {{ user.displayname|first }}
+      </div>
+    </div>   
+  </div>
+  <div class="panel__body">
+    <div class="panel__body--left">
+      <div class="panel__items">
+        <div class="panel__item my-account__username">
+          <h1>{{ user.displayname }}</h1>
+        </div>
+        <div class="panel__item my-account__email">
+          {{ user.mail.value }}
+        </div>
+      </div>
+    </div>
+    <div class="panel__body--right">
+      <div class="panel__items">
+        <div class="panel__item my-account__member-for">
+          {{ content.member_for }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

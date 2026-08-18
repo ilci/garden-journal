@@ -47,7 +47,7 @@ $colorComponents: (
       ),
       colorBundle__tagLabel: (
         displayName: 'Tag label',
-        value: map.get(colors.$colors, color__neutral-1),
+        value: map.get(colors.$colors, color__neutral-5),
       ),
       colorBundle__navigation: (
         displayName: 'Navigation',
@@ -104,11 +104,11 @@ $colorComponents: (
       ),
       colorBundle__tagFill: (
         displayName: 'Tag fill',
-        value: map.get(colors.$colors, color__primary-3),
+        value: map.get(colors.$colors, color__neutral-2),
       ),
       colorBundle__tagBorder: (
         displayName: 'Tag border',
-        value: map.get(colors.$colors, color__primary-2),
+        value: map.get(colors.$colors, color__neutral-2),
       ),
       colorBundle__tagOutlinedHover: (
         displayName: 'Tag outlined border',

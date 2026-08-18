@@ -10,12 +10,14 @@
 @use '02-atoms/buttons';
 @use '02-atoms/dividers';
 @use '02-atoms/typography';
+@use '02-atoms/tags';
 
 // Molecules
 @use '03-molecules/breadcrumbs';
 @use '03-molecules/cards';
 @use '03-molecules/site-branding';
 @use '03-molecules/site-overlay';
+@use '03-molecules/panel';
 
 // Organisms
 @use '04-organisms/bottom-navigation';
@@ -24,3 +26,4 @@
 @use '04-organisms/grid';
 @use '04-organisms/navigation';
 @use '04-organisms/regions';
+@use '04-organisms/my-account';

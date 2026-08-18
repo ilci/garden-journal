@@ -1,3 +1,6 @@
+@use 'sass:map';
+@use 'colors';
+
 // Interactive elements and text
 $heroText: var(--colorBundle__heroText);
 $pageTitle: var(--colorBundle__pageTitle);
@@ -39,6 +42,12 @@ $shading--rgb: var(--colorBundle__shading--rgb);
 // Backgrounds
 $pageBackground: var(--colorBundle__pageBackground);
 $panelBackground: var(--colorBundle__panelBackground);
+$panelHeaderBackground: linear-gradient(
+  120deg,
+  map.get(colors.$colors, color__primary-1) 0%,
+  map.get(colors.$colors, color__primary-2) 60%,
+  map.get(colors.$colors, color__primary-3) 100%
+);
 $pageTitleBackground: var(--colorBundle__pageTitleBackground);
 $navigationBackground: var(--colorBundle__navigationBackground);
 $heroOverlay: var(--colorBundle__heroOverlay);

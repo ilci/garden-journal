@@ -1,0 +1,50 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+
+$backgroundColor: colorBundles.$panelBackground;
+$boxShadow: variables.$shadows__boxShadow;
+$border: 1px solid colorBundles.$dividerLine;
+$borderRadius: variables.$borderRadius__borderRadius--extraLarge;
+$maxWidth: 720px;
+$headerMinHeight: 80px;
+$padding: variables.$layout__spacing * 0.75;
+
+.panel {
+  position: relative;
+  background-color: $backgroundColor;
+  box-shadow: $boxShadow;
+  border: $border;
+  border-radius: $borderRadius;
+  max-width: $maxWidth;
+  margin: 0 auto;
+}
+
+.panel__header {
+  position: relative;
+  padding: 0 $padding;
+  min-height: $headerMinHeight;
+  background: colorBundles.$panelHeaderBackground;
+  border-radius: $borderRadius $borderRadius 0 0;
+}
+
+.panel__body {
+  display: flex;
+  justify-content: space-between;
+  gap: $padding * 0.5;
+  padding: ($padding * 0.5) $padding;
+
+  .panel__body--left {
+    margin-top: variables.$layout__spacing;
+  }
+
+  @include mixins.mediaQueries__forMobileOnly {
+    flex-direction: column;
+  }
+}
+
+.panel__items {
+  display: flex;
+  flex-direction: column;
+  gap: variables.$layout__spacing * 0.25;
+}
