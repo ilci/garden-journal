@@ -68,6 +68,7 @@ $divider: rgba(colorBundles.$dividerLine--light--rgb, 0.15);
   }
 
   @include mixins.mediaQueries__forTabletLandscapeUp {
+    position: relative;
     margin-right: variables.$layout__spacing;
     padding-right: variables.$layout__spacing;
 

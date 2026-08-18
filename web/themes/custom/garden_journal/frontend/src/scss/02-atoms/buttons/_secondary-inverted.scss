@@ -2,21 +2,23 @@
 @use '../../00-settings/variables';
 @use 'secondary';
 
-$color: colorBundles.$lightText;
-$backgroundColor: colorBundles.$utilityLight;
+$color: colorBundles.$interactionLightColor;
+$backgroundColor: transparent;
 $borderColor: colorBundles.$interactionLightColor;
+$hover__color: colorBundles.$interactionLightHover;
+$hover__backgroundColor: rgba(colorBundles.$interactionLightColor--rgb, 0.08);
 $hover__borderColor: colorBundles.$interactionLightHover;
-$hover__backgroundColor: $backgroundColor;
+
 
 %button--secondary-inverted,
 .button--secondary-inverted {
   color: $color;
-  border: secondary.$borderWidth solid $borderColor;
+  border-color: $borderColor;
   background-color: $backgroundColor;
 
   &:hover,
-  &:focus-visible,
   &:active {
+    color: $hover__color;
     border-color: $hover__borderColor;
     background-color: $hover__backgroundColor;
   }

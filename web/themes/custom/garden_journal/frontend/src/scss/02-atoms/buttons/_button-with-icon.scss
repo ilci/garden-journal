@@ -1,0 +1,27 @@
+@use '../../00-settings/variables';
+
+$gap: variables.$layout__spacing * 0.25;
+$icon__fontFamily: variables.$icons__fontFamily;
+$icon__fontSize: variables.$typography__icon__fontSize--small;
+$add__icon: variables.$icons__add;
+
+%button-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: $gap;
+
+  &::before,
+  &::after {
+    content: '';
+    font-family: $icon__fontFamily;
+    font-size: $icon__fontSize;
+  }
+}
+
+.button--add {
+  @extend %button-with-icon;
+
+  &::before {
+    content: $add__icon;
+  }
+}

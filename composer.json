@@ -23,6 +23,7 @@
         "drupal/core-recommended": "^11.4",
         "drupal/easy_breadcrumb": "^2.0",
         "drupal/gin": "^5.0",
+        "drupal/menu_link_attributes": "^1.7",
         "drupal/menu_per_role": "^2.0",
         "drupal/menu_trail_by_path": "^2.2",
         "drupal/range": "^1.6",
