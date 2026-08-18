@@ -4,15 +4,28 @@
 
 $backgroundColor: colorBundles.$utilityLight;
 $borderColor: colorBundles.$interactionDarkColor;
-$borderWidth: 2px;
-$borderRadius: variables.$borderRadius__borderRadius--base;
+$borderWidth: 1px;
+$borderRadius: 14px;
 $color: colorBundles.$primary;
 $disabled__opacity: 0.5;
 $font: variables.$typography__button__font;
 $fontSize: variables.$typography__fontSize--small;
-$minHeight: 44px;
-$minWidth: 95px;
+$fontSize--small: variables.$typography__fontSize--extraSmall;
+$fontSize--large: variables.$typography__fontSize--base;
+$letterSpacing: 0.14px;
+$letterSpacing--small: 0.12px;
+$letterSpacing--large: 0.16px;
 $textTransform: variables.$typography__textTransform;
+$textDecoration: none;
+$minHeight: 40px;
+$minHeight--small: 32px;
+$minHeight--large: 48px;
+$minWidth: 95px;
+$minWidth--small: 60px;
+$padding: 0 20px;
+$padding--small: 0 14px;
+$padding--large: 0 24px;
+$transition: variables.$transitions__allTransition;
 
 %button,
 .button {
@@ -22,8 +35,9 @@ $textTransform: variables.$typography__textTransform;
   align-items: center;
   justify-content: center;
   text-transform: $textTransform;
+  letter-spacing: $letterSpacing;
   cursor: pointer;
-  padding: 0 variables.$layout__spacing;
+  padding: $padding;
   height: auto;
   min-height: $minHeight;
   min-width: $minWidth;
@@ -31,10 +45,30 @@ $textTransform: variables.$typography__textTransform;
   border-radius: $borderRadius;
   color: $color;
   background-color: $backgroundColor;
+  transition: $transition;
 
   @include mixins.mediaQueries__forTabletPortraitUp {
     width: auto;
   }
+
+  &:hover {
+    text-decoration: $textDecoration;
+  }
+}
+
+.button--small {
+  font-size: $fontSize--small;
+  letter-spacing: $letterSpacing--small;
+  padding: $padding--small;
+  min-height: $minHeight--small;
+  min-width: $minWidth--small;
+}
+
+.button--large {
+  font-size: $fontSize--large;
+  letter-spacing: $letterSpacing--large;
+  padding: $padding--large;
+  min-height: $minHeight--large;
 }
 
 .button:has(+ .button)  {

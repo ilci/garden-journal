@@ -1,21 +1,21 @@
 @use '../../00-settings/color-bundles' as colorBundles;
 @use 'primary';
 
-$color: colorBundles.$primary;
-$backgroundColor: colorBundles.$interactionLightColor;
-$borderColor: colorBundles.$interactionLightColor;
-$hover__backgroundColor: colorBundles.$interactionLightHover;
-$hover__borderColor: colorBundles.$interactionLightHover;
+$color: colorBundles.$interactionDarkColor;
+$backgroundColor: transparent;
+$borderColor: colorBundles.$interactionDarkColor;
+$hover__backgroundColor: rgba(colorBundles.$interactionDarkColor--rgb, 0.07);
+$hover__borderColor: colorBundles.$interactionDarkHover;
 
 %button--primary-inverted,
 .button--primary-inverted {
   color: $color;
-  border: primary.$borderWidth solid $borderColor;
+  border-color: $borderColor;
   background-color: $backgroundColor;
 
   &:hover,
-  &:focus-visible,
   &:active {
+    color: $color;
     border-color: $hover__borderColor;
     background-color: $hover__backgroundColor;
   }

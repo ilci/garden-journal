@@ -46,14 +46,16 @@ $collapsed__boxShadow: variables.$shadows__boxShadow--hover;
 
       .menu {
         display: flex;
+        align-items: center;
         list-style: none;
         margin: 0;
         padding: 0;
         gap: 2px;
 
-        .menu__link {
+        .menu__link:not(.button) {
           @include mixins.fonts__setFontFromStack($font...);
           position: relative;
+          font-size: $fontSize;
           color: $link__color;
           padding: math.div(variables.$layout__spacing, 4) math.div(variables.$layout__spacing, 2);
           border-radius: variables.$borderRadius__borderRadius--base;
@@ -71,7 +73,7 @@ $collapsed__boxShadow: variables.$shadows__boxShadow--hover;
         }
 
         .in-active-trail {
-          .menu__link {
+          .menu__link:not(.button) {
             color: $link__color--active;
             font-weight: 500;
             background: rgba(colorBundles.$accent--rgb, 0.22);
@@ -157,7 +159,7 @@ $collapsed__boxShadow: variables.$shadows__boxShadow--hover;
           order: 2;
           opacity: 0;
           visibility: hidden;
-          transition: all variables.$transitions__duration variables.$transitions__timingFunction;
+          transition: variables.$transitions__allTransition;
           margin-left: 0;
           padding: (variables.$layout__spacing * 0.375) (variables.$layout__spacing * 0.5);
 
@@ -189,7 +191,7 @@ $collapsed__boxShadow: variables.$shadows__boxShadow--hover;
           }
 
           .in-active-trail {
-            .menu__link {
+            .menu__link:not(.button) {
               &::after {
                 height: auto;
                 left: 0;

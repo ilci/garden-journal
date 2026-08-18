@@ -1,10 +1,12 @@
 // General font properties
 $fontSize--base: 16px;
 $fontSize--small: 14px;
+$fontSize--extraSmall: 12px;
 $fontSize--medium: 18px;
 $fontSize--large: 20px;
 $icon__fontSize: 24px;
 $icon__fontSize--medium: 20px;
+$icon__fontSize--small: 16px;
 $textTransform: none;
 $lineHeight--base: 1.5;
 $lineHeight--heading: 1.2;
@@ -38,5 +40,5 @@ $h6__fontSize: 14px;
 $navigation__font: SourceSans3, Normal;
 $sideNavigation--primary__font: SourceSans3, Bold;
 $sideNavigation--secondary__font: SourceSans3, Regular;
-$button__font: SourceSans3, Bold;
+$button__font: SourceSans3, Medium;
 $cardLink__font: SourceSans3, Bold;
