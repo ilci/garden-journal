@@ -11,6 +11,7 @@ $secondary: var(--colorBundle__secondary);
 $lightText: var(--colorBundle__lightText);
 $lightText--rgb: var(--colorBundle__lightText--rgb);
 $darkText: var(--colorBundle__darkText);
+$utilityLight--rgb: var(--colorBundle__utilityLight--rgb);
 $utilityLight: var(--colorBundle__utilityLight);
 $utilityDark: var(--colorBundle__utilityDark);
 $tagLabel: var(--colorBundle__tagLabel);
@@ -42,6 +43,7 @@ $shading--rgb: var(--colorBundle__shading--rgb);
 // Backgrounds
 $pageBackground: var(--colorBundle__pageBackground);
 $panelBackground: var(--colorBundle__panelBackground);
+$panelBackground--rgb: var(--colorBundle__panelBackground--rgb);
 $panelHeaderBackground: linear-gradient(
   120deg,
   map.get(colors.$colors, color__primary-1) 0%,

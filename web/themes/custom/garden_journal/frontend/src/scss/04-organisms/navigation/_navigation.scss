@@ -72,23 +72,22 @@ $collapsed__boxShadow: variables.$shadows__boxShadow--hover;
           }
         }
 
-        .in-active-trail {
-          .menu__link:not(.button) {
-            color: $link__color--active;
-            font-weight: 500;
-            background: rgba(colorBundles.$accent--rgb, 0.22);
-            border-radius: variables.$borderRadius__borderRadius--large;
+        .in-active-trail .menu__link:not(.button),
+        .menu__link.is-active {
+          color: $link__color--active;
+          font-weight: 500;
+          background: rgba(colorBundles.$accent--rgb, 0.22);
+          border-radius: variables.$borderRadius__borderRadius--large;
 
-            &::after {
-              content: '';
-              position: absolute;
-              bottom: math.div(variables.$layout__spacing, 8);
-              left: variables.$layout__spacing * 0.5;
-              right: variables.$layout__spacing * 0.5;
-              height: 2px;
-              border-radius: variables.$borderRadius__borderRadius--large;
-              background: colorBundles.$accent;
-            }
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: math.div(variables.$layout__spacing, 8);
+            left: variables.$layout__spacing * 0.5;
+            right: variables.$layout__spacing * 0.5;
+            height: 2px;
+            border-radius: variables.$borderRadius__borderRadius--large;
+            background: colorBundles.$accent;
           }
         }
       }
@@ -190,16 +189,15 @@ $collapsed__boxShadow: variables.$shadows__boxShadow--hover;
             width: 100%;
           }
 
-          .in-active-trail {
-            .menu__link:not(.button) {
-              &::after {
-                height: auto;
-                left: 0;
-                right: variables.$layout__spacing * 0.5;
-                top: 6px;
-                bottom: 6px;
-                width: 3px;
-              }
+          .in-active-trail .menu__link:not(.button),
+          .menu__link.is-active {
+            &::after {
+              height: auto;
+              left: 0;
+              right: variables.$layout__spacing * 0.5;
+              top: 6px;
+              bottom: 6px;
+              width: 3px;
             }
           }
         }

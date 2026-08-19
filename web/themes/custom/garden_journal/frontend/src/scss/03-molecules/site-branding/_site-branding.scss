@@ -5,8 +5,10 @@
 
 $link__padding: math.div(variables.$layout__spacing, 8);
 $link__borderRadius: variables.$borderRadius__borderRadius--medium;
-$logo__maxHeight: 36px;
+$logoWrapper__height: 32px;
+$logo__maxHeight: 26px;
 $logo__borderRadius: variables.$borderRadius__borderRadius--large;
+$logo__backgroundColor: rgba(colorBundles.$panelBackground--rgb, 0.1);
 $name__font: variables.$typography__h4__font;
 $name__fontSize: variables.$typography__h4__fontSize;
 $name__letterSpacing: 0.17px;
@@ -27,7 +29,7 @@ $divider: rgba(colorBundles.$dividerLine--light--rgb, 0.15);
   .site-branding__link {
     display: flex;
     align-items: center;
-    gap: variables.$layout__spacing * 0.5;
+    gap: variables.$layout__spacing * 0.25;
     flex-shrink: 0;
     padding: $link__padding;
     border-radius: $link__borderRadius;
@@ -51,7 +53,13 @@ $divider: rgba(colorBundles.$dividerLine--light--rgb, 0.15);
   }
 
   .site-branding__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: $logo__borderRadius;
+    background-color: $logo__backgroundColor;
+    height: $logoWrapper__height;
+    width: $logoWrapper__height;
 
     img {
       max-height: $logo__maxHeight;
