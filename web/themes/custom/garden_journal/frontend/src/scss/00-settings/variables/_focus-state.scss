@@ -4,6 +4,6 @@ $outlineColor: colorBundles.$utilityFocus;
 $outlineOffset: 2px;
 $outlineStyle: solid;
 $outlineWidth: 2px;
-$outlineBoxShadowColor: var(--colorBundle__interactionLightHover);
+$outlineBoxShadowColor: rgba(colorBundles.$utilityLight--rgb, 0.8);
 $outlineBoxShadow: 0 0 0 $outlineWidth $outlineBoxShadowColor;
 $outlineBoxShadow--inset: inset 0 0 0
