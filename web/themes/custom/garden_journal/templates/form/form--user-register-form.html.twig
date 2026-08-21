@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * Garden Journal's override for the user register form element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see \Drupal\Core\Form\FormPreprocess::preprocessForm()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<form{{attributes}}>
+	<div class="form__header">
+		<div class="form__header-icon">
+			<span class="icon-user-plus"></span>
+		</div>
+		<h2>{{ 'Create your account'|t }}</h2>
+		<p>{{ 'It only takes a moment to get started.'|t }}</p>
+	</div>
+	<div class="form__body">
+		{{children }}
+	</div>
+	<div class="form__footer">
+		<a href="/user/login" target="_blank">{{ 'Already have an account? Log in'|t }}</a>
+	</div>
+</form>

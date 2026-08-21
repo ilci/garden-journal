@@ -30,13 +30,19 @@ $accent: var(--colorBundle__accent);
 $accent--rgb: var(--colorBundle__accent--rgb);
 $formBorder: var(--colorBundle__formBorder);
 $formFill: var(--colorBundle__formFill);
+$selectionOutline: var(--colorBundle__selectionOutline);
 $dividerLine: var(--colorBundle__dividerLine);
 $dividerLine--light: var(--colorBundle__dividerLineLight);
 $dividerLine--light--rgb: var(--colorBundle__dividerLineLight--rgb);
+$dividerLine--gradient: linear-gradient(90deg,
+  map.get(colors.$colors, color__success) 0%,
+  map.get(colors.$colors, color__primary-3) 60%,
+  map.get(colors.$colors, color__accent-1) 100%);;
 $tagFill: var(--colorBundle__tagFill);
 $tagBorder: var(--colorBundle__tagBorder);
 $tagOutlinedHover: var(--colorBundle__tagOutlinedHover);
 $tooltipBackground: var(--colorBundle__tooltipBackground);
+$iconColorLight: var(--colorBundle__iconColorLight);
 $shading: var(--colorBundle__shading);
 $shading--rgb: var(--colorBundle__shading--rgb);
 
@@ -52,12 +58,16 @@ $panelHeaderBackground: linear-gradient(
 );
 $pageTitleBackground: var(--colorBundle__pageTitleBackground);
 $navigationBackground: var(--colorBundle__navigationBackground);
-$heroOverlay: var(--colorBundle__heroOverlay);
+$heroBackground: var(--colorBundle__heroBackground);
 $footerBackground: var(--colorBundle__footerBackground);
 
 // Utility colors
 $utilitySuccess: var(--colorBundle__utilitySuccess);
+$utilitySuccess--rgb: var(--colorBundle__utilitySuccess--rgb);
 $utilityWarning: var(--colorBundle__utilityWarning);
+$utilityWarning--rgb: var(--colorBundle__utilityWarning--rgb);
 $utilityError: var(--colorBundle__utilityError);
+$utilityError--rgb: var(--colorBundle__utilityError--rgb);
 $utilityInfo: var(--colorBundle__utilityInfo);
+$utilityInfo--rgb: var(--colorBundle__utilityInfo--rgb);
 $utilityFocus: var(--colorBundle__utilityFocus);

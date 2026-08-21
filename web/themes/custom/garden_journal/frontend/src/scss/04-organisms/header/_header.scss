@@ -1,0 +1,10 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+
+$backgroundColor: colorBundles.$heroBackground;
+$padding: (variables.$layout__spacing * 0.25) 0 (variables.$layout__spacing * 0.5);
+
+.page-header {
+  background-color: $backgroundColor;
+  padding: $padding;
+}

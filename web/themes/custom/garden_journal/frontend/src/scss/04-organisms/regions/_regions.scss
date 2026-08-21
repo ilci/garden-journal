@@ -2,9 +2,7 @@
 @use '../../00-settings/variables';
 
 $breadcrumb__backgroundColor: colorBundles.$pageTitleBackground;
-$breadcrumb__border: 1px solid colorBundles.$dividerLine;
 
 .region--breadcrumb {
   background-color: $breadcrumb__backgroundColor;
-  border-bottom: $breadcrumb__border;
 }

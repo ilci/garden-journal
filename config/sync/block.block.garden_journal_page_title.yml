@@ -1,0 +1,18 @@
+uuid: 9ba8bfb6-7035-4219-adfe-b44ccb1b1a97
+langcode: en
+status: true
+dependencies:
+  theme:
+    - garden_journal
+id: garden_journal_page_title
+theme: garden_journal
+region: header_first
+weight: 0
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

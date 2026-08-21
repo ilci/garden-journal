@@ -19,7 +19,13 @@
  */
 #}
 
-{% set attributes = attributes.addClass(['panel', 'my-account']) %}
+{%
+  set attributes = attributes.addClass([
+    'panel',
+    'my-account',
+    'thin'
+  ])
+%}
 
 <div {{ attributes }}>
   <div class="panel__header">
