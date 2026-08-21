@@ -55,23 +55,22 @@
 %}
 
 <div class="site-content">
-  {% block page_header %}
-    {% block region_navigation %}
-      {{ page.navigation }}
-    {% endblock %}
-    <header{{ header_attributes.addClass('page-header--nav-above') }}>
-      {% block region_header_first %}
-        {{ page.header_first }}
-      {% endblock %}
-      {% block region_header_second %}
-        {{ page.header_second }}
-      {% endblock %}
-    </header>
+  {% block region_navigation %}
+    {{ page.navigation }}
   {% endblock %}
 
   {% block region_breadcrumb %}
     {{ page.breadcrumb }}
   {% endblock %}
+
+  <header class="page-header">
+    {% block region_header_first %}
+      {{ page.header_first }}
+    {% endblock %}
+    {% block region_header_second %}
+      {{ page.header_second }}
+    {% endblock %}
+  </header>
 
   {% block page_main %}
   <main{{ content_attributes.addClass('js-quickedit-region') }}>

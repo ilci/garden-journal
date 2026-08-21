@@ -1,0 +1,39 @@
+@use 'sass:map';
+@use 'sass:math';
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+
+$color: colorBundles.$secondary;
+$backgroundColor: rgba(colorBundles.$utilityInfo--rgb, 0.07);
+$borderColor: rgba(colorBundles.$utilityInfo--rgb, 0.208);
+$borderRadius: variables.$borderRadius__borderRadius--large;
+$padding: 12px 14px;
+$messages: info, status, success, error, warning;
+
+$backgroundColors: (
+  info: rgba(colorBundles.$utilityInfo--rgb, 0.07),
+  status: rgba(colorBundles.$utilitySuccess--rgb, 0.07),
+  success: rgba(colorBundles.$utilitySuccess--rgb, 0.07),
+  error: rgba(colorBundles.$utilityError--rgb, 0.07),
+  warning: rgba(colorBundles.$utilityWarning--rgb, 0.07),
+);
+
+.message {
+  color: $color;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: variables.$layout__spacing * 0.25; 
+  position: relative;
+  margin: variables.$layout__spacing 0;
+  padding: $padding;
+  background-color: $backgroundColor;
+  border: 1px solid $borderColor;
+  border-radius: $borderRadius;
+}
+
+@each $message in $messages {
+  .message--#{$message} {
+    background-color: map.get($backgroundColors, $message);
+  }
+}

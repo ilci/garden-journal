@@ -2,8 +2,8 @@
 @use '../../00-settings/variables';
 @use '../../00-settings/mixins';
 
-$color: colorBundles.$interactionDarkColor;
-$hover__color: colorBundles.$interactionDarkHover;
+$color: colorBundles.$interactionLightColor;
+$hover__color: colorBundles.$interactionLightHover;
 $transition--color: variables.$transitions__colorTransition;
 $textLink__textDecoration: underline;
 $textLink__textUnderlineOffset: variables.$typography__link__textUnderlineOffset;

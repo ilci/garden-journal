@@ -6,7 +6,6 @@ $backgroundColor: colorBundles.$panelBackground;
 $boxShadow: variables.$shadows__boxShadow;
 $border: 1px solid colorBundles.$dividerLine;
 $borderRadius: variables.$borderRadius__borderRadius--extraLarge;
-$maxWidth: 720px;
 $headerMinHeight: 80px;
 $padding: variables.$layout__spacing * 0.75;
 
@@ -16,7 +15,7 @@ $padding: variables.$layout__spacing * 0.75;
   box-shadow: $boxShadow;
   border: $border;
   border-radius: $borderRadius;
-  max-width: $maxWidth;
+  padding: $padding;
   margin: 0 auto;
 }
 
@@ -26,13 +25,13 @@ $padding: variables.$layout__spacing * 0.75;
   min-height: $headerMinHeight;
   background: colorBundles.$panelHeaderBackground;
   border-radius: $borderRadius $borderRadius 0 0;
+  margin: (-$padding) (-$padding) ($padding * 0.5) (-$padding);
 }
 
 .panel__body {
   display: flex;
   justify-content: space-between;
   gap: $padding * 0.5;
-  padding: ($padding * 0.5) $padding;
 
   .panel__body--left {
     margin-top: variables.$layout__spacing;

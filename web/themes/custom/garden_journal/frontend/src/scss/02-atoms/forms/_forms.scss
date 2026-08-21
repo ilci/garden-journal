@@ -1,0 +1,157 @@
+@use 'sass:math';
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+@use '../../02-atoms/buttons';
+
+// Field label
+$label__font: variables.$typography__text--medium__font;
+$label__fontSize: variables.$typography__fontSize--small;
+$required__color: colorBundles.$utilityError;
+
+// Description
+$description__fontSize: variables.$typography__fontSize--extraSmall;
+$description__color: colorBundles.$secondary;
+
+// Input
+$input__minHeight: 40px;
+$input__padding: 10px 14px;
+$input__fontSize: variables.$typography__fontSize--small;
+$input__color: colorBundles.$primary;
+$input__backgroundColor: colorBundles.$formFill;
+$input__borderWidth: 1px;
+$input__borderColor: colorBundles.$formBorder;
+$input__borderRadius: variables.$borderRadius__borderRadius--large;
+$input--hover__borderColor: colorBundles.$selectionOutline;
+$input__error__borderColor: colorBundles.$utilityError;
+$input__success__borderColor: colorBundles.$utilitySuccess;
+$input__warning__borderColor: colorBundles.$utilityWarning;
+
+// Form header
+$formHeaderIcon__color: colorBundles.$iconColorLight;
+$formHeaderIcon__backgroundColor: colorBundles.$navigationBackground;
+
+// Form footer
+$formFooter__divider: colorBundles.$dividerLine--gradient;
+
+.form-item {
+  label:not(.option) {
+    @include mixins.fonts__setFontFromStack($label__font...);
+    font-size: $label__fontSize;
+    display: flex;
+    margin-bottom: math.div(variables.$layout__spacing, 8);
+  }
+
+  .description {
+    font-size: $description__fontSize;
+    color: $description__color;
+    margin-top: math.div(variables.$layout__spacing, 8);
+  }
+}
+
+.form-item:has(+ .form-item) {
+  margin-bottom: variables.$layout__spacing * 0.5;
+}
+
+input,
+select,
+textarea {
+  @include mixins.focusState__focusState;
+  font-size: $input__fontSize;
+  color: $input__color;
+  min-height: $input__minHeight;
+  width: 100%;
+  max-width: 100%;
+  border: $input__borderWidth solid $input__borderColor;
+  border-radius: $input__borderRadius;
+  background-color: $input__backgroundColor;
+  padding: $input__padding;
+
+  &:hover {
+    border-color: $input--hover__borderColor;
+  }
+
+  &.error {
+    border-color: $input__error__borderColor;
+  }
+
+  &.success {
+    border-color: $input__success__borderColor;
+  }
+
+  &.warning {
+    border-color: $input__warning__borderColor;
+  }
+}
+
+.form-actions {
+  margin-top: variables.$layout__spacing * 0.5;
+}
+
+.form-required {
+  position: relative;
+
+  &::before {
+    content: '*';
+    margin-right: math.div(variables.$layout__spacing, 6);
+    font-size: variables.$typography__fontSize--small;
+    color: $required__color;
+  }
+}
+
+.form.extra-thin {
+  .form__body {
+    .form-submit {
+      width: 100%;
+    }
+  }
+}
+
+.form__header,
+.form__footer {
+  font-size: variables.$typography__fontSize--small;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: math.div(variables.$layout__spacing, 8);
+
+  p {
+    margin: 0;
+  }
+}
+
+.form__header {
+  color: colorBundles.$secondary;
+  margin-bottom: variables.$layout__spacing;
+
+  .form__header-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: variables.$typography__fontSize--base;
+    color: $formHeaderIcon__color;
+    background-color: $formHeaderIcon__backgroundColor;
+    border-radius: variables.$borderRadius__borderRadius--extraLarge;
+    margin-bottom: variables.$layout__spacing * 0.375;
+    width: 50px;
+    height: 50px;
+
+    span {
+      &::before {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.form__footer {
+  margin-top: variables.$layout__spacing;
+  
+  &::before {
+    content: '';
+    background: $formFooter__divider;
+    width: 100%;
+    height: 1px;
+    margin-bottom: variables.$layout__spacing * 0.5;
+  }
+}

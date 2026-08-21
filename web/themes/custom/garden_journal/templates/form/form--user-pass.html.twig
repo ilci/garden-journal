@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Garden Journal's override for the user reset password form element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see \Drupal\Core\Form\FormPreprocess::preprocessForm()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<form{{attributes}}>
+  <div class="form__header">
+    <div class="form__header-icon"><span class="icon-key"></span></div>
+    <h2>{{ 'Forgot your password?'|t }}</h2>
+    <p>{{ "Enter your username or email and we'll send reset instructions."|t }}</p>
+  </div>
+  <div class="form__body">
+    {{children }}
+  </div>
+  <div class="form__footer">
+    <a href="/user/login" target="_blank">{{ 'Back to log in'|t }}</a>
+  </div>
+</form>

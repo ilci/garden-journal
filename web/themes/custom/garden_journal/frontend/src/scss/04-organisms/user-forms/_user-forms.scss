@@ -1,0 +1,36 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+@use '../../02-atoms/messages';
+
+.user-pass {
+  .form__body {
+    > p {
+      @extend .message, .message--info;
+      font-size: variables.$typography__fontSize--extraSmall;
+      margin: (variables.$layout__spacing * 0.5) 0;
+
+      &::before {
+        @include mixins.fonts__setFontIcon(variables.$icons__mail);
+        font-size: variables.$typography__icon__fontSize--extraSmall;
+        color: colorBundles.$utilityInfo;
+        line-height: 1;
+      }
+    }
+  }
+
+  .form__footer {
+    a {
+      display: inline-block;
+
+      &::before {
+        @include mixins.fonts__setFontIcon(variables.$icons__arrowLeft);
+        font-size: variables.$typography__fontSize--small;
+        display: inline-flex;
+        position: relative;
+        top: 2px;
+        margin-right: variables.$layout__spacing * 0.25;
+      }
+    }
+  }
+}

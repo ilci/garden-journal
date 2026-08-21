@@ -94,6 +94,10 @@ $colorComponents: (
         displayName: 'Form fill',
         value: map.get(colors.$colors, color__neutral-1),
       ),
+      colorBundle__selectionOutline: (
+        displayName: 'Selection outline',
+        value: map.get(colors.$colors, color__neutral-4),
+      ),
       colorBundle__dividerLine: (
         displayName: 'Divider line',
         value: map.get(colors.$colors, color__neutral-3),
@@ -117,6 +121,10 @@ $colorComponents: (
       colorBundle__tooltipBackground: (
         displayName: 'Tooltip background',
         value: map.get(colors.$colors, color__primary-1),
+      ),
+      colorBundle__iconColorLight: (
+        displayName: 'Icon color light',
+        value: map.get(colors.$colors, color__primary-4),
       ),
       colorBundle__shading: (
         displayName: 'Shading',
@@ -143,9 +151,9 @@ $colorComponents: (
         displayName: 'Navigation background',
         value: map.get(colors.$colors, color__primary-1),
       ),
-      colorBundle__heroOverlay: (
-        displayName: 'Hero overlay',
-        value: map.get(colors.$colors, color__primary-1),
+      colorBundle__heroBackground: (
+        displayName: 'Hero background',
+        value: map.get(colors.$colors, color__neutral-2),
       ),
       colorBundle__footerBackground: (
         displayName: 'Footer background',

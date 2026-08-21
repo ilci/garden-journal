@@ -7,6 +7,7 @@ $fontSize--large: 20px;
 $icon__fontSize: 24px;
 $icon__fontSize--medium: 20px;
 $icon__fontSize--small: 16px;
+$icon__fontSize--extraSmall: 14px;
 $textTransform: none;
 $lineHeight--base: 1.5;
 $lineHeight--heading: 1.2;
@@ -15,6 +16,7 @@ $lineHeight--subheading: 1.4;
 // Element font types
 $body__font: SourceSans3, Regular;
 $text--small__font: SourceSans3, SemiBold;
+$text--medium__font: SourceSans3, Medium;
 $text--lead__font: SourceSans3, ExtraBold;
 $quote__font: SourceSans3, Italic;
 $link__font: SourceSans3, SemiBold;
@@ -23,7 +25,7 @@ $link__textUnderlineOffset: 3px;
 // Heading font types
 $h1--hero__font: CormorantGaramond, Bold;
 $h1__font: CormorantGaramond, Medium;
-$h2__font: CormorantGaramond, Medium;
+$h2__font: CormorantGaramond, SemiBold;
 $h3__font: CormorantGaramond, Medium;
 $h4__font: CormorantGaramond, Medium;
 $h5__font: CormorantGaramond, Medium;
