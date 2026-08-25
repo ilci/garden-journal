@@ -32,7 +32,7 @@ mode: default
 content:
   field_active:
     type: boolean
-    label: above
+    label: hidden
     settings:
       format: default
       format_custom_false: ''
@@ -51,7 +51,7 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     weight: 9
     region: content
@@ -59,7 +59,7 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     weight: 10
     region: content
@@ -70,7 +70,7 @@ content:
       range_separator: '-'
       thousand_separator: ''
       range_combine: true
-      field_prefix_suffix: false
+      field_prefix_suffix: true
       from_prefix_suffix: false
       to_prefix_suffix: false
       combined_prefix_suffix: false
@@ -79,7 +79,7 @@ content:
     region: content
   field_hungarian_name:
     type: string
-    label: above
+    label: visually_hidden
     settings:
       link_to_entity: false
       link_rel: canonical
@@ -88,7 +88,7 @@ content:
     region: content
   field_image:
     type: entity_reference_entity_view
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: false
@@ -99,7 +99,7 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     weight: 5
     region: content
@@ -114,7 +114,7 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     weight: 4
     region: content
@@ -122,7 +122,7 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     weight: 11
     region: content
@@ -139,7 +139,7 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     weight: 8
     region: content
@@ -147,13 +147,13 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     weight: 6
     region: content
   field_variety:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
       link_rel: canonical
@@ -164,7 +164,7 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     weight: 7
     region: content
@@ -175,7 +175,7 @@ content:
       range_separator: '-'
       thousand_separator: ''
       range_combine: true
-      field_prefix_suffix: false
+      field_prefix_suffix: true
       from_prefix_suffix: false
       to_prefix_suffix: false
       combined_prefix_suffix: false

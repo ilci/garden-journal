@@ -12,7 +12,7 @@ entity_type: node
 bundle: garden_bed
 label: 'Soil type'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

@@ -6,5 +6,8 @@ $padding: (variables.$layout__spacing * 0.25) 0 (variables.$layout__spacing * 0.
 
 .page-header {
   background-color: $backgroundColor;
-  padding: $padding;
+
+  .block--page-title-block {
+    padding: $padding;
+  }
 }

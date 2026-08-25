@@ -11,11 +11,11 @@ entity_type: node
 bundle: plant
 label: Active
 description: 'Still growing this variety?'
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  on_label: 'On'
-  off_label: 'Off'
+  on_label: 'Active in garden'
+  off_label: 'Inactive in garden'
 field_type: boolean

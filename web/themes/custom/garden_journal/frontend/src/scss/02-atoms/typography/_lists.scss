@@ -1,0 +1,12 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+
+$indicator__color: colorBundles.$accent;
+
+ul,
+ol {
+  li {
+    &::marker {
+      color: $indicator__color;
+    }
+  }
+}

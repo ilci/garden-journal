@@ -11,7 +11,7 @@ entity_type: node
 bundle: garden_bed
 label: 'Garden bed length'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -19,5 +19,5 @@ settings:
   min: null
   max: null
   prefix: ''
-  suffix: cm
+  suffix: ' cm'
 field_type: integer

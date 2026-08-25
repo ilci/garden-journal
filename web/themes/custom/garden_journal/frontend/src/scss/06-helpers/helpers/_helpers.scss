@@ -16,3 +16,9 @@ $elementSize--extraThin: calc(#{math.div(4, variables.$layout__grid__columns)} *
     max-width: $elementSize--extraThin;
   }
 }
+
+.has-background-image {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

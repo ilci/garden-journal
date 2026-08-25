@@ -39,7 +39,7 @@ content:
     third_party_settings: {  }
   field_active:
     type: boolean_checkbox
-    weight: 20
+    weight: 21
     region: content
     settings:
       display_label: true
@@ -94,7 +94,7 @@ content:
     third_party_settings: {  }
   field_image:
     type: media_library_widget
-    weight: 21
+    weight: 20
     region: content
     settings:
       media_types: {  }

@@ -73,7 +73,7 @@ $collapsed__boxShadow: variables.$shadows__boxShadow--hover;
         }
 
         .in-active-trail .menu__link:not(.button),
-        .menu__link.is-active {
+        .menu__link:not(.button).is-active {
           color: $link__color--active;
           font-weight: 500;
           background: rgba(colorBundles.$accent--rgb, 0.22);
@@ -103,7 +103,6 @@ $collapsed__boxShadow: variables.$shadows__boxShadow--hover;
     }
   }
 }
-
 
 // Collapsed navigation.
 @include mixins.mediaQueries__forTabletLandscapeDown {
@@ -182,15 +181,20 @@ $collapsed__boxShadow: variables.$shadows__boxShadow--hover;
          
           .menu__item {
             display: inline-flex;
+            width: 100%;
           }
 
           .menu__link {
             white-space: normal;
             width: 100%;
+
+            &.button {
+              width: auto;
+            }
           }
 
           .in-active-trail .menu__link:not(.button),
-          .menu__link.is-active {
+          .menu__link:not(.button).is-active {
             &::after {
               height: auto;
               left: 0;

@@ -7,7 +7,9 @@ $pageTitle: var(--colorBundle__pageTitle);
 $headings: var(--colorBundle__headings);
 $footerText: var(--colorBundle__footerText);
 $primary: var(--colorBundle__primary);
+$primary--rgb: var(--colorBundle__primary--rgb);
 $secondary: var(--colorBundle__secondary);
+$tertiary: var(--colorBundle__tertiary);
 $lightText: var(--colorBundle__lightText);
 $lightText--rgb: var(--colorBundle__lightText--rgb);
 $darkText: var(--colorBundle__darkText);
@@ -32,12 +34,13 @@ $formBorder: var(--colorBundle__formBorder);
 $formFill: var(--colorBundle__formFill);
 $selectionOutline: var(--colorBundle__selectionOutline);
 $dividerLine: var(--colorBundle__dividerLine);
+$dividerLine--rgb: var(--colorBundle__dividerLine--rgb);
 $dividerLine--light: var(--colorBundle__dividerLineLight);
 $dividerLine--light--rgb: var(--colorBundle__dividerLineLight--rgb);
 $dividerLine--gradient: linear-gradient(90deg,
   map.get(colors.$colors, color__success) 0%,
   map.get(colors.$colors, color__primary-3) 60%,
-  map.get(colors.$colors, color__accent-1) 100%);;
+  map.get(colors.$colors, color__accent-1) 100%);
 $tagFill: var(--colorBundle__tagFill);
 $tagBorder: var(--colorBundle__tagBorder);
 $tagOutlinedHover: var(--colorBundle__tagOutlinedHover);
