@@ -13,6 +13,7 @@ export default defineConfig({
         style: resolve(__dirname, 'src/scss/style.scss'),
         font_faces: resolve(__dirname, 'src/scss/font-faces.scss'),
         garden_journal_navigation: resolve(__dirname, 'src/js/garden_journal_navigation.js'),
+        garden_journal_image_fields: resolve(__dirname, 'src/js/garden_journal_image_fields.js'),
       },
 
       output: {

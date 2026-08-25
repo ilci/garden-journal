@@ -1,0 +1,23 @@
+uuid: d1cd7a09-3190-44df-803f-0485b77a14f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.garden_bed
+  module:
+    - node
+id: garden_bed_pattern
+label: 'Garden bed pattern'
+type: 'canonical_entities:node'
+pattern: '/garden-beds/[node:title]'
+selection_criteria:
+  a2de7a1d-7948-4e78-9ce0-3b42154701b8:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      garden_bed: garden_bed
+selection_logic: and
+weight: -5
+relationships: {  }

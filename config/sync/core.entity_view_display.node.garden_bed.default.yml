@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.garden_bed.field_garden_bed_type
     - field.field.node.garden_bed.field_garden_bed_width
     - field.field.node.garden_bed.field_image
+    - field.field.node.garden_bed.field_plants
     - field.field.node.garden_bed.field_soil_needs
     - field.field.node.garden_bed.field_sunlight_needs
     - node.type.garden_bed
@@ -22,13 +23,13 @@ mode: default
 content:
   field_active:
     type: boolean
-    label: above
+    label: visually_hidden
     settings:
       format: default
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 7
+    weight: 8
     region: content
   field_description:
     type: text_default
@@ -48,9 +49,9 @@ content:
     region: content
   field_garden_bed_type:
     type: entity_reference_label
-    label: above
+    label: visually_hidden
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     weight: 0
     region: content
@@ -65,18 +66,26 @@ content:
     region: content
   field_image:
     type: entity_reference_entity_view
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
     weight: 6
     region: content
-  field_soil_needs:
+  field_plants:
     type: entity_reference_label
     label: above
     settings:
       link: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_soil_needs:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
     third_party_settings: {  }
     weight: 4
     region: content
@@ -84,13 +93,13 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     weight: 5
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 8
+    weight: 9
     region: content
 hidden: {  }

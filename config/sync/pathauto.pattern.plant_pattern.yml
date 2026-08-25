@@ -1,0 +1,23 @@
+uuid: ea93c96f-a6de-494d-909c-b288a7cb5653
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.plant
+  module:
+    - node
+id: plant_pattern
+label: 'Plant pattern'
+type: 'canonical_entities:node'
+pattern: '/plants/[node:title]'
+selection_criteria:
+  1586ce7a-b7de-4f9d-a3c4-a7d22f9453a3:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      plant: plant
+selection_logic: and
+weight: -5
+relationships: {  }

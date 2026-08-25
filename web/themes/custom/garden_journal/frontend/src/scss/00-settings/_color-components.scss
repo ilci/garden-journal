@@ -7,7 +7,7 @@ $colorComponents: (
     colors: (
       colorBundle__heroText: (
         displayName: 'Hero text',
-        value: map.get(colors.$colors, color__neutral-1),
+        value: map.get(colors.$colors, color__primary-1),
       ),
       colorBundle__pageTitle: (
         displayName: 'Page title',
@@ -28,6 +28,10 @@ $colorComponents: (
       colorBundle__secondary: (
         displayName: 'Secondary color',
         value: map.get(colors.$colors, color__neutral-5),
+      ),
+      colorBundle__tertiary: (
+        displayName: 'Tertiary color',
+        value: map.get(colors.$colors, color__primary-3),
       ),
       colorBundle__lightText: (
         displayName: 'Light text',
@@ -51,7 +55,7 @@ $colorComponents: (
       ),
       colorBundle__navigation: (
         displayName: 'Navigation',
-        value: map.get(colors.$colors, color__primary-3),
+        value: map.get(colors.$colors, color__neutral-2),
       ),
       colorBundle__navigationHover: (
         displayName: 'Navigation',
@@ -128,7 +132,7 @@ $colorComponents: (
       ),
       colorBundle__shading: (
         displayName: 'Shading',
-        value: map.get(colors.$colors, color__neutral-5),
+        value: map.get(colors.$colors, color__black),
       ),
     ),
   ),
