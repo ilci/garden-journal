@@ -1,0 +1,18 @@
+uuid: 16957719-11ce-4bbb-b2c2-f3542113f165
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Journal entry'
+type: journal_entry
+description: 'Represents a description of a visit to the garden, an observation, a task, a problem, or simply something you want to remember.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false
