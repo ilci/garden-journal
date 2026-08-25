@@ -1,0 +1,9 @@
+uuid: fa258ecf-7113-4568-bbd5-adbef153cfc0
+langcode: en
+status: true
+dependencies: {  }
+name: 'Entry type'
+vid: entry_type
+description: null
+weight: 0
+new_revision: false

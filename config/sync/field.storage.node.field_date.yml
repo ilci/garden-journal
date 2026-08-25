@@ -1,18 +1,19 @@
-uuid: e155a248-8a2b-4246-814e-33faefac45fa
+uuid: 13d9619d-ee80-4922-b40a-b35c1680c558
 langcode: en
 status: true
 dependencies:
   module:
+    - datetime
     - node
-id: node.field_garden_bed
-field_name: field_garden_bed
+id: node.field_date
+field_name: field_date
 entity_type: node
-type: entity_reference
+type: datetime
 settings:
-  target_type: node
-module: core
+  datetime_type: datetime
+module: datetime
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

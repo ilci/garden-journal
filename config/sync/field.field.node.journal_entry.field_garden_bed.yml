@@ -1,0 +1,29 @@
+uuid: 7a9b2f29-23c3-46f3-9ab3-de8ff0fc0adc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_garden_bed
+    - node.type.garden_bed
+    - node.type.journal_entry
+id: node.journal_entry.field_garden_bed
+field_name: field_garden_bed
+entity_type: node
+bundle: journal_entry
+label: 'Garden bed'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      garden_bed: garden_bed
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

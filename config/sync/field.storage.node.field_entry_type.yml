@@ -1,18 +1,19 @@
-uuid: e155a248-8a2b-4246-814e-33faefac45fa
+uuid: 29a02a5b-77a5-41b2-a943-8b72989a46b4
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_garden_bed
-field_name: field_garden_bed
+    - taxonomy
+id: node.field_entry_type
+field_name: field_entry_type
 entity_type: node
 type: entity_reference
 settings:
-  target_type: node
+  target_type: taxonomy_term
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
