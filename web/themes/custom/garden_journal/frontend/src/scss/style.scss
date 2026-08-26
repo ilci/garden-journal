@@ -33,7 +33,8 @@
 @use '04-organisms/header';
 
 // Pages
-@use '05-pages/plants-and-beds';
+@use '05-pages/common';
+@use '05-pages/journal-entry';
 
 // Helpers
 @use '06-helpers/helpers';

@@ -1,0 +1,54 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+
+.page-node-type-journal-entry {
+  article.full {
+    .entry__titles {
+      > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .tag {
+        display: inline-flex;
+
+        .field__label {
+          display: none;
+        }
+      }
+    }
+
+    .entry__additional {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: variables.$layout__spacing;
+
+      .field {
+        .field__label {
+          @include mixins.fonts__setFontFromStack(variables.$typography__text--small__font...);
+          font-size: variables.$typography__fontSize--extraSmall;
+          letter-spacing: 0.9px;
+          text-transform: uppercase;
+          color: colorBundles.$tertiary;
+          position: unset;
+          padding: 0;
+          margin-bottom: variables.$layout__spacing * 0.25;
+          border-radius: 0;
+          background-color: unset;
+        }
+      }
+    }
+
+    @include mixins.mediaQueries__forMobileOnly {
+      .entry__specifications {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .entry__additional {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}

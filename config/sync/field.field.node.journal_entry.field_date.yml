@@ -11,7 +11,7 @@ id: node.journal_entry.field_date
 field_name: field_date
 entity_type: node
 bundle: journal_entry
-label: Date
+label: 'Event date'
 description: 'When the event/observation happened.'
 required: true
 translatable: false

@@ -3,7 +3,7 @@
 @use '../functions';
 
 /// @see: https://css-tricks.com/snippets/css/fluid-typography/
-@mixin fluidType($fontSize--min, $fontSize--max, $vw--min: 300px, $vw--max: breakpoints.$desktop) {
+@mixin fluidType($fontSize--min, $fontSize--max, $vw--min: 320px, $vw--max: breakpoints.$desktop) {
   $u1: math.unit($fontSize--min);
   $u2: math.unit($fontSize--max);
   $u3: math.unit($vw--min);

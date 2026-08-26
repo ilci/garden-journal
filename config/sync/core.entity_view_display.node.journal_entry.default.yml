@@ -24,7 +24,7 @@ content:
     label: above
     settings:
       timezone_override: ''
-      format_type: medium
+      format_type: olivero_medium
     third_party_settings: {  }
     weight: 101
     region: content
@@ -39,7 +39,7 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     weight: 102
     region: content
