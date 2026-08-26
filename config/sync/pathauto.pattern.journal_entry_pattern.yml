@@ -1,0 +1,23 @@
+uuid: 31de3faa-4b41-4eb5-8c72-8020fcdf129c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.journal_entry
+  module:
+    - node
+id: journal_entry_pattern
+label: 'Journal entry pattern'
+type: 'canonical_entities:node'
+pattern: '/journal-entries/[node:title]'
+selection_criteria:
+  ceac550a-e406-4c14-8ebd-d6756aded18e:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      journal_entry: journal_entry
+selection_logic: and
+weight: -5
+relationships: {  }
