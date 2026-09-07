@@ -27,7 +27,7 @@ $userInitial__border: 3px solid colorBundles.$lightText;
 
   .my-account__member-for {
     .form-item {
-      @extend %tag, %tag--info;
+      @extend %tag, %tag--default;
       display: inline-flex;
       align-items: center;
       gap: math.div(variables.$layout__spacing, 8);

@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Garden Journal's override to display a Plant node.
+ * Garden Journal's override to display a Journal entry node as a card.
  *
  * Available variables:
  * - node: The node entity with limited access to object properties and methods.
@@ -60,58 +60,39 @@
  */
 #}
 
-{%
-  set articleClasses = [
-    node.bundle|clean_class,
-    view_mode ? view_mode|clean_class,
-  ]
-%}
-{%
-  set contentClasses = [
-    'content',
-    'entry',
-  ]
-%}
+{% extends '@garden_journal/node/partials/card-view.html.twig' %}
 
-<article{{attributes.addClass(articleClasses)}}>
-	<div{{content_attributes.addClass(contentClasses)}}>
-		<div class="entry__header">
-			<div class="entry__header-image has-background-image" style="background-image: url('{{ file_url(node.field_image.entity.field_media_image.entity.uri.value) }}')">
-				<span class="entry__availability tag tag--{{ node.field_active.value == '1' ? 'active' : 'inactive' }}">
-					{{ content.field_active }}
-				</span>
-			</div>
-		</div>
-		<div class="entry__body">
-			<div class="entry__titles">
-				<span class="entry__section-title">{{ 'Botanical specifications'|t }}</span>
-				<h1 class="entry__title h1--hero">{{ label }}</h1>
-				<h2 class="entry__subtitle">{{ content.field_hungarian_name }}</h2>
-			</div>
-			<div class="entry__specifications">
-				<div>{{ content.field_plant_type }}</div>
-				<div>{{ content.field_lifecycle }}</div>
-				<div>{{ content.field_sunlight_needs }}</div>
-				<div>{{ content.field_water_needs }}</div>
-				<div>{{ content.field_soil_needs }}</div>
-				<div>{{ content.field_flower_color }}</div>
-				<div>{{ content.field_flowering_time }}</div>
-				<div>{{ content.field_pruning }}</div>
-				<div>{{ content.field_height }}</div>
-				<div>{{ content.field_width }}</div>
-			</div>
-			<div class="entry__description">
-				<div>{{ content.field_description }}</div>
-			</div>
-			{% if content.field_personal_notes|render|trim %}
-				<div class="entry__additional">
-					<div>{{ content.field_personal_notes }}</div>
-				</div>
-			{% endif %}
-			<div class="entry__images">
-				<div class="field__label">{{ 'Gallery'|t }}</div>
-				{{ content.field_image }}
-			</div>
-		</div>
-	</div>
-</article>
+{% set attributes = attributes.addClass(['card--quicklink', 'card--two-col']) %}
+
+{% block card %}
+  <div{{attributes}}>
+    <div class="card__left">
+      <div class="card__header">
+        <div class="card__overline">{{ content.field_date }}</div>
+        <div class="tag tag--default">{{ content.field_entry_type }}</div>
+      </div>
+      <h2{{title_attributes}}>
+        {{ label }}
+      </h2>
+      <div{{content_attributes}}>
+        {{ content.field_description }}
+        {% if node.field_garden_bed.value or node.field_plants.value %}
+          <div class="card__tags tags">
+            {% if node.field_garden_bed.value %}
+              {{ content.field_garden_bed }}
+            {% endif %}
+            {% if node.field_plants.value %}
+              {{ content.field_plants }}
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+      <a{{linkAttributes.setAttribute('href',url).setAttribute('rel','bookmark')}}>{{ 'Read more about '|t }}{{ label }}</a>
+    </div>
+    {% if node.field_image.value %}
+      <div class="card__right">
+        <div class="card__image has-background-image" style="background-image: url('{{ file_url(node.field_image.entity.field_media_image.entity.uri.value) }}')"></div>
+      </div>
+    {% endif %}
+  </div>
+{% endblock card %}

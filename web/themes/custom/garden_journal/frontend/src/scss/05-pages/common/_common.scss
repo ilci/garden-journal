@@ -3,38 +3,38 @@
 @use '../../00-settings/variables';
 @use '../../00-settings/mixins';
 
-$borderRadius: variables.$borderRadius__borderRadius--extraLarge * 3;
-$boxShadow: 0 25px 50px -12px rgba(colorBundles.$shading--rgb, 0.25);
+$borderRadius: variables.$borderRadius__borderRadius--extraLarge * 2.5;
+$boxShadow: variables.$shadows__boxShadow--large;
 $border: 1px solid rgba(colorBundles.$dividerLine--rgb, 0.5);
 $headerOverlay: linear-gradient(to top, rgba(colorBundles.$interactionDarkColor--rgb, 0.4), transparent);
-$headerHeight: 400px;
-$headerHeight--tablet: 300px;
-$headerHeight--mobile: 240px;
+$header__aspectRatio: 3/1;
 
 .region--content {
   article.full {
     border-radius: $borderRadius;
     border: $border;
     box-shadow: $boxShadow;
+    background-color: colorBundles.$panelBackground;
   }
 
   .entry__header {
     position: relative;
+  }
+
+  .entry__header-image {
+    position: relative;
+    border-radius: $borderRadius $borderRadius 0 0;
+    aspect-ratio: $header__aspectRatio;
 
     &::before {
       content: '';
       position: absolute;
       display: block;
-      height: $headerHeight;
+      height: 100%;
       width: 100%;
       background: $headerOverlay;
-      z-index: 1;
-    }
-
-    .entry__header-image {
-      position: relative;
-      min-height: $headerHeight;
       border-radius: $borderRadius $borderRadius 0 0;
+      z-index: 1;
     }
   }
 
@@ -111,7 +111,7 @@ $headerHeight--mobile: 240px;
     position: relative;
     padding: variables.$layout__spacing;
     border: 1px solid transparent;
-    border-radius: 20px;
+    border-radius: $borderRadius * 0.5;
 
     .field__label {
       @include mixins.fonts__setFontFromStack(variables.$typography__text--small__font...);
@@ -220,17 +220,6 @@ $headerHeight--mobile: 240px;
   }
 
   @include mixins.mediaQueries__forTabletLandscapeDown {
-    .entry__header {
-      &::before {
-        content: '';
-        height: $headerHeight--tablet;
-      }
-      
-      .entry__header-image {
-        min-height: $headerHeight--tablet;
-      }
-    }
-
     .entry__body {
       padding: variables.$layout__spacing;
     }
@@ -258,17 +247,6 @@ $headerHeight--mobile: 240px;
   }
 
   @include mixins.mediaQueries__forMobileOnly {
-    .entry__header {
-      &::before {
-        content: '';
-        height: $headerHeight--mobile;
-      }
-
-      .entry__header-image {
-        min-height: $headerHeight--mobile;
-      }
-    }
-
     .entry__body {
       padding: variables.$layout__spacing * 0.5;
       gap: variables.$layout__spacing * 1.5;

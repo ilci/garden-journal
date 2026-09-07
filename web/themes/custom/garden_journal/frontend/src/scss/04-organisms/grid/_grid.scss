@@ -28,6 +28,14 @@ $gutter: variables.$layout__spacing;
     padding-left: $gutter * 0.5;
     padding-right: $gutter * 0.5;
   }
+
+  @include mixins.mediaQueries__forMobileOnly {
+    > [class*='col--'] {
+      &:nth-child(n + 2) {
+        margin-top: $gutter;
+      }
+    }
+  }
 }
 
 %col,
@@ -43,7 +51,7 @@ $gutter: variables.$layout__spacing;
 }
 
 @mixin generateColumns($infix: null, $grid-columns: variables.$layout__grid__columns) {
-  @if  $infix {
+  @if $infix {
     .col--#{$infix} {
       flex-grow: 1;
       flex-basis: 0;
@@ -54,7 +62,7 @@ $gutter: variables.$layout__spacing;
   @for $i from 1 through $grid-columns {
     $maxWidth: math.percentage(math.div($i, $grid-columns));
 
-    @if  $infix {
+    @if $infix {
       .col--#{$infix}--#{$i} {
         @include setCol($maxWidth);
       }
@@ -68,7 +76,7 @@ $gutter: variables.$layout__spacing;
 
 @mixin generateGridVerticalSpacing($infix: null, $grid-columns: variables.$layout__grid__columns) {
   @for $i from 1 through $grid-columns {
-    @if  $infix {
+    @if $infix {
       .grid--#{$infix}--#{$i} {
         > [class*='col--'] {
           &:nth-child(n + #{$i + 1}) {

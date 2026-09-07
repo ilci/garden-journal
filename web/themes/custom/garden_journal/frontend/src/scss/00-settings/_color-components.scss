@@ -118,9 +118,9 @@ $colorComponents: (
         displayName: 'Tag border',
         value: map.get(colors.$colors, color__neutral-2),
       ),
-      colorBundle__tagOutlinedHover: (
+      colorBundle__tagFillLight: (
         displayName: 'Tag outlined border',
-        value: map.get(colors.$colors, color__primary-4),
+        value: map.get(colors.$colors, color__white),
       ),
       colorBundle__tooltipBackground: (
         displayName: 'Tooltip background',
@@ -145,7 +145,7 @@ $colorComponents: (
       ),
       colorBundle__panelBackground: (
         displayName: 'Panel background',
-        value: map.get(colors.$colors, color__white),
+        value: map.get(colors.$colors, color__neutral-6),
       ),
       colorBundle__pageTitleBackground: (
         displayName: 'Page title background',

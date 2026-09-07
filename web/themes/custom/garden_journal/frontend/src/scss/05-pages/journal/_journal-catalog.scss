@@ -1,0 +1,91 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+@use '../../02-atoms/filters';
+
+.path-journal {
+  .views-element-container {
+    .grid {
+      margin-left: 0;
+      padding-left: variables.$layout__spacing * 1.25;
+      border-left: 1px solid colorBundles.$utilityWarning;
+
+      > div {
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: variables.$layout__spacing;
+          left: -(variables.$layout__spacing * 1.25 + 5px);
+          height: 10px;
+          width: 10px;
+          background-color: colorBundles.$utilityWarning;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    .view__header {
+      .entry__subtitle {
+        font-style: normal;
+      }
+    }
+
+    .views-exposed-form {
+      border: none;
+      padding: 0;
+      box-shadow: none;
+      background-color: unset;
+
+      .bef-links {
+        ul {
+          @extend %filters;
+          list-style: none;
+        }
+
+        .bef-link {
+          @extend %filter;
+
+          &--selected {
+            @extend %filter--active;
+          }
+        }
+      }
+
+      .form-submit {
+        display: none;
+      }
+    }
+
+    @include mixins.mediaQueries__forTabletLandscapeDown {
+      .grid {
+        padding-left: variables.$layout__spacing * 0.75;
+
+        > div {
+          &::before {
+            left: -(variables.$layout__spacing * 0.75 + 5px);
+          }
+        }
+
+        > [class*='col--'] {
+          &:nth-child(n + 2) {
+            margin-top: variables.$layout__spacing;
+          }
+        }
+      }
+    }
+
+    @include mixins.mediaQueries__forMobileOnly {
+      .grid {
+        padding-left: variables.$layout__spacing * 0.5;
+
+        > div {
+          &::before {
+            left: -(variables.$layout__spacing * 0.5 + 5px);
+          }
+        }
+      }
+    }
+  }
+}

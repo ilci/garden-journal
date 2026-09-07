@@ -23,6 +23,7 @@ $navigationActive: var(--colorBundle__navigationActive);
 $interactionDarkColor: var(--colorBundle__interactionDarkColor);
 $interactionDarkColor--rgb: var(--colorBundle__interactionDarkColor--rgb);
 $interactionDarkHover: var(--colorBundle__interactionDarkHover);
+$interactionDarkHover--rgb: var(--colorBundle__interactionDarkHover--rgb);
 $interactionLightColor: var(--colorBundle__interactionLightColor);
 $interactionLightColor--rgb: var(--colorBundle__interactionLightColor--rgb);
 $interactionLightHover: var(--colorBundle__interactionLightHover);
@@ -42,8 +43,8 @@ $dividerLine--gradient: linear-gradient(90deg,
   map.get(colors.$colors, color__primary-3) 60%,
   map.get(colors.$colors, color__accent-1) 100%);
 $tagFill: var(--colorBundle__tagFill);
+$tagFillLight: var(--colorBundle__tagFillLight);
 $tagBorder: var(--colorBundle__tagBorder);
-$tagOutlinedHover: var(--colorBundle__tagOutlinedHover);
 $tooltipBackground: var(--colorBundle__tooltipBackground);
 $iconColorLight: var(--colorBundle__iconColorLight);
 $shading: var(--colorBundle__shading);
