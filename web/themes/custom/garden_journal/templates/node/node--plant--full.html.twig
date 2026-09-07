@@ -74,44 +74,44 @@
 %}
 
 <article{{attributes.addClass(articleClasses)}}>
-	<div{{content_attributes.addClass(contentClasses)}}>
-		<div class="entry__header">
-			<div class="entry__header-image has-background-image" style="background-image: url('{{ file_url(node.field_image.entity.field_media_image.entity.uri.value) }}')">
-				<span class="entry__availability tag tag--{{ node.field_active.value == '1' ? 'active' : 'inactive' }}">
-					{{ content.field_active }}
-				</span>
-			</div>
-		</div>
-		<div class="entry__body">
-			<div class="entry__titles">
-				<span class="entry__section-title">{{ 'Botanical specifications'|t }}</span>
-				<h1 class="entry__title h1--hero">{{ label }}</h1>
-				<h2 class="entry__subtitle">{{ content.field_hungarian_name }}</h2>
-			</div>
-			<div class="entry__specifications">
-				<div>{{ content.field_plant_type }}</div>
-				<div>{{ content.field_lifecycle }}</div>
-				<div>{{ content.field_sunlight_needs }}</div>
-				<div>{{ content.field_water_needs }}</div>
-				<div>{{ content.field_soil_needs }}</div>
-				<div>{{ content.field_flower_color }}</div>
-				<div>{{ content.field_flowering_time }}</div>
-				<div>{{ content.field_pruning }}</div>
-				<div>{{ content.field_height }}</div>
-				<div>{{ content.field_width }}</div>
-			</div>
-			<div class="entry__description">
-				<div>{{ content.field_description }}</div>
-			</div>
-			{% if content.field_personal_notes|render|trim %}
-				<div class="entry__additional">
-					<div>{{ content.field_personal_notes }}</div>
-				</div>
-			{% endif %}
-			<div class="entry__images">
-				<div class="field__label">{{ 'Gallery'|t }}</div>
-				{{ content.field_image }}
-			</div>
-		</div>
-	</div>
+  <div{{content_attributes.addClass(contentClasses)}}>
+    <div class="entry__header">
+      <div class="entry__header-image has-background-image" style="background-image: url('{{ file_url(node.field_image.entity.field_media_image.entity.uri.value) }}')">
+        <span class="entry__availability tag tag--{{ node.field_active.value == '1' ? 'active' : 'inactive' }}">
+          {{ content.field_active }}
+        </span>
+      </div>
+    </div>
+    <div class="entry__body">
+      <div class="entry__titles">
+        <span class="entry__section-title">{{ 'Botanical specifications'|t }}</span>
+        <h1 class="entry__title h1--hero">{{ label }}</h1>
+        <h2 class="entry__subtitle">{{ content.field_hungarian_name }}</h2>
+      </div>
+      <div class="entry__specifications">
+        <div>{{ content.field_plant_type }}</div>
+        <div>{{ content.field_lifecycle }}</div>
+        <div>{{ content.field_sunlight_needs }}</div>
+        <div>{{ content.field_water_needs }}</div>
+        <div>{{ content.field_soil_needs }}</div>
+        <div>{{ content.field_flower_color }}</div>
+        <div>{{ content.field_flowering_time }}</div>
+        <div>{{ content.field_pruning }}</div>
+        <div>{{ content.field_height }}</div>
+        <div>{{ content.field_width }}</div>
+      </div>
+      <div class="entry__description">
+        <div>{{ content.field_description }}</div>
+      </div>
+      {% if content.field_personal_notes|render|trim %}
+        <div class="entry__additional">
+          <div>{{ content.field_personal_notes }}</div>
+        </div>
+      {% endif %}
+      <div class="entry__images">
+        <div class="field__label">{{ 'Gallery'|t }}</div>
+        {{ content.field_image }}
+      </div>
+    </div>
+  </div>
 </article>

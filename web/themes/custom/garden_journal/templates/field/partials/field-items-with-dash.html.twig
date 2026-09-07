@@ -60,36 +60,36 @@
 %}
 
 {% if label_hidden %}
-	{% if multiple %}
-		<div{{attributes.addClass(classes,'field__items')}}>
-			{% for item in items %}
-				{% if not loop.last %}
-					<span{{item.attributes.addClass(item_classes)}}>{{ item.content }}{{ ' — ' }}</span>
-				{% else %}
-					<span{{item.attributes.addClass(item_classes)}}>{{ item.content }}</span>
-				{% endif %}
-			{% endfor %}
-		</div>
-	{% else %}
-		{% for item in items %}
-			<div{{attributes.addClass(classes|merge(item_classes))}}>{{ item.content }}</div>
-		{% endfor %}
-	{% endif %}
+  {% if multiple %}
+    <div{{attributes.addClass(classes,'field__items')}}>
+      {% for item in items %}
+        {% if not loop.last %}
+          <span{{item.attributes.addClass(item_classes)}}>{{ item.content }}{{ ' — ' }}</span>
+        {% else %}
+          <span{{item.attributes.addClass(item_classes)}}>{{ item.content }}</span>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% else %}
+    {% for item in items %}
+      <div{{attributes.addClass(classes|merge(item_classes))}}>{{ item.content }}</div>
+    {% endfor %}
+  {% endif %}
 {% else %}
-	<div{{attributes.addClass(classes)}}>
-		<div{{title_attributes.addClass(title_classes)}}>{{ label }}</div>
-		{% if multiple %}
-			<div class="field__items">
-		{% endif %}
-		{% for item in items %}
-			{% if not loop.last %}
-				<span{{item.attributes.addClass(item_classes)}}>{{ item.content }}{{ ' — ' }}</span>
-			{% else %}
-				<span{{item.attributes.addClass(item_classes)}}>{{ item.content }}</span>
-			{% endif %}
-		{% endfor %}
-		{% if multiple %}
-			</div>
-		{% endif %}
-	</div>
+  <div{{attributes.addClass(classes)}}>
+    <div{{title_attributes.addClass(title_classes)}}>{{ label }}</div>
+    {% if multiple %}
+      <div class="field__items">
+      {% endif %}
+      {% for item in items %}
+        {% if not loop.last %}
+          <span{{item.attributes.addClass(item_classes)}}>{{ item.content }}{{ ' — ' }}</span>
+        {% else %}
+          <span{{item.attributes.addClass(item_classes)}}>{{ item.content }}</span>
+        {% endif %}
+      {% endfor %}
+      {% if multiple %}
+      </div>
+    {% endif %}
+  </div>
 {% endif %}

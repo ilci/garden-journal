@@ -61,37 +61,37 @@
 %}
 
 {% if label_hidden %}
-	{% if multiple %}
-		<div{{attributes.addClass(classes,'field__items')}}>
-			{% for item in items %}
-				<div{{item.attributes.addClass(item_classes)}}>
-					{{ item.content }}
-					<span class="image__alt">{{ item.content['#media'].field_media_image.0.alt }}</span>
-				</div>
-			{% endfor %}
-		</div>
-	{% else %}
-		{% for item in items %}
-			<div{{attributes.addClass(classes|merge(item_classes))}}>
-				{{ item.content }}
-				<span class="image__alt">{{ item.content['#media'].field_media_image.0.alt }}</span>
-			</div>
-		{% endfor %}
-	{% endif %}
-{% else %}
-	<div{{attributes.addClass(classes)}}>
-		<div{{title_attributes.addClass(title_classes)}}>{{ label }}</div>
-		{% if multiple %}
-			<div class="field__items">
-    {% endif %}
+  {% if multiple %}
+    <div{{attributes.addClass(classes,'field__items')}}>
+      {% for item in items %}
+        <div{{item.attributes.addClass(item_classes)}}>
+          {{ item.content }}
+          <span class="image__alt">{{ item.content['#media'].field_media_image.0.alt }}</span>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
     {% for item in items %}
-      <div{{item.attributes.addClass(item_classes)}}>
+      <div{{attributes.addClass(classes|merge(item_classes))}}>
         {{ item.content }}
         <span class="image__alt">{{ item.content['#media'].field_media_image.0.alt }}</span>
       </div>
     {% endfor %}
+  {% endif %}
+{% else %}
+  <div{{attributes.addClass(classes)}}>
+    <div{{title_attributes.addClass(title_classes)}}>{{ label }}</div>
     {% if multiple %}
-			</div>
-		{% endif %}
-	</div>
+      <div class="field__items">
+      {% endif %}
+      {% for item in items %}
+        <div{{item.attributes.addClass(item_classes)}}>
+          {{ item.content }}
+          <span class="image__alt">{{ item.content['#media'].field_media_image.0.alt }}</span>
+        </div>
+      {% endfor %}
+      {% if multiple %}
+      </div>
+    {% endif %}
+  </div>
 {% endif %}

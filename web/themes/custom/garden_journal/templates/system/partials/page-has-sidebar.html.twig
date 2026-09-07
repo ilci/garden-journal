@@ -45,21 +45,21 @@
   %}
 {% endif %}
 
-<div {{ create_attribute({'class': grid_classes}) }}>
+<div {{ create_attribute({'class': grid_classes} ) }}>
   {% if page.sidebar_first %}
-    <div{{ create_attribute({'class': aside_col}) }}>
+    <div{{create_attribute({'class':aside_col})}}>
       {% block region_sidebar_first %}
         {{ page.sidebar_first }}
       {% endblock %}
     </div>
   {% endif %}
-  <div{{ create_attribute({'class': content_col}) }}>
+  <div{{create_attribute({'class':content_col})}}>
     {% block region_content %}
       {{ page.content }}
     {% endblock %}
   </div>
   {% if page.sidebar_second %}
-    <div{{ create_attribute({'class': aside_col}) }}>
+    <div{{create_attribute({'class':aside_col})}}>
       {% block region_sidebar_second %}
         {{ page.sidebar_second }}
       {% endblock %}
