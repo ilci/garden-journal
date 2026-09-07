@@ -13,6 +13,7 @@
 @use '02-atoms/tags';
 @use '02-atoms/forms';
 @use '02-atoms/messages';
+@use '02-atoms/filters';
 
 // Molecules
 @use '03-molecules/breadcrumbs';
@@ -20,6 +21,7 @@
 @use '03-molecules/site-branding';
 @use '03-molecules/site-overlay';
 @use '03-molecules/panel';
+@use '03-molecules/pager';
 
 // Organisms
 @use '04-organisms/bottom-navigation';
@@ -34,7 +36,8 @@
 
 // Pages
 @use '05-pages/common';
-@use '05-pages/journal-entry';
+@use '05-pages/journal';
+@use '05-pages/views';
 
 // Helpers
 @use '06-helpers/helpers';

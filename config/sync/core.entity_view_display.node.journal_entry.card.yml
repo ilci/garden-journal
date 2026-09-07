@@ -1,0 +1,99 @@
+uuid: 03813370-0142-458b-8e44-6b6b8eb4c133
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.journal_entry.field_date
+    - field.field.node.journal_entry.field_description
+    - field.field.node.journal_entry.field_entry_type
+    - field.field.node.journal_entry.field_garden_bed
+    - field.field.node.journal_entry.field_image
+    - field.field.node.journal_entry.field_plants
+    - node.type.journal_entry
+  module:
+    - datetime
+    - layout_builder
+    - smart_trim
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.journal_entry.card
+targetEntityType: node
+bundle: journal_entry
+mode: card
+content:
+  field_date:
+    type: datetime_default
+    label: visually_hidden
+    settings:
+      timezone_override: ''
+      format_type: olivero_medium
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_description:
+    type: smart_trim
+    label: visually_hidden
+    settings:
+      trim_length: 155
+      trim_type: chars
+      trim_suffix: ...
+      wrap_output: false
+      wrap_class: trimmed
+      more:
+        display_link: false
+        target_blank: false
+        link_trim_only: false
+        class: more-link
+        text: More
+        aria_label: 'Read more about [node:title]'
+      summary_handler: full
+      trim_options:
+        text: false
+        trim_zero: false
+        replace_tokens: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_entry_type:
+    type: entity_reference_label
+    label: visually_hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_garden_bed:
+    type: entity_reference_label
+    label: visually_hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_plants:
+    type: entity_reference_label
+    label: visually_hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

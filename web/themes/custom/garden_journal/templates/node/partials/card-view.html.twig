@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Default Garden Journal's override to display a Journal entry node.
+ * Garden Journal's override to display a node as a card.
  *
  * Available variables:
  * - node: The node entity with limited access to object properties and methods.
@@ -60,57 +60,32 @@
  */
 #}
 
+{% set attributes = attributes.addClass(['card', 'card--' ~ node.bundle|clean_class]) %}
+{% set title_attributes = title_attributes.addClass(['card__title', 'h1']) %}
+{% set content_attributes = content_attributes.addClass('card__body') %}
 {%
-  set articleClasses = [
-    node.bundle|clean_class,
-    view_mode ? view_mode|clean_class,
-  ]
-%}
-{%
-  set contentClasses = [
-    'content',
-    'entry',
-  ]
+  set linkAttributes = create_attribute({
+    'class': [
+      'card__link',
+    ],
+  })
 %}
 
-<article{{attributes.addClass(articleClasses)}}>
-	<div{{content_attributes.addClass(contentClasses)}}>
-		<div class="entry__body">
-			<div class="entry__titles">
-				<div>
-					<span class="entry__section-title">{{ 'Journal entry'|t }}</span>
-					<span class="tag tag--active">{{ content.field_entry_type }}</span>
-				</div>
-				<h1 class="entry__title h1--hero">{{ label }}</h1>
-				<h2 class="entry__subtitle">
-					{{ 'Recorded on'|t }}
-					{{ node.getCreatedTime()|date('j F Y') }}
-				</h2>
-			</div>
-			<div class="entry__specifications">
-				<div>{{ content.field_date }}</div>
-				<div>{{ content.field_entry_type }}</div>
-			</div>
-			<div class="entry__description">
-				<div>{{ content.field_description }}</div>
-			</div>
-			{% if node.field_garden_bed.value or node.field_plants.value %}
-				<div class="entry__additional">
-					<div class="field__label">{{ 'Related records'|t }}</div>
-					{% if node.field_garden_bed.value %}
-						<div>{{ content.field_garden_bed }}</div>
-					{% endif %}
-					{% if node.field_plants.value %}
-						<div>{{ content.field_plants }}</div>
-					{% endif %}
-				</div>
-			{% endif %}
-			{% if node.field_image.value %}
-				<div class="entry__images">
-					<div class="field__label">{{ 'Gallery'|t }}</div>
-					{{ content.field_image }}
-				</div>
-			{% endif %}
-		</div>
-	</div>
-</article>
+{% block card %}
+  <div{{attributes}}>
+    {% block header %}{% endblock header %}
+    {% block title %}
+      <h2{{title_attributes}}>
+        {{ label }}
+      </h2>
+    {% endblock title %}
+    {% block body %}
+      <div{{content_attributes}}>
+        {{ content }}
+      </div>
+    {% endblock body %}
+    {% block footer %}
+      <a{{linkAttributes.setAttribute('href',url).setAttribute('rel','bookmark')}}>{{ 'Read more about '|t }}{{ label }}</a>
+    {% endblock footer %}
+  </div>
+{% endblock card %}

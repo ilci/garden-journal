@@ -16,6 +16,7 @@
     ],
     "require": {
         "composer/installers": "^2.3",
+        "drupal/better_exposed_filters": "^7.1",
         "drupal/copyright_footer": "^3.1",
         "drupal/core-composer-scaffold": "^11.4",
         "drupal/core-project-message": "^11.4",
@@ -28,6 +29,7 @@
         "drupal/menu_trail_by_path": "^2.2",
         "drupal/pathauto": "^1.15",
         "drupal/range": "^1.6",
+        "drupal/smart_trim": "^2.3",
         "drush/drush": "^13.7"
     },
     "conflict": {

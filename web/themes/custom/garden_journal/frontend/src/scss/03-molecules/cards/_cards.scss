@@ -2,28 +2,31 @@
 @use '../../00-settings/color-bundles' as colorBundles;
 @use '../../00-settings/variables';
 @use '../../00-settings/mixins';
+@use '../../02-atoms/tags';
 
 $backgroundColor: colorBundles.$panelBackground;
-$borderRadius: variables.$borderRadius__borderRadius--base;
+$borderColor: rgba(colorBundles.$dividerLine--rgb, 0.5);
+$borderColor--decor: colorBundles.$utilityWarning;
+$borderRadius: variables.$borderRadius__borderRadius--extraLarge;
 $boxShadow: variables.$shadows__boxShadow;
 $hover__boxShadow: variables.$shadows__boxShadow--hover;
-$icon__fontFamily: variables.$icons__fontFamily;
-$icon--arrowRight: variables.$icons__arrowRight;
+$gap: variables.$layout__spacing * 0.375;
+$cardImage__height: 130px;
+$cardImage__overlay: linear-gradient(to top, rgba(colorBundles.$interactionDarkColor--rgb, 0.4), transparent);
 $link__font: variables.$typography__cardLink__font;
 $link__fontSize: variables.$typography__fontSize--small;
 $link__textTransform: variables.$typography__textTransform;
-$link--hover__color: colorBundles.$interactionDarkHover;
-$link--hover__height: 4px;
-$link__arrow__fontSize: variables.$typography__icon__fontSize;
-$link--arrow__paddingRight: variables.$typography__icon__fontSize + 8px;
-$text--light__color: colorBundles.$lightText;
-$textDecoration: underline;
+$overline__color: colorBundles.$secondary;
 
 %card,
 .card {
   display: flex;
   flex-direction: column;
+  row-gap: $gap;
   padding: variables.$layout__spacing;
+  border-width: 1px 1px 1px 6px;
+  border-style: solid;
+  border-color: $borderColor $borderColor $borderColor $borderColor--decor;
   border-radius: $borderRadius;
   position: relative;
   z-index: 1;
@@ -34,54 +37,126 @@ $textDecoration: underline;
 .card__body {
   display: flex;
   flex-direction: column;
+  gap: $gap;
   flex: 1;
-}
 
-.card__header-image {
-  margin: (-(variables.$layout__spacing)) (-(variables.$layout__spacing)) (-(variables.$layout__spacing) * 0.5);
-  height: variables.$layout__spacing * 9;
+  p {
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .card__image {
-  margin-bottom: math.div(variables.$layout__spacing, 2);
+  position: relative;
+  height: $cardImage__height;
+  border-radius: $borderRadius;
+
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    height: $cardImage__height;
+    width: 100%;
+    background: $cardImage__overlay;
+    border-radius: $borderRadius;
+    z-index: 1;
+  }
 
   img {
     object-fit: cover;
   }
 }
 
-.card__title {
-  margin-bottom: math.div(variables.$layout__spacing, 6);
-}
-
-.card--light-text {
-  * {
-    color: $text--light__color;
-  }
-}
-
-.card__heading {
-  margin-right: math.div(variables.$layout__spacing, 2);
-}
-
-.card__target {
-  &,
-  a {
-    position: absolute;
-    inset: 0;
-    font-size: 0;
-  }
-}
-
-.card__author {
-  margin-bottom: math.div(variables.$layout__spacing, 3);
-}
-
 .card__link {
   @include mixins.fonts__setFontFromStack($link__font...);
-  display: inline-block;
-  position: relative;
   font-size: $link__fontSize;
   text-transform: $link__textTransform;
   margin-top: math.div(variables.$layout__spacing, 2);
+}
+
+.card__tags {
+  .field__items {
+    @extend %tags;
+    list-style: none;
+  }
+
+  .field__item {
+    @extend %tag, %tag--light;
+  }
+}
+
+.card__overline {
+  @include mixins.fonts__setFontFromStack(variables.$typography__text--small__font...);
+  font-size: variables.$typography__fontSize--extraSmall;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: $overline__color;
+}
+
+.card--two-col {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: math.div(variables.$layout__spacing, 1.6);
+
+  .card__left,
+  .card__right {
+    display: flex;
+    flex-direction: column;
+    row-gap: $gap;
+  }
+
+  @include mixins.mediaQueries__forTabletLandscapeDown {
+    flex-direction: column;
+  }
+}
+
+.card--quicklink {
+  &:hover,
+  &:focus-visible,
+  &:active {
+    box-shadow: $hover__boxShadow;
+  }
+
+  &:has(.card__link:focus-visible) {
+    outline: variables.$focusState__outlineColor variables.$focusState__outlineStyle variables.$focusState__outlineWidth;
+    outline-offset: variables.$focusState__outlineOffset;
+    box-shadow: variables.$focusState__outlineBoxShadow;
+  }
+
+  .card__link {
+    position: absolute;
+    inset: 0;
+    font-size: 0;
+    z-index: 2;
+
+    &:focus-visible {
+      outline: none;
+      outline-offset: none;
+      box-shadow: none;
+    }
+  }
+}
+
+.card--journal-entry {
+  .card__header {
+    display: flex;
+    align-items: center;
+    gap: $gap;
+  }
+
+  .card__image {
+    width: 176px;
+  }
+
+  @include mixins.mediaQueries__forTabletLandscapeDown {
+    .card__image {
+      width: 100%;
+    }
+  }
 }

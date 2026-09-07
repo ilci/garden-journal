@@ -20,6 +20,15 @@
       }
     }
 
+    .entry__header-image {
+      margin-top: -(variables.$layout__spacing * 0.5);
+      border-radius: variables.$borderRadius__borderRadius--extraLarge;
+
+      &::before {
+        border-radius: variables.$borderRadius__borderRadius--extraLarge;
+      }
+    }
+
     .entry__additional {
       display: grid;
       grid-template-columns: 1fr 1fr;

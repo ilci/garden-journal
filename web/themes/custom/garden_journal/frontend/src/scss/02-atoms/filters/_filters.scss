@@ -1,0 +1,51 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+
+$font: variables.$typography__text--small__font;
+$fontSize: variables.$typography__fontSize--extraSmall;
+$color: colorBundles.$interactionDarkColor;
+$backgroundColor: colorBundles.$tagFillLight;
+$borderColor: colorBundles.$interactionDarkColor;
+$hover__backgroundColor: rgba(colorBundles.$interactionDarkHover--rgb, 0.07);
+$hover__borderColor: colorBundles.$interactionDarkHover;
+$active__color: colorBundles.$lightText;
+$active__backgroundColor: colorBundles.$interactionDarkColor;
+$active__borderColor: colorBundles.$interactionDarkHover;
+$borderRadius: 20px;
+$padding: (variables.$layout__spacing * 0.25) (variables.$layout__spacing * 0.5);
+
+%filters,
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: variables.$layout__spacing * 0.375;
+  padding: 0;
+  margin: 0 0 (variables.$layout__spacing * 1.25) 0;
+}
+
+%filter,
+.filter {
+  @include mixins.fonts__setFontFromStack($font...);
+  font-size: $fontSize;
+  color: $color;
+  display: inline-flex;
+  border: 1px solid $borderColor;
+  border-radius: $borderRadius;
+  background-color: $backgroundColor;
+  padding: $padding;
+
+  &:hover,
+  &:active {
+    color: $color;
+    text-decoration: none;
+    border-color: $hover__borderColor;
+    background-color: $hover__backgroundColor;
+  }
+
+  &--active {
+    color: $active__color;
+    border-color: $active__borderColor;
+    background-color: $active__backgroundColor;
+  }
+}

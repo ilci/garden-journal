@@ -9,7 +9,7 @@ dependencies:
 id: journal_entry_pattern
 label: 'Journal entry pattern'
 type: 'canonical_entities:node'
-pattern: '/journal-entries/[node:title]'
+pattern: '/journal/[node:title]'
 selection_criteria:
   ceac550a-e406-4c14-8ebd-d6756aded18e:
     id: 'entity_bundle:node'

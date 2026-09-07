@@ -1,0 +1,63 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+
+$font: variables.$typography__button__font;
+$fontSize: variables.$typography__fontSize--small;
+$color: colorBundles.$primary;
+$backgroundColor: colorBundles.$tagFillLight;
+$borderColor: colorBundles.$dividerLine;
+$borderRadius: 50%;
+$boxShadow: variables.$shadows__boxShadow--ring;
+$item__size: 40px;
+$hover__borderColor: colorBundles.$interactionDarkHover;
+$active__color: colorBundles.$lightText;
+$active__backgroundColor: colorBundles.$interactionDarkColor;
+$transition: variables.$transitions__allTransition;
+
+.pager {
+  @include mixins.fonts__setFontFromStack($font...);
+  font-size: $fontSize;
+  margin-top: variables.$layout__spacing * 1.75;
+}
+
+.pager__items {
+  display: flex;
+  justify-content: center;
+  gap: variables.$layout__spacing * 0.25;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pager__item {
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color;
+    height: $item__size;
+    width: $item__size;
+    border: 1px solid $borderColor;
+    border-radius: $borderRadius;
+    background-color: $backgroundColor;
+    transition: $transition;
+    
+    &:hover,
+    &:active {
+      border-color: $hover__borderColor;
+      box-shadow: $boxShadow;
+      text-decoration: none;
+    }
+  }
+
+  &.is-active {
+    a {
+      background-color: $active__backgroundColor;
+      border: $active__backgroundColor;
+      box-shadow: $boxShadow;
+      color: $active__color;
+      text-decoration: none;
+    }
+  }
+}
