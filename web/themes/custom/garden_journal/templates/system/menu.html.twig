@@ -38,12 +38,12 @@
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-      <ul{{ attributes }}>
-    {% else %}
-      <ul>
-    {% endif %}
-    {% for item in items %}
-     {%
+      <ul{{attributes}}>
+      {% else %}
+        <ul>
+        {% endif %}
+        {% for item in items %}
+          {%
         set item_classes = [
           menu_level == 0 ? 'menu__item' : 'submenu__item',
           item.below ? 'is-expanded',
@@ -51,25 +51,25 @@
           item.is_collapsed ? 'is-collapsed',
         ]
       %}
-      {%
+          {%
         set link_attributes = {
           'class': [
             menu_level == 0 ? 'menu__link' : 'submenu__link',
           ]
         }
       %}
-      <li{{ item.attributes.addClass(item_classes) }}>
-        {{ link(item.title, item.url, link_attributes) }}
-        {% if item.below %}
-          {% if menu_level == 0 %}
-            <span class="menu__chevron"></span>
-          {% else %}
-            <span class="submenu__chevron"></span>
-          {% endif %}
-          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-        {% endif %}
-      </li>
-    {% endfor %}
-    </ul>
-  {% endif %}
-{% endmacro %}
+          <li{{item.attributes.addClass(item_classes)}}>
+            {{ link(item.title, item.url, link_attributes) }}
+            {% if item.below %}
+              {% if menu_level == 0 %}
+                <span class="menu__chevron"></span>
+              {% else %}
+                <span class="submenu__chevron"></span>
+              {% endif %}
+              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endmacro %}

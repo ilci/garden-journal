@@ -73,17 +73,17 @@
   </header>
 
   {% block page_main %}
-  <main{{ content_attributes.addClass('js-quickedit-region') }}>
-    {# link is in html.html.twig #}
-    <a class="visually-hidden" id="main-content" tabindex="-1"></a>
-    <div {{ create_attribute({'class': container_class}) }}>
-      {% if page.sidebar_first or page.sidebar_second %}
-        {% include '@garden_journal/system/partials/page-has-sidebar.html.twig' %}
-      {% else %}
-        {% include '@garden_journal/system/partials/page-no-sidebar.html.twig' %}
-      {% endif %}
-    </div>
-  </main>
+    <main{{content_attributes.addClass('js-quickedit-region')}}>
+      {# link is in html.html.twig #}
+      <a class="visually-hidden" id="main-content" tabindex="-1"></a>
+      <div {{ create_attribute({'class': container_class} ) }}>
+        {% if page.sidebar_first or page.sidebar_second %}
+          {% include '@garden_journal/system/partials/page-has-sidebar.html.twig' %}
+        {% else %}
+          {% include '@garden_journal/system/partials/page-no-sidebar.html.twig' %}
+        {% endif %}
+      </div>
+    </main>
   {% endblock %}
 
   {% block region_bottom_navigation %}
