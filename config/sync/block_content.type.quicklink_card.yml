@@ -1,0 +1,8 @@
+uuid: be3385b6-1e10-409c-97ea-63a2c73df713
+langcode: en
+status: true
+dependencies: {  }
+id: quicklink_card
+label: 'Quicklink card'
+revision: false
+description: 'A card that links to another page or section of the site with an image in the header.'

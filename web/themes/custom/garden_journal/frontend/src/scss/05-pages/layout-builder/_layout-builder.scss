@@ -1,0 +1,30 @@
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+
+$gutter: variables.$layout__spacing;
+
+main {
+  &:has(.layout) {
+    margin-bottom: 0;
+  }
+}
+
+.layout__region {
+  margin-bottom: $gutter * 2;
+
+  @include mixins.mediaQueries__forTabletLandscapeDown {
+    margin-bottom: $gutter * 1.5;
+  }
+
+  @include mixins.mediaQueries__forMobileOnly {
+    margin-bottom: $gutter;
+  }
+}
+
+.layout--threecol-section {
+  margin: 0 (-$gutter * 0.5);
+
+  .layout__region {
+    padding: 0 ($gutter * 0.5);
+  }
+}

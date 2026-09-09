@@ -1,0 +1,22 @@
+@use '../../00-settings/mixins';
+
+.block.block--hero {
+  text-align: center;
+
+  .entry__titles {
+    align-items: center;
+
+    .entry__subtitle {
+      font-style: normal;
+      max-width: 70%;
+
+      @include mixins.mediaQueries__forTabletLandscapeDown {
+        max-width: 85%;
+      }
+      
+      @include mixins.mediaQueries__forMobileOnly {
+        max-width: 95%;
+      }
+    }
+  }
+}

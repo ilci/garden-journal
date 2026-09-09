@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use '../../00-settings/color-bundles' as colorBundles;
 @use '../../00-settings/variables';
 @use '../../00-settings/mixins';
@@ -39,4 +40,12 @@ main {
   min-height: 1px;
   flex: 1 1 auto;
   margin: $marginTop 0 $marginBottom;
+
+  @include mixins.mediaQueries__forTabletLandscapeDown {
+    margin: math.div($marginTop, 1.5) 0 math.div($marginBottom, 1.5);
+  }
+
+  @include mixins.mediaQueries__forMobileOnly {
+    margin: ($marginTop * 0.5) 0 ($marginBottom * 0.5);
+  }
 }

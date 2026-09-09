@@ -1,0 +1,52 @@
+uuid: 669a9f2a-2016-4ed1-b80d-472d2cd03e3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.quicklink_card
+    - field.field.block_content.quicklink_card.body
+    - field.field.block_content.quicklink_card.field_image
+    - field.field.block_content.quicklink_card.field_link
+    - field.field.block_content.quicklink_card.field_title
+  module:
+    - link
+    - media_library
+    - text
+id: block_content.quicklink_card.default
+targetEntityType: block_content
+bundle: quicklink_card
+mode: default
+content:
+  body:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_image:
+    type: media_library_widget
+    weight: 3
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_link:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  info: true

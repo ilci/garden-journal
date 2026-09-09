@@ -42,3 +42,34 @@ small,
 .text--dark {
   color: $dark__color;
 }
+
+.text--decorated {
+  @include mixins.fonts__setFontFromStack(variables.$typography__text--medium__font...);
+  display: flex;
+  align-items: center;
+  gap: variables.$layout__spacing * 0.5;
+  font-size: variables.$typography__fontSize--small;
+  color: colorBundles.$secondary;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+
+  &::before,
+  &::after {
+    content: '';
+    width: 32px;
+    height: 2px;
+    background: colorBundles.$dividerLine--gradient;
+  }
+}
+
+.text--decorated-left {
+  &::after {
+    content: none;
+  }
+}
+
+.text--decorated-right {
+  &::before {
+    content: none;
+  }
+}
