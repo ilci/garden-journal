@@ -5,5 +5,5 @@ $grid__columns: 12;
 $spacing: 32px;
 $container__width: 1280px;
 $navigation__height: 70px;
-$main__marginTop: $spacing;
-$main__marginBottom: $spacing;
+$main__marginTop: $spacing * 2;
+$main__marginBottom: $spacing * 2;

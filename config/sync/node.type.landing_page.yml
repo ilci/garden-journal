@@ -1,0 +1,18 @@
+uuid: 89ef8b74-bdb8-456f-8bf0-88f05ca8348d
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Landing page'
+type: landing_page
+description: 'Pages composed using reusable sections and Layout Builder.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

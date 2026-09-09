@@ -1,0 +1,8 @@
+uuid: 6318c149-c552-4f97-8db4-a29c936dd4ea
+langcode: en
+status: true
+dependencies: {  }
+id: hero
+label: Hero
+revision: false
+description: 'A prominent introductory section for the top of a page.'

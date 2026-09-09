@@ -1,0 +1,24 @@
+uuid: 12445ed1-4d8f-4c38-9c44-cfce1c6ca213
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.quicklink_card
+    - field.storage.block_content.body
+    - filter.format.plain_text
+  module:
+    - text
+id: block_content.quicklink_card.body
+field_name: body
+entity_type: block_content
+bundle: quicklink_card
+label: Body
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - plain_text
+field_type: text_long

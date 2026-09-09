@@ -4,6 +4,7 @@
 @use '../../00-settings/mixins';
 @use '../../02-atoms/tags';
 
+$body__color: colorBundles.$secondary;
 $backgroundColor: colorBundles.$panelBackground;
 $borderColor: rgba(colorBundles.$dividerLine--rgb, 0.5);
 $borderColor--decor: colorBundles.$utilityWarning;
@@ -11,11 +12,15 @@ $borderRadius: variables.$borderRadius__borderRadius--extraLarge;
 $boxShadow: variables.$shadows__boxShadow;
 $hover__boxShadow: variables.$shadows__boxShadow--hover;
 $gap: variables.$layout__spacing * 0.375;
+$padding: variables.$layout__spacing;
 $cardImage__height: 130px;
+$cardHeaderImage__height: 170px;
 $cardImage__overlay: linear-gradient(to top, rgba(colorBundles.$interactionDarkColor--rgb, 0.4), transparent);
 $link__font: variables.$typography__cardLink__font;
 $link__fontSize: variables.$typography__fontSize--small;
-$link__textTransform: variables.$typography__textTransform;
+$link__textTransform: uppercase;
+$link__letterSpacing: 2.75px;
+$link__underlineDecoration: colorBundles.$dividerLine--gradient;
 $overline__color: colorBundles.$secondary;
 
 %card,
@@ -23,15 +28,29 @@ $overline__color: colorBundles.$secondary;
   display: flex;
   flex-direction: column;
   row-gap: $gap;
-  padding: variables.$layout__spacing;
-  border-width: 1px 1px 1px 6px;
-  border-style: solid;
-  border-color: $borderColor $borderColor $borderColor $borderColor--decor;
+  padding: $padding;
+  border: 1px solid $borderColor;
   border-radius: $borderRadius;
   position: relative;
   z-index: 1;
   box-shadow: $boxShadow;
   background-color: $backgroundColor;
+  height: 100%;
+}
+
+.card__header {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: $gap;
+}
+
+.card__header--with-image {
+  display: block
+}
+
+.card__title {
+  @include mixins.fonts__setFontFromStack(variables.$typography__h1--hero__font...);
 }
 
 .card__body {
@@ -39,6 +58,7 @@ $overline__color: colorBundles.$secondary;
   flex-direction: column;
   gap: $gap;
   flex: 1;
+  color: $body__color;
 
   p {
     &:first-of-type {
@@ -72,11 +92,51 @@ $overline__color: colorBundles.$secondary;
   }
 }
 
+.card__image--header {
+  height: $cardHeaderImage__height;
+  border-radius: $borderRadius $borderRadius 0 0;
+  margin: (-$padding) (-$padding) math.div($padding, 1.6) (-$padding);
+
+  &::before {
+    height: $cardHeaderImage__height;
+  }
+}
+
 .card__link {
   @include mixins.fonts__setFontFromStack($link__font...);
   font-size: $link__fontSize;
   text-transform: $link__textTransform;
+  letter-spacing: $link__letterSpacing;
   margin-top: math.div(variables.$layout__spacing, 2);
+}
+
+.card__link--arrow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: $gap * 0.5;
+  width: fit-content;
+
+  &::after {
+    @include mixins.fonts__setFontIcon(variables.$icons__arrowRight);
+    font-size: variables.$typography__icon__fontSize--small;
+    font-weight: normal;
+    width: variables.$typography__icon__fontSize--small;;
+  }
+
+  &:hover,
+  &:active {
+    text-decoration: none;
+
+    &::before {
+      content: '';
+      position: absolute;
+      background: $link__underlineDecoration;
+      height: 2px;
+      width: calc(100% - variables.$typography__icon__fontSize--small - ($gap * 0.5));
+      bottom: 0;
+    }
+  }
 }
 
 .card__tags {
@@ -109,6 +169,11 @@ $overline__color: colorBundles.$secondary;
     display: flex;
     flex-direction: column;
     row-gap: $gap;
+  }
+
+  .card__header {
+    align-items: center;
+    flex-direction: row;
   }
 
   @include mixins.mediaQueries__forTabletLandscapeDown {
@@ -144,11 +209,7 @@ $overline__color: colorBundles.$secondary;
 }
 
 .card--journal-entry {
-  .card__header {
-    display: flex;
-    align-items: center;
-    gap: $gap;
-  }
+  border-left: 6px solid $borderColor--decor;
 
   .card__image {
     width: 176px;

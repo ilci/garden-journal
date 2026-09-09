@@ -1,0 +1,56 @@
+uuid: 9214a302-2a1a-41b4-ada4-afa6af6f12a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.quicklink_card
+    - field.field.block_content.quicklink_card.body
+    - field.field.block_content.quicklink_card.field_image
+    - field.field.block_content.quicklink_card.field_link
+    - field.field.block_content.quicklink_card.field_title
+  module:
+    - link
+    - text
+id: block_content.quicklink_card.default
+targetEntityType: block_content
+bundle: quicklink_card
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: visually_hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

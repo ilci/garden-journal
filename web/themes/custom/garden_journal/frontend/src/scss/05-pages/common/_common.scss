@@ -56,32 +56,13 @@ $header__aspectRatio: 3/1;
     flex-direction: column;
     gap: variables.$layout__spacing * 0.5;
 
-    .entry__section-title {
-      @include mixins.fonts__setFontFromStack(variables.$typography__text--medium__font...);
-      display: flex;
-      align-items: center;
-      gap: variables.$layout__spacing * 0.5;
-      font-size: variables.$typography__fontSize--small;
-      color: colorBundles.$secondary;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-  
-      &::before {
-        content: '';
-        display: inline-block;
-        width: 32px;
-        height: 2px;
-        background: colorBundles.$dividerLine--gradient;
-      }
-    }
-
     .entry__title {
       margin: 0; 
     }
 
     .entry__subtitle {
       font-style: italic;
-      color: rgba(colorBundles.$primary--rgb, 0.6);
+      color: rgba(colorBundles.$primary--rgb, 0.8);
     }
   }
 

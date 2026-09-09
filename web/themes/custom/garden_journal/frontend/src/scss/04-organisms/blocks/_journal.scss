@@ -1,0 +1,69 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/mixins';
+@use '../../03-molecules/cards';
+
+.view--journal-catalog--journal-block {
+  .card--two-col {
+    justify-content: unset;
+    gap: 0;
+
+    .card__left {
+      flex-basis: 40%;
+      margin: -(cards.$padding);
+  
+      .card__image {
+        height: 100%;
+        border-radius: cards.$borderRadius 0 0 cards.$borderRadius;
+  
+        &::before {
+          height: 100%;
+        }
+      }
+    }
+
+    .card__right {
+      flex-basis: 60%;
+      margin-left: cards.$padding * 2;
+    }
+
+    @include mixins.mediaQueries__forTabletLandscapeDown {
+      .card__left {
+        flex-basis: 100%;
+
+        .card__image {
+          height: 260px;
+          border-radius: cards.$borderRadius cards.$borderRadius 0 0;
+        }
+      }
+
+      .card__right {
+        margin: (cards.$padding * 2) 0 0;
+        flex-basis: 100%;
+      }
+    }
+  }
+
+  .card {
+    .card__header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .text--decorated-right {
+      width: 100%;
+      white-space: nowrap;
+      margin-bottom: cards.$gap * 0.5;
+
+      &::after {
+        width: 100%;
+        height: 1px;
+        flex: 1;
+      }
+    }
+
+    .card__overline {
+      color: colorBundles.$tertiary;
+      margin-top: -(cards.$gap * 0.75);
+    }
+  }
+}

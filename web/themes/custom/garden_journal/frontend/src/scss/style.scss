@@ -33,11 +33,13 @@
 @use '04-organisms/my-account';
 @use '04-organisms/user-forms';
 @use '04-organisms/header';
+@use '04-organisms/blocks';
 
 // Pages
 @use '05-pages/common';
 @use '05-pages/journal';
 @use '05-pages/views';
+@use '05-pages/layout-builder';
 
 // Helpers
 @use '06-helpers/helpers';
