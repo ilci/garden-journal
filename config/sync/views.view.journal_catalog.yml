@@ -203,7 +203,7 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: "<div>\r\n  <h2 class=\"h1--hero\">Nothing to show yet</h2>\r\n  <p>No journal entries match the current selection.</p>\r\n</div>"
+            value: "<div>\r\n  <h2 class=\"h1--hero\">No journals found</h2>\r\n  <p>There are no journal entries to display. Try adjusting your filters or check back when more journals have been added.</p>\r\n</div>"
             format: full_html
           tokenize: false
       sorts:

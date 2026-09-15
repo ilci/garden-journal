@@ -26,3 +26,17 @@ image_fields:
   dependencies:
     - core/drupal
     - core/once
+
+exposed_form_search:
+  js:
+    frontend/dist/js/garden_journal_exposed_form_search.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
+sidebar_first_exposed_filters:
+  js:
+    frontend/dist/js/garden_journal_sidebar_first_exposed_filters.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

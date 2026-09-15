@@ -1,0 +1,62 @@
+@use 'sass:math';
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/mixins';
+@use '../../00-settings/variables';
+@use '../../02-atoms/filters';
+@use '../../02-atoms/typography';
+
+.views-filters-summary {
+  margin-top: variables.$layout__spacing * 0.5;
+
+  .prefix {
+    @extend %text--overline;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: variables.$layout__spacing * 0.25;
+  }
+
+  .items {
+    @extend %filters;
+    display: inline-flex;
+    gap: math.div(variables.$layout__spacing, 8);
+    margin-bottom: 0
+  }
+
+  .value-container {
+    @extend %filter, %filter--small;
+    position: relative;
+    cursor: pointer;
+
+    .value {
+      margin: 0;
+      padding: 0 math.div(variables.$layout__spacing, 1.6) 0 0;
+      border: none;
+    }
+
+    .remove-filter {
+      position: absolute;
+      color: filters.$color;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      font-size: 0;
+      margin: 0;
+      background-color: unset;
+      border-radius: filters.$borderRadius;
+
+      &::before {
+        @include mixins.fonts__setFontIcon(variables.$icons__close);
+        font-size: variables.$typography__icon__fontSize--extraSmall;
+        line-height: variables.$typography__icon__fontSize--extraSmall;
+        position: absolute;
+        top: 6px;
+        right: 12px;
+      }
+    }
+  }
+
+  .reset {
+    @extend %link--small;
+    vertical-align: center;
+  }
+}

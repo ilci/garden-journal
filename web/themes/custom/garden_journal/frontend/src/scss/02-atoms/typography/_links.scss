@@ -8,6 +8,8 @@ $transition--color: variables.$transitions__colorTransition;
 $textLink__textDecoration: underline;
 $textLink__textUnderlineOffset: variables.$typography__link__textUnderlineOffset;
 $link__font: variables.$typography__link__font;
+$link--small__font: variables.$typography__text--small__font;
+$link--small__fontSize: variables.$typography__fontSize--small;
 
 a,
 .link:not(.button),
@@ -17,15 +19,21 @@ a,
   text-decoration: none;
   background-color: unset;
   border: none;
+  transition: $transition--color;
 
   &:hover {
     color: $hover__color;
     text-decoration: $textLink__textDecoration;
     text-underline-offset: $textLink__textUnderlineOffset;
-    transition: $transition--color;
   }
 
   &.is-active {
     color: $hover__color;
   }
+}
+
+%link--small,
+.link--small {
+  @include mixins.fonts__setFontFromStack($link--small__font...);
+  font-size: $link--small__fontSize;
 }

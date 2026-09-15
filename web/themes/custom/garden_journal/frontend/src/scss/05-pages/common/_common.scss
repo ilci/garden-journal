@@ -7,7 +7,7 @@ $borderRadius: variables.$borderRadius__borderRadius--extraLarge * 2.5;
 $boxShadow: variables.$shadows__boxShadow--large;
 $border: 1px solid rgba(colorBundles.$dividerLine--rgb, 0.5);
 $headerOverlay: linear-gradient(to top, rgba(colorBundles.$interactionDarkColor--rgb, 0.4), transparent);
-$header__aspectRatio: 3/1;
+$header__aspectRatio: math.div(3, 1);
 
 .region--content {
   article.full {

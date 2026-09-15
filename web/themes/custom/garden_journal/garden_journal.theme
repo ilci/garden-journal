@@ -52,3 +52,21 @@ function garden_journal_preprocess_input(array &$variables): void {
   // Add 'button--primary' class to submit buttons by default.
   $variables['attributes']['class'][] = 'button--primary';
 }
+
+/**
+ * Implements hook_preprocess_HOOK() for page.
+ */
+function garden_journal_preprocess_page(array &$variables): void {
+  $variables['container'] = TRUE;
+}
+
+/**
+ * Implements hook_form_views_exposed_form_alter().
+ */
+function garden_journal_form_views_exposed_form_alter(array &$form): void {
+  // Attach the exposed_form_search library when the Search API fulltext search
+  // is present in the exposed form. 
+  if (isset($form['keyword'])) {
+    $form['#attached']['library'][] = 'garden_journal/exposed_form_search';
+  }
+}

@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Garden Journal's override to display a Garden bed node.
+ * Garden Journal's override to display a Garden bed node as a card.
  *
  * Available variables:
  * - node: The node entity with limited access to object properties and methods.
@@ -60,63 +60,37 @@
  */
 #}
 
-{%
-  set articleClasses = [
-    node.bundle|clean_class,
-    view_mode ? view_mode|clean_class,
-  ]
-%}
-{%
-  set contentClasses = [
-    'content',
-    'entry',
-  ]
-%}
+{% extends '@garden_journal/node/partials/card-view.html.twig' %}
 
-<article{{attributes.addClass(articleClasses)}}>
-  <div{{content_attributes.addClass(contentClasses)}}>
-    <div class="entry__header">
-      <div class="entry__header-image has-background-image" style="background-image: url('{{ file_url(node.field_image.entity.field_media_image.entity.uri.value) }}')">
-        <span class="entry__availability tag tag--{{ node.field_active.value == '1' ? 'active' : 'inactive' }}">
-          {{ content.field_active }}
-        </span>
-      </div>
-    </div>
-    <div class="entry__body">
-      <div class="entry__titles">
-        <span class="entry__section-title text--decorated text--decorated-left">{{ 'Garden bed specifications'|t }}</span>
-        <h1 class="entry__title h1--hero">{{ label }}</h1>
-        <h2 class="entry__subtitle">{{ content.field_garden_bed_type }}</h2>
-      </div>
-      <div class="entry__specifications">
-        <div>{{ content.field_garden_bed_width }}</div>
-        <div>{{ content.field_garden_bed_length }}</div>
-        <div>{{ content.field_sunlight_needs }}</div>
-        <div>{{ content.field_soil_needs }}</div>
-        <div>
-          <div class="field__label">{{ 'Plants'|t }}</div>
-          {% set plant_count = node.field_plants|length %}
-          {% if plant_count == 0 %}
-            <span class="field__item">{{ 'None'|t }}</span>
-          {% elseif plant_count == 1 %}
-            <span class="field__item">{{ node.field_plants|length }}{{ ' variety'|t }}</span>
-          {% else %}
-            <span class="field__item">{{ node.field_plants|length }}{{ ' varieties'|t }}</span>
-          {% endif %}
+{% set attributes = attributes.addClass(['card--quicklink']) %}
+
+{% block header %}
+  <div class="card__header card__header--with-image">
+    <div class="card__image card__image--header has-background-image" style="background-image: url('{{ file_url(node.field_image.entity.field_media_image.entity.uri.value) }}')"></div>
+    <span class="card__availability tag tag--{{ node.field_active.value == '1' ? 'active' : 'inactive' }}">
+      {{ content.field_active }}
+    </span>
+  </div>
+  <div class="card__overline text--overline">{{ content.field_garden_bed_type }}</div>
+{% endblock header %}
+{% block body %}
+  <div{{ content_attributes }}>
+    <div>
+      <div class="garden-bed-dimensions">{{ content.field_garden_bed_length }} x {{ content.field_garden_bed_width }}</div>
+      <div class="card__specifications text--small">
+        <div class="card__specification">
+          <span class="card__specification-label">{{ 'Soil'|t }}</span>
+          <div class="card__specification-item">{{ content.field_soil_needs }}</div>
         </div>
-      </div>
-      <div class="entry__description">
-        <div>{{ content.field_description }}</div>
-      </div>
-      {% if node.field_plants|length > 0 %}
-        <div class="entry__additional">
-          <div>{{ content.field_plants }}</div>
+        <div class="card__specification">
+          <span class="card__specification-label">{{ 'Sun'|t }}</span>
+          <div class="card__specification-item">{{ content.field_sunlight_needs }}</div>
         </div>
-      {% endif %}
-      <div class="entry__images">
-        <div class="field__label">{{ 'Gallery'|t }}</div>
-        {{ content.field_image }}
+        <div class="card__specification">
+          <span class="card__specification-label">{{ 'Plants'|t }}</span>
+          <div class="card__specification-item">{{ node.field_plants|length }}</div>  
+        </div>
       </div>
     </div>
   </div>
-</article>
+{% endblock body %}

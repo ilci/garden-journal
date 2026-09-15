@@ -1,0 +1,66 @@
+{#
+/**
+ * @file
+ * Garden Journal's partial theme implementation for a catalog page when there
+ * is a left sidebar with an exposed filtering section on the page.
+ *
+ * Available variables:
+ *   @see page.html.twig
+ *
+ * Additional variables:
+ * - grid_classes: An array of CSS classes applied to the main grid
+ *   container. The classes vary depending on whether one or two sidebars
+ *   are present.
+ * - content_col: A CSS class or array of CSS classes applied to the
+ *   main content column.
+ * - aside_col: A CSS class or array of CSS classes applied to the
+ *   sidebar columns.
+ */
+#}
+
+{{ attach_library('garden_journal/sidebar_first_exposed_filters') }}
+
+{%
+  set grid_classes = [
+    'grid',
+    'grid--tablet--2',
+    'has-sidebar',
+  ]
+%}
+{%
+  set content_col = [
+    'col--12',
+    'col--tablet-landscape--8',
+    'content-with-sidebar-first-exposed-filters',
+  ]
+%}
+{%
+  set aside_col = [
+    'col--12',
+    'col--tablet-landscape--4',
+    'sidebar-with-exposed-filters',
+  ]
+%}
+
+<div {{ create_attribute({'class': grid_classes}) }}>
+  {% if page.sidebar_first %}
+    <div{{ create_attribute({'class': aside_col}) }}>
+      {% block region_sidebar_first %}
+        <div class="sidebar-wrapper">
+          <button class="icon-chevron-down icon-button close-button" aria-label="{{ 'Close'|t }}"></button>
+          {{ page.sidebar_first }}
+        </div>
+        <div class="buttons-wrapper">
+          <button class="button button--secondary close-button">{{ 'Close'|t }}</button>
+          <button class="button button--primary filter-button">{{ 'Filters'|t }}<span class="icon-filter"></span></button>
+          <button class="button button--primary show-results-button">{{ 'Show results'|t }}</button>
+        </div>
+      {% endblock %}
+    </div>
+  {% endif %}
+  <div{{ create_attribute({'class': content_col}) }}>
+    {% block region_content %}
+      {{ page.content }}
+    {% endblock %}
+  </div>
+</div>

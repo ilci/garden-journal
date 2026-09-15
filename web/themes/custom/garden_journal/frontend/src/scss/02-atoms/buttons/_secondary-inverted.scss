@@ -1,6 +1,4 @@
 @use '../../00-settings/color-bundles' as colorBundles;
-@use '../../00-settings/variables';
-@use 'secondary';
 
 $color: colorBundles.$interactionLightColor;
 $backgroundColor: transparent;

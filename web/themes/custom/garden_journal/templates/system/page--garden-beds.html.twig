@@ -1,7 +1,8 @@
 {#
 /**
  * @file
- * Garden Journal's override to display a single page.
+ * Garden Journal's override to display the Garden beds catalog with a detailed
+ * header and sidebar with filters.
  *
  * The doctype, html, head and body tags are not in this template. Instead they
  * can be found in the html.html.twig template in this directory.
@@ -47,54 +48,25 @@
  */
 #}
 
-{%
-  set container_class = [
-    container ? 'container' : 'container-fluid',
-    'layout-content',
-  ]
-%}
+{% extends '@garden_journal/system/page.html.twig' %}
 
-<div class="site-content">
-  {% block region_navigation %}
-    {{ page.navigation }}
-  {% endblock %}
-
-  {% block region_breadcrumb %}
-    {{ page.breadcrumb }}
-  {% endblock %}
-
-  {% block page_header %}
-    <header class="page-header">
-      {% block region_header_first %}
-        {{ page.header_first }}
-      {% endblock %}
-      {% block region_header_second %}
-        {{ page.header_second }}
-      {% endblock %}
-    </header>
-  {% endblock %}
-
-  {% block page_main %}
-    <main{{content_attributes.addClass('js-quickedit-region')}}>
-      {# link is in html.html.twig #}
-      <a class="visually-hidden" id="main-content" tabindex="-1"></a>
-      <div {{ create_attribute({'class': container_class} ) }}>
-        {% if page.sidebar_first or page.sidebar_second %}
-          {% include '@garden_journal/system/partials/page-has-sidebar.html.twig' %}
-        {% else %}
-          {% include '@garden_journal/system/partials/page-no-sidebar.html.twig' %}
-        {% endif %}
-      </div>
-    </main>
-  {% endblock %}
-
-  {% block region_bottom_navigation %}
-    {{ page.bottom_navigation }}
-  {% endblock %}
-
-  {% block region_footer %}
-    {{ page.footer }}
-  {% endblock %}
-
-  <div class="site-overlay"></div>
-</div>
+{% block page_header %}
+  {% include '@garden_journal/system/partials/page-with-header-description.html.twig' with {
+    section_title: 'Garden layouts'|t,
+    title: 'Garden Bed Catalog'|t,
+    subtitle: 'Browse the garden bed catalog: raised beds, borders, and planting layouts with dimensions, soil, sun exposure, and plant lists.'|t
+  } %}
+{% endblock %}
+{% block page_main %}
+  <main{{ content_attributes.addClass('js-quickedit-region') }}>
+    {# link is in html.html.twig #}
+    <a class="visually-hidden" id="main-content" tabindex="-1"></a>
+    <div {{ create_attribute({'class': container_class}) }}>
+      {% if page.sidebar_first %}
+        {% include '@garden_journal/system/partials/catalog-with-sidebar-first-exposed-filters.html.twig' %}
+      {% else %}
+        {% include '@garden_journal/system/partials/page-no-sidebar.html.twig' %}
+      {% endif %}
+    </div>
+  </main>
+{% endblock %}

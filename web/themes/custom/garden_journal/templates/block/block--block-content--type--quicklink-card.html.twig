@@ -44,7 +44,7 @@
   <div class="card__header card__header--with-image">
     <div class="card__image card__image--header has-background-image" style="background-image: url('{{ file_url(content.field_image['#items'].0.entity.field_media_image.entity.uri.value) }}')"></div>
   </div>
-  <span class="card__overline">{{ 'Browse'|t }}</span>
+  <span class="card__overline text--overline">{{ 'Browse'|t }}</span>
   <h2{{title_attributes.addClass(title_classes)}}>
     {{ content.field_title }}
   </h2>

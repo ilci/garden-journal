@@ -1,0 +1,145 @@
+uuid: 4110c0ac-c988-4c6d-9604-1ab736ff7752
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_active
+    - field.storage.node.field_description
+    - field.storage.node.field_garden_bed_type
+    - field.storage.node.field_plants
+    - field.storage.node.field_soil_needs
+    - field.storage.node.field_sunlight_needs
+    - search_api.server.garden_beds
+  module:
+    - node
+id: garden_bed_index
+name: 'Garden bed'
+description: ''
+read_only: false
+field_settings:
+  field_active:
+    label: Active
+    datasource_id: 'entity:node'
+    property_path: field_active
+    type: boolean
+    dependencies:
+      config:
+        - field.storage.node.field_active
+  field_description:
+    label: Description
+    datasource_id: 'entity:node'
+    property_path: field_description
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_description
+  field_garden_bed_type:
+    label: 'Garden bed type'
+    datasource_id: 'entity:node'
+    property_path: field_garden_bed_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_garden_bed_type
+  field_plants:
+    label: 'Plants in this bed'
+    datasource_id: 'entity:node'
+    property_path: field_plants
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_plants
+  field_soil_needs:
+    label: 'Soil type'
+    datasource_id: 'entity:node'
+    property_path: field_soil_needs
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_soil_needs
+  field_sunlight_needs:
+    label: 'Sun exposure'
+    datasource_id: 'entity:node'
+    property_path: field_sunlight_needs
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_sunlight_needs
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    dependencies:
+      module:
+        - node
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - garden_bed
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  custom_value: {  }
+  entity_type: {  }
+  highlight:
+    weights:
+      postprocess_query: 0
+    prefix: '<strong>'
+    suffix: '</strong>'
+    excerpt: false
+    excerpt_always: false
+    excerpt_length: 256
+    exclude_fields: {  }
+    highlight: always
+    highlight_partial: false
+  html_filter:
+    weights:
+      preprocess_index: -15
+      preprocess_query: -15
+    all_fields: false
+    fields:
+      - field_description
+      - title
+    title: true
+    alt: true
+    tags:
+      b: 2.0
+      em: 1.5
+      h1: 5.0
+      h2: 3.0
+      h3: 2.0
+      strong: 2.0
+      u: 1.5
+  ignorecase:
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+    all_fields: false
+    fields:
+      - field_description
+      - title
+  language_with_fallback: {  }
+  rendered_item: {  }
+  transliteration:
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+    all_fields: false
+    fields:
+      - field_description
+      - title
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  delete_on_fail: true
+  index_directly: true
+  track_changes_in_references: true
+server: garden_beds

@@ -11,7 +11,7 @@ entity_type: node
 bundle: plant
 label: Active
 description: 'Still growing this variety?'
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

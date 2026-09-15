@@ -1,0 +1,15 @@
+uuid: 0d8c8f5f-800c-4d4b-855a-2cd233eddc5c
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_db
+id: garden_beds
+name: 'Garden beds'
+description: ''
+backend: search_api_db
+backend_config:
+  database: 'default:default'
+  min_chars: 1
+  matching: words
+  phrase: bigram

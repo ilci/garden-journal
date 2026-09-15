@@ -6,6 +6,7 @@ $text--small__color: colorBundles.$secondary;
 $text--small__textTransform: variables.$typography__textTransform;
 $text--small__fontSize: variables.$typography__fontSize--small;
 $text--small__font: variables.$typography__text--small__font;
+$text--overline__fontSize: variables.$typography__fontSize--extraSmall;
 $text--lead__font: variables.$typography__text--lead__font;
 $text--lead__fontSize: variables.$typography__fontSize--base;
 $text--lead__textTransform: none;
@@ -72,4 +73,13 @@ small,
   &::before {
     content: none;
   }
+}
+
+%text--overline,
+.text--overline {
+  @include mixins.fonts__setFontFromStack($text--small__font...);
+  font-size: $text--overline__fontSize;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: $text--small__color;
 }

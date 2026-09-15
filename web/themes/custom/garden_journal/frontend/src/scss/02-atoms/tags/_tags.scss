@@ -15,19 +15,19 @@ $tags: default, active, inactive, light;
 $colors: (
   default: colorBundles.$tagLabel,
   active: colorBundles.$lightText,
-  inactive: colorBundles.$interactionLightColor,
+  inactive: colorBundles.$lightText,
   light: colorBundles.$secondary,
 );
 $backgroundColors: (
   default: colorBundles.$tagFill,
   active: colorBundles.$accent,
-  inactive: colorBundles.$tagFill,
+  inactive: colorBundles.$utilityDark,
   light: colorBundles.$tagFillLight,
 );
 $borderColors: (
   default: colorBundles.$tagBorder,
   active: colorBundles.$interactionLightHover,
-  inactive: colorBundles.$dividerLine,
+  inactive: colorBundles.$utilityDark,
   light: colorBundles.$dividerLine,
 );
 
