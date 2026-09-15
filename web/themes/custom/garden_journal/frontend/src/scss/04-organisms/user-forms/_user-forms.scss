@@ -3,6 +3,7 @@
 @use '../../00-settings/mixins';
 @use '../../02-atoms/messages';
 
+// Forgot password form
 .user-pass {
   .form__body {
     > p {

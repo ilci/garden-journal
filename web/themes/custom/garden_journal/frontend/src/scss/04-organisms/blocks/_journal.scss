@@ -2,6 +2,7 @@
 @use '../../00-settings/mixins';
 @use '../../03-molecules/cards';
 
+// Latest journal entry block.
 .view--journal-catalog--journal-block {
   .card--two-col {
     justify-content: unset;

@@ -7,7 +7,7 @@ $borderColor: colorBundles.$interactionDarkColor;
 $borderWidth: 1px;
 $borderRadius: 14px;
 $color: colorBundles.$primary;
-$disabled__opacity: 0.5;
+$disabled__opacity: 0.4;
 $font: variables.$typography__button__font;
 $fontSize: variables.$typography__fontSize--small;
 $fontSize--small: variables.$typography__fontSize--extraSmall;
@@ -53,6 +53,11 @@ $transition: variables.$transitions__allTransition;
 
   &:hover {
     text-decoration: $textDecoration;
+  }
+
+  &:disabled {
+    opacity: $disabled__opacity;
+    pointer-events: none;
   }
 }
 

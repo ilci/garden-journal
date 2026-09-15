@@ -65,16 +65,16 @@
 {% set attributes = attributes.addClass(['card--quicklink', 'card--two-col']) %}
 
 {% block card %}
-  <div{{attributes}}>
+  <div{{ attributes }}>
     <div class="card__left">
       <div class="card__header">
         <div class="card__overline text--overline">{{ content.field_date }}</div>
         <div class="tag tag--default">{{ content.field_entry_type }}</div>
       </div>
-      <h2{{title_attributes}}>
+      <h2{{ title_attributes }}>
         {{ label }}
       </h2>
-      <div{{content_attributes}}>
+      <div{{ content_attributes }}>
         {{ content.field_description }}
         {% if node.field_garden_bed.value or node.field_plants.value %}
           <div class="card__tags tags">
@@ -87,7 +87,7 @@
           </div>
         {% endif %}
       </div>
-      <a{{linkAttributes.setAttribute('href',url).setAttribute('rel','bookmark')}}>{{ 'Read more about '|t }}{{ label }}</a>
+      <a{{ linkAttributes.setAttribute('href', url).setAttribute('rel', 'bookmark') }}>{{ 'Read more about '|t }}{{ label }}</a>
     </div>
     {% if node.field_image.value %}
       <div class="card__right">

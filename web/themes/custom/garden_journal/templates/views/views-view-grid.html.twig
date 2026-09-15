@@ -43,12 +43,12 @@
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
-<div{{attributes.addClass(row_classes)}}>
+<div{{ attributes.addClass(row_classes) }}>
   {% for row in items %}
     {% for column in row.content %}
-      <div{{create_attribute().addClass(col_classes)}}>
+      <div{{ create_attribute().addClass(col_classes) }}>
         {% if options.col_class_custom %}
-          <div{{column.attributes}}>
+          <div{{ column.attributes }}>
             {{- column.content -}}
           </div>
         {% else %}

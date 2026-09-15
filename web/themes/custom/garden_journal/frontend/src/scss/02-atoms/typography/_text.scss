@@ -13,7 +13,6 @@ $text--lead__textTransform: none;
 $text--lead__color: colorBundles.$primary;
 $light__color: colorBundles.$lightText;
 $dark__color: colorBundles.$darkText;
-$icon__fontSize: variables.$typography__icon__fontSize;
 
 p {
   margin: (variables.$layout__spacing * 0.5) 0;

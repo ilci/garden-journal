@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Garden Journal's override to display a node as a card.
+ * Garden Journal's partial theme implementation to display a node as a card.
  *
  * Available variables:
  * - node: The node entity with limited access to object properties and methods.
@@ -72,20 +72,20 @@
 %}
 
 {% block card %}
-  <div{{attributes}}>
+  <div{{ attributes }}>
     {% block header %}{% endblock header %}
     {% block title %}
-      <h2{{title_attributes}}>
+      <h2{{ title_attributes }}>
         {{ label }}
       </h2>
     {% endblock title %}
     {% block body %}
-      <div{{content_attributes}}>
+      <div{{ content_attributes }}>
         {{ content }}
       </div>
     {% endblock body %}
     {% block footer %}
-      <a{{linkAttributes.setAttribute('href',url).setAttribute('rel','bookmark')}}>{{ 'Read more about '|t }}{{ label }}</a>
+      <a{{ linkAttributes.setAttribute('href', url).setAttribute('rel', 'bookmark') }}>{{ 'Read more about '|t }}{{ label }}</a>
     {% endblock footer %}
   </div>
 {% endblock card %}

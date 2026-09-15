@@ -71,10 +71,9 @@ h5,
 .h6,
 h6,
 %h6 {
+  @include mixins.typography__wordWrap;
   text-transform: $textTransform;
   color: $color;
-
-  @include mixins.typography__wordWrap;
 }
 
 .h1,

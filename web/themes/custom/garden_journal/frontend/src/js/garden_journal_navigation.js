@@ -10,7 +10,7 @@
    * @param {Element} navigation
    *   The navigation element.
    */
-  const init = (navigation) => { 
+  const initNavigation = (navigation) => { 
     const toggleButton = navigation.querySelector('button.navigation__toggle--nav');
     const siteOverlay = document.querySelector('.site-overlay');
     const desktopBreakpoint = window.matchMedia('(min-width: 960px)');
@@ -64,11 +64,10 @@
       }
     });
   };
-  
 
   Drupal.behaviors.gardenJournalNavigation = {
     attach(context) {
-      once('navigation', '.region--navigation .navigation', context).forEach(init);
+      once('navigation', '.region--navigation .navigation', context).forEach(initNavigation);
     },
   };
 })(Drupal, once);

@@ -7,9 +7,6 @@ $font: variables.$typography__text--small__font;
 $fontSize: variables.$typography__fontSize--extraSmall;
 $borderRadius: 15px;
 $padding: 2px 10px;
-$info__color: colorBundles.$tagLabel;
-$info__backgroundColor: colorBundles.$tagFill;
-$info__borderColor: colorBundles.$tagBorder;
 $tags: default, active, inactive, light;
 
 $colors: (
