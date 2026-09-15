@@ -1,0 +1,65 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+
+$color: colorBundles.$interactionDarkColor;
+$borderColor: colorBundles.$dividerLine;
+$backgroundColor: colorBundles.$interactionDarkColor;
+$hover__color: colorBundles.$darkText;
+$hover__backgroundColor: colorBundles.$dividerLine;
+$borderRadius: variables.$borderRadius__borderRadius--large;
+$size: 32px;
+$size--small: 28px;
+$size--large: 38px;
+$transition: variables.$transitions__allTransition;
+
+%icon-button,
+.icon-button {
+  @include mixins.focusState__focusState;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color;
+  border: 1px solid transparent;
+  border-radius: $borderRadius;
+  height: $size;
+  width: $size;
+  padding: 0;
+  transition: $transition;
+
+  &::before {
+    font-family: variables.$icons__fontFamily;
+    font-size: variables.$typography__icon__fontSize--small;
+  }
+
+  &:hover,
+  &:active  {
+    color: $hover__color;
+    background-color: $hover__backgroundColor;
+  }
+}
+
+%icon-button--outlined,
+.icon-button--outlined {
+  border: 1px solid $borderColor;
+}
+
+%icon-button--small,
+.icon-button--small {
+  height: $size--small;
+  width: $size--small;
+
+  &::before {
+    font-size: variables.$typography__icon__fontSize--extraSmall;
+  }
+}
+
+%icon-button--large,
+.icon-button--large {
+  height: $size--large;
+  width: $size--large;
+
+  &::before {
+    font-size: variables.$typography__icon__fontSize--medium;
+  }
+}

@@ -1,0 +1,157 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+@use '../../00-settings/mixins';
+@use '../../02-atoms/typography';
+@use '../../02-atoms/forms';
+@use '../../02-atoms/buttons';
+@use '../../02-atoms/filters';
+
+.grid {
+  .sidebar-with-exposed-filters {
+    .container {
+      padding: 0;
+    }
+
+    .views-exposed-form {
+      display: flex;
+      flex-direction: column;
+      gap: variables.$layout__spacing * 0.5;
+    }
+
+    .form-item-keyword {
+      position: relative;
+
+      &:has(.icon-button--small:not(.hidden)) {
+        input {
+          padding-right: calc(forms.$input__padding--horizontal + buttons.$iconButton__size--small + 4px);
+        }
+      }
+
+      .icon-button--small {
+        position: absolute;
+        right: forms.$input__padding--horizontal;
+        top: calc(forms.$input__minHeight - buttons.$iconButton__size--small) * 0.5;
+
+        &.hidden {
+          display: none;
+        }
+      }
+    }
+
+    fieldset {
+      legend {
+        @extend %text--small;
+        color: colorBundles.$tertiary;
+        letter-spacing: 1.5px;
+        margin-bottom: variables.$layout__spacing * 0.375;
+      }
+    }
+
+    @include mixins.mediaQueries__forTabletLandscapeUp {
+      .buttons-wrapper,
+      .icon-chevron-down {
+        display: none;
+      }
+    }
+
+    @include mixins.mediaQueries__forTabletLandscapeDown {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      padding: 0;
+      z-index: 502;
+      
+      .sidebar-wrapper {
+        position: fixed;
+        bottom: -100%;
+        height: auto;
+        width: 100%;
+        transition: variables.$transitions__allTransition;
+    
+        .icon-chevron-down {
+          display: none;
+        }
+      }
+
+      .buttons-wrapper {
+        position: fixed;
+        bottom: 0;
+        padding: (variables.$layout__spacing * 0.375) (variables.$layout__spacing * 0.5);
+        background-color: colorBundles.$panelBackground;
+        box-shadow: variables.$shadows__boxShadow--darker;
+        width: 100%;
+        z-index: 501;
+
+        .button:has(+ .button) {
+          margin-right: 0;
+        }
+
+        .filter-button {
+          width: 100%;
+          gap: variables.$layout__spacing * 0.25;
+        }
+
+        .close-button,
+        .show-results-button {
+          display: none;
+        }
+      }
+
+      &.is-open {
+        top: 0;
+        background-color: rgba(colorBundles.$shading--rgb, 0.6);
+
+        .sidebar-wrapper {
+          position: fixed;
+          bottom: 64px;
+          max-height: calc(100% - 64px);
+          overflow: hidden auto;
+          background-color: colorBundles.$panelBackground;
+          border-radius: variables.$borderRadius__borderRadius--extraLarge variables.$borderRadius__borderRadius--extraLarge 0 0;
+
+          .icon-chevron-down {
+            display: flex;
+            margin: (variables.$layout__spacing * 0.25) auto;
+          }
+        }
+
+        .buttons-wrapper {
+          display: grid;
+          grid-template-columns: 1fr 3fr;
+          gap: variables.$layout__spacing * 0.5;
+
+          .filter-button {
+            display: none;
+          }
+
+          .close-button,
+          .show-results-button {
+            display: inline-flex;
+          }
+        }
+
+        .views-exposed-form {
+          box-shadow: none;
+          border: none;
+          border-radius: none;
+          padding: (variables.$layout__spacing * 0.25) (variables.$layout__spacing * 0.5) variables.$layout__spacing;
+        }
+      }   
+    }
+
+    @include mixins.mediaQueries__forMobileOnly {
+      &.is-open {
+        .views-exposed-form {
+          gap: (variables.$layout__spacing * 0.25);
+          padding: 0 (variables.$layout__spacing * 0.5) (variables.$layout__spacing * 0.5);
+        }
+      }
+
+      fieldset {
+        legend {
+          margin-bottom: variables.$layout__spacing * 0.25;
+        }
+      }
+    }
+  }
+}

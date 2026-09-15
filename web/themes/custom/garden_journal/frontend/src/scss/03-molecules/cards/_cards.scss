@@ -99,6 +99,50 @@ $overline__color: colorBundles.$secondary;
 
   &::before {
     height: $cardHeaderImage__height;
+    border-radius: $borderRadius $borderRadius 0 0;
+  }
+}
+
+.card__specifications {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding-top: $padding * 0.5;
+  margin-top: $padding * 0.5;
+  border-top: 1px solid $borderColor;
+
+  .card__specification {
+    padding: 0 ($padding * 0.25);
+
+    &:not(:last-of-type) {
+      border-right: 1px solid $borderColor;
+    }
+  }
+
+  .card__specification-label {
+    color: colorBundles.$tertiary;
+    letter-spacing: 1.5px;
+  }
+
+  .card__specification-item {
+    color: colorBundles.$headings;
+    margin-top: math.div($padding, 8);
+  }
+
+  @include mixins.mediaQueries__forMobileOnly {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: $gap;
+
+    .card__specification {
+      &:nth-of-type(2) {
+        border-right: none;
+      }
+      
+      &:last-of-type {
+        grid-column: 1/-1;
+        justify-self: center;
+      }
+    }
   }
 }
 
@@ -150,12 +194,10 @@ $overline__color: colorBundles.$secondary;
   }
 }
 
-.card__overline {
-  @include mixins.fonts__setFontFromStack(variables.$typography__text--small__font...);
-  font-size: variables.$typography__fontSize--extraSmall;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: $overline__color;
+.card__availability {
+  position: absolute;
+  top: $padding * 0.5;
+  left: $padding * 0.5;
 }
 
 .card--two-col {
@@ -219,5 +261,12 @@ $overline__color: colorBundles.$secondary;
     .card__image {
       width: 100%;
     }
+  }
+}
+
+.card--garden-bed {
+  .garden-bed-dimensions {
+    display: flex;
+    gap: $gap * 0.5;
   }
 }

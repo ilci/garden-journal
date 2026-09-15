@@ -23,13 +23,16 @@
         "drupal/core-recipe-unpack": "^11.4",
         "drupal/core-recommended": "^11.4",
         "drupal/easy_breadcrumb": "^2.0",
+        "drupal/facets": "^3.0",
         "drupal/gin": "^5.0",
         "drupal/menu_link_attributes": "^1.7",
         "drupal/menu_per_role": "^2.0",
         "drupal/menu_trail_by_path": "^2.2",
         "drupal/pathauto": "^1.15",
         "drupal/range": "^1.6",
+        "drupal/search_api": "^1.41",
         "drupal/smart_trim": "^2.3",
+        "drupal/views_filters_summary": "^3.4",
         "drush/drush": "^13.7"
     },
     "conflict": {

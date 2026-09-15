@@ -46,7 +46,7 @@ content:
     region: content
   field_garden_bed_length:
     type: number_integer
-    label: above
+    label: visually_hidden
     settings:
       thousand_separator: ''
       prefix_suffix: true
@@ -63,7 +63,7 @@ content:
     region: content
   field_garden_bed_width:
     type: number_integer
-    label: above
+    label: visually_hidden
     settings:
       thousand_separator: ''
       prefix_suffix: true
@@ -89,7 +89,7 @@ content:
     region: content
   field_soil_needs:
     type: entity_reference_label
-    label: above
+    label: visually_hidden
     settings:
       link: false
     third_party_settings: {  }
@@ -97,7 +97,7 @@ content:
     region: content
   field_sunlight_needs:
     type: entity_reference_label
-    label: above
+    label: visually_hidden
     settings:
       link: false
     third_party_settings: {  }
@@ -108,4 +108,5 @@ content:
     third_party_settings: {  }
     weight: 9
     region: content
-hidden: {  }
+hidden:
+  search_api_excerpt: true

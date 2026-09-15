@@ -1,0 +1,28 @@
+uuid: 4ee4b5d6-2223-4813-8f15-732add28e22b
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.garden_bed_catalog
+  module:
+    - system
+    - views
+  theme:
+    - garden_journal
+id: garden_journal_exposed_form_garden_bed_catalog
+theme: garden_journal
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:garden_bed_catalog-garden_beds'
+settings:
+  id: 'views_exposed_filter_block:garden_bed_catalog-garden_beds'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /garden-beds

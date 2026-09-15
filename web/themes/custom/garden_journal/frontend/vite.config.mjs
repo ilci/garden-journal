@@ -14,6 +14,8 @@ export default defineConfig({
         font_faces: resolve(__dirname, 'src/scss/font-faces.scss'),
         garden_journal_navigation: resolve(__dirname, 'src/js/garden_journal_navigation.js'),
         garden_journal_image_fields: resolve(__dirname, 'src/js/garden_journal_image_fields.js'),
+        garden_journal_exposed_form_search: resolve(__dirname, 'src/js/garden_journal_exposed_form_search.js'),
+        garden_journal_sidebar_first_exposed_filters: resolve(__dirname, 'src/js/garden_journal_sidebar_first_exposed_filters.js'),
       },
 
       output: {
