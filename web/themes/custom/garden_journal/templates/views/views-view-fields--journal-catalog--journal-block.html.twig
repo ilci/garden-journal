@@ -43,7 +43,7 @@
   })
 %}
 
-<div{{cardAttributes}}>
+<div{{ cardAttributes }}>
   {% if media %}
     <div class="card__left">
       <div class="card__image has-background-image" style="background-image: url('{{ file_url(media.field_media_image.entity.uri.value) }}')"></div>
@@ -61,7 +61,7 @@
     {{ fields.field_date.content }}
   </div>
   <div class="card__body">
-    {{ fields.field_description.content}}
+    {{ fields.field_description.content }}
   </div>
   <div class="card__footer">
     {{ fields.view_node.content }}

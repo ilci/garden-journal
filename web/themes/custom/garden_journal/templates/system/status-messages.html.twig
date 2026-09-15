@@ -32,22 +32,22 @@
     <div role="contentinfo" aria-label="{{ status_headings[type] }}" {{ attributes.addClass(classes)|without('role', 'aria-label') }}>
       {% if type == 'error' %}
         <div role="alert">
+      {% endif %}
+      {% if status_headings[type] %}
+        <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
+      {% endif %}
+      <div class="message__text">
+        {% if messages|length > 1 %}
+          <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          {{ messages|first }}
         {% endif %}
-        {% if status_headings[type] %}
-          <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
-        {% endif %}
-        <div class="message__text">
-          {% if messages|length > 1 %}
-            <ul>
-              {% for message in messages %}
-                <li>{{ message }}</li>
-              {% endfor %}
-            </ul>
-          {% else %}
-            {{ messages|first }}
-          {% endif %}
-        </div>
-        {% if type == 'error' %}
+      </div>
+      {% if type == 'error' %}
         </div>
       {% endif %}
     </div>

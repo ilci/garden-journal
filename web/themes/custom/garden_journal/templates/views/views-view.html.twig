@@ -48,7 +48,7 @@
   ]
 %}
 {% block view %}
-  <div{{attributes.addClass(classes)}}>
+  <div{{ attributes.addClass(classes) }}>
     {{ title_prefix }}
     {{ title }}
     {{ title_suffix }}
@@ -63,7 +63,7 @@
     {{ attachment_before }}
 
     {% block view_content %}
-      <div{{create_attribute({'class':content_classes})}}>
+      <div{{ create_attribute({'class': content_classes}) }}>
         {{ rows }}
       </div>
     {% endblock %}

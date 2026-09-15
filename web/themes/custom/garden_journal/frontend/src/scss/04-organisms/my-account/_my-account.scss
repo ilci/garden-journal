@@ -35,7 +35,7 @@ $userInitial__border: 3px solid colorBundles.$lightText;
       h4 {
         @include mixins.fonts__setFontFromStack(tags.$font...);
         font-size: tags.$fontSize;
-        color: tags.$info__color;
+        color: colorBundles.$tagLabel;
       }
     }
   }

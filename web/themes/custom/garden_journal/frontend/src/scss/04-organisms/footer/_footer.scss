@@ -11,7 +11,6 @@ $fontSize: variables.$typography__fontSize--small;
 $link__color: colorBundles.$navigation;
 $link__color--hover: colorBundles.$navigationHover;
 $link__color--active: colorBundles.$navigationActive;
-$menuItem__outlineColor: colorBundles.$navigationActive;
 
 .region--footer {
   font-size: $fontSize;

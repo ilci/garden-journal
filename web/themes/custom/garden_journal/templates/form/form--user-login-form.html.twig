@@ -13,14 +13,14 @@
  */
 #}
 
-<form{{attributes}}>
+<form{{ attributes }}>
   <div class="form__header">
     <div class="form__header-icon"><img src="/{{ base_path ~ directory }}/logo.svg" alt="{{ 'Garden Journal logo'|t }}" fetchpriority="high"/></div>
     <h2>{{ 'Welcome back'|t }}</h2>
     <p>{{ 'Log in to your Garden Journal account'|t }}</p>
   </div>
   <div class="form__body">
-    {{children }}
+    {{ children }}
   </div>
   <div class="form__footer">
     <a href="/user/password" target="_blank">{{ 'Forgot your password?'|t }}</a>

@@ -15,6 +15,7 @@ a,
 .link:not(.button),
 %link {
   @include mixins.focusState__focusState;
+  @include mixins.fonts__setFontFromStack($link__font...);
   color: $color;
   text-decoration: none;
   background-color: unset;
