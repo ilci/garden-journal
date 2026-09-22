@@ -40,3 +40,10 @@ sidebar_first_exposed_filters:
   dependencies:
     - core/drupal
     - core/once
+
+plant_catalog:
+  js:
+    frontend/dist/js/garden_journal_plant_catalog.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

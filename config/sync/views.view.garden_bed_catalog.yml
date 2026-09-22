@@ -109,7 +109,7 @@ display:
         options:
           offset: 0
           pagination_heading_level: h4
-          items_per_page: 10
+          items_per_page: 6
           total_pages: null
           id: 0
           tags:
@@ -267,7 +267,7 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: "<div>\r\n  <h2 class=\"h1--hero\">No garden beds found</h2>\r\n  <p>There are no garden beds to display. Try adjusting your filters or search, or check back when more beds have been added.</p>\r\n</div>"
+            value: "<div class=\"no-results\">\r\n  <h2 class=\"h1--hero\">No garden beds found</h2>\r\n  <p>There are no garden beds to display. Try adjusting your filters or search, or check back when more beds have been added.</p>\r\n</div>"
             format: full_html
           tokenize: false
       sorts: {  }

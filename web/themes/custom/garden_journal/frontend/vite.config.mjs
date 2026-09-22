@@ -1,8 +1,11 @@
 import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 
 export default defineConfig({
   base: './',
+
+  plugins: [react()],
 
   build: {
     outDir: 'dist',
@@ -16,6 +19,7 @@ export default defineConfig({
         garden_journal_image_fields: resolve(__dirname, 'src/js/garden_journal_image_fields.js'),
         garden_journal_exposed_form_search: resolve(__dirname, 'src/js/garden_journal_exposed_form_search.js'),
         garden_journal_sidebar_first_exposed_filters: resolve(__dirname, 'src/js/garden_journal_sidebar_first_exposed_filters.js'),
+        garden_journal_plant_catalog: resolve(__dirname, 'src/react/plant-catalog/index.jsx'),
       },
 
       output: {

@@ -23,8 +23,10 @@ module:
   field_ui: 0
   file: 0
   filter: 0
+  garden_journal_plant_catalog: 0
   help: 0
   image: 0
+  jsonapi: 0
   layout_builder: 0
   layout_discovery: 0
   link: 0
@@ -45,6 +47,7 @@ module:
   range: 0
   search_api: 0
   search_api_db: 0
+  serialization: 0
   smart_trim: 0
   system: 0
   taxonomy: 0

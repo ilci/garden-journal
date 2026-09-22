@@ -1,0 +1,14 @@
+@use '../../00-settings/color-bundles' as colorBundles;
+@use '../../00-settings/variables';
+
+$noResults__backgroundColor: colorBundles.$panelBackground;
+$noResults__borderColor: colorBundles.$dividerLine;
+$noResults__borderRadius: variables.$borderRadius__borderRadius--extraLarge;
+
+.no-results {
+  text-align: center;
+  background-color: $noResults__backgroundColor;
+  border: 1px dashed $noResults__borderColor;
+  border-radius: $noResults__borderRadius;
+  padding: variables.$layout__spacing;
+}
