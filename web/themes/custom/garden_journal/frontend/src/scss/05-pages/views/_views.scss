@@ -1,5 +1,6 @@
 @use '../../00-settings/color-bundles' as colorBundles;
 @use '../../00-settings/variables';
+@use '../../00-settings/mixins';
 
 $empty__backgroundColor: colorBundles.$panelBackground;
 $empty__borderColor: colorBundles.$dividerLine;
@@ -11,6 +12,10 @@ $empty__borderRadius: variables.$borderRadius__borderRadius--extraLarge;
 
     .entry__subtitle {
       font-style: normal;
+    }
+
+    @include mixins.mediaQueries__forMobileOnly {
+      margin-bottom: variables.$layout__spacing;
     }
   }
 }

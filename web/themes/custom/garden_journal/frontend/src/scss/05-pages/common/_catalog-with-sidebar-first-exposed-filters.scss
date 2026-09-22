@@ -1,15 +1,9 @@
-@use 'sass:math';
 @use '../../00-settings/variables';
 @use '../../00-settings/mixins';
 
 $header__marginTop: variables.$layout__spacing * 2;
 
 .site-content:has(.content-with-sidebar-first-exposed-filters) {
-  .page-header {
-    background-color: unset;
-    margin-top: $header__marginTop;
-  }
-
   .view__header {
     .text--overline {
       font-size: variables.$typography__fontSize--base;
@@ -17,10 +11,6 @@ $header__marginTop: variables.$layout__spacing * 2;
   }
 
   @include mixins.mediaQueries__forTabletLandscapeDown {
-    .page-header {
-      margin-top: math.div($header__marginTop, 1.5);
-    }
-
     .view--garden-bed-catalog {
       .grid {
         >[class*='col--'] {
@@ -33,10 +23,6 @@ $header__marginTop: variables.$layout__spacing * 2;
   }
 
   @include mixins.mediaQueries__forMobileOnly {
-    .page-header {
-      margin-top: ($header__marginTop * 0.5);
-    }
-
     .content-with-sidebar-first-exposed-filters {
       margin-top: 0;
     }

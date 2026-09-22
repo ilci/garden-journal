@@ -1,8 +1,8 @@
 {#
 /**
  * @file
- * Garden Journal's partial theme implementation to display a single page with
- * a detailed header.
+ * Garden Journal's override to display the Plant catalog with a detailed
+ * header.
  *
  * The doctype, html, head and body tags are not in this template. Instead they
  * can be found in the html.html.twig template in this directory.
@@ -48,22 +48,12 @@
  */
 #}
 
+{% extends '@garden_journal/system/page.html.twig' %}
+
 {% block page_header %}
-  <header class="page-header page-header--with-description">
-    {% block region_header_first %}
-      {{ page.header_first }}
-      {% block description %}
-        <div class="container">
-          <div class="entry__titles">
-            <span class="entry__section-title text--decorated text--decorated-left">{{ section_title }}</span>
-            <h1 class="entry__title h1--hero">{{ title }}</h1>
-            <h2 class="entry__subtitle h3">{{ subtitle }}</h2>
-          </div>
-        </div>  
-      {% endblock %}
-    {% endblock %}
-    {% block region_header_second %}
-      {{ page.header_second }}
-    {% endblock %}
-  </header>
+  {% include '@garden_journal/system/partials/page-with-header-description.html.twig' with {
+    section_title: 'Botanical collection'|t,
+    title: 'Plant Catalog'|t,
+    subtitle: 'A growing collection of plants, with botanical details, care notes, and observations from the garden.'|t
+  } %}
 {% endblock %}
