@@ -1,0 +1,5 @@
+name: Plant catalog
+type: module
+description: Provides a React-based Plant catalog page.
+package: Custom
+core_version_requirement: ^11

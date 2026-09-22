@@ -1,0 +1,7 @@
+garden_journal_plant_catalog.page:
+  path: '/plants'
+  defaults:
+    _title: 'Plant catalog'
+    _controller: '\Drupal\garden_journal_plant_catalog\Presentation\Controller\PlantCatalogController::page'
+  requirements:
+    _permission: 'access content'

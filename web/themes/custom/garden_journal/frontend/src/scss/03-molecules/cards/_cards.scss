@@ -185,7 +185,6 @@ $link__underlineDecoration: colorBundles.$dividerLine--gradient;
 .card__tags {
   .field__items {
     @extend %tags;
-    list-style: none;
   }
 
   .field__item {

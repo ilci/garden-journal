@@ -13,12 +13,4 @@ $empty__borderRadius: variables.$borderRadius__borderRadius--extraLarge;
       font-style: normal;
     }
   }
-
-  .view__empty {
-    text-align: center;
-    background-color: $empty__backgroundColor;
-    border: 1px dashed $empty__borderColor;
-    border-radius: $empty__borderRadius;
-    padding: variables.$layout__spacing;
-  }
 }
