@@ -1,13 +1,29 @@
+@use 'sass:math';
 @use '../../00-settings/color-bundles' as colorBundles;
 @use '../../00-settings/variables';
+@use '../../00-settings/mixins';
 
 $backgroundColor: colorBundles.$heroBackground;
 $padding: (variables.$layout__spacing * 0.25) 0 (variables.$layout__spacing * 0.5);
+$marginTop: variables.$layout__spacing * 2;
 
 .page-header {
   background-color: $backgroundColor;
 
   .block--page-title-block {
     padding: $padding;
+  }
+}
+
+.page-header--with-description {
+  background-color: unset;
+  margin-top: $marginTop;
+
+  @include mixins.mediaQueries__forTabletLandscapeDown {
+    margin-top: math.div($marginTop, 1.5);
+  }
+
+  @include mixins.mediaQueries__forMobileOnly {
+    margin-top: ($marginTop * 0.5);
   }
 }
