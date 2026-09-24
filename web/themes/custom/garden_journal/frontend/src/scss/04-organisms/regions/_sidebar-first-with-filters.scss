@@ -5,13 +5,14 @@
 @use '../../02-atoms/forms';
 @use '../../02-atoms/buttons';
 
+// Common style for sidebar with filters.
 .grid {
-  .sidebar-with-exposed-filters {
+  .sidebar-with-filters {
     .container {
       padding: 0;
     }
 
-    .views-exposed-form {
+    .panel {
       display: flex;
       flex-direction: column;
       gap: variables.$layout__spacing * 0.5;
@@ -20,20 +21,10 @@
     .form-item-keyword {
       position: relative;
 
-      &:has(.icon-button--small:not(.hidden)) {
-        input {
-          padding-right: calc(forms.$input__padding--horizontal + buttons.$iconButton__size--small + 4px);
-        }
-      }
-
       .icon-button--small {
         position: absolute;
         right: forms.$input__padding--horizontal;
         top: calc(forms.$input__minHeight - buttons.$iconButton__size--small) * 0.5;
-
-        &.hidden {
-          display: none;
-        }
       }
     }
 
@@ -129,7 +120,7 @@
           }
         }
 
-        .views-exposed-form {
+        .panel {
           box-shadow: none;
           border: none;
           border-radius: none;
@@ -140,7 +131,7 @@
 
     @include mixins.mediaQueries__forMobileOnly {
       &.is-open {
-        .views-exposed-form {
+        .panel {
           gap: (variables.$layout__spacing * 0.25);
           padding: 0 (variables.$layout__spacing * 0.5) (variables.$layout__spacing * 0.5);
         }
@@ -149,6 +140,39 @@
       fieldset {
         legend {
           margin-bottom: variables.$layout__spacing * 0.25;
+        }
+      }
+    }
+  }
+}
+
+// Style for sidebar first with exposed filters (Views + Search API + Facets 3).
+.grid {
+  .sidebar-with-filters--exposed {  
+    .form-item-keyword {
+
+      &:has(.icon-button--small:not(.hidden)) {
+        input {
+          padding-right: calc(forms.$input__padding--horizontal + buttons.$iconButton__size--small + 4px);
+        }
+      }
+
+      .icon-button--small {
+        &.hidden {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// Style for sidebar first with React filters.
+.grid {
+  .sidebar-with-filters--react {
+    .search-form {
+      &:has(.icon-button--small) {
+        input {
+          padding-right: calc(forms.$input__padding--horizontal + buttons.$iconButton__size--small + 4px);
         }
       }
     }
